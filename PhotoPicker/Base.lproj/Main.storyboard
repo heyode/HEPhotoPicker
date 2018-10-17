@@ -13,7 +13,7 @@
         <!--Master View Controller-->
         <scene sceneID="Vzb-gh-cuT">
             <objects>
-                <viewController id="Ogi-pY-Chj" customClass="MasterViewController" customModule="SwiftPhotoSelector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ogi-pY-Chj" customClass="MasterViewController" customModule="PhotoPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jv4-RJ-heP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="MasterCell" id="uBU-zS-2AO" customClass="MasterCell" customModule="SwiftPhotoSelector" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="MasterCell" id="uBU-zS-2AO" customClass="MasterCell" customModule="PhotoPicker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="93" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">

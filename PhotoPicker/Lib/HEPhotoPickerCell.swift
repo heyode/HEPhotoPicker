@@ -9,31 +9,33 @@
 import UIKit
 import Photos
 typealias HEPhotoPickerCellClosure = (_ btn: UIButton)->Void
+typealias HEPhotoPickerCellAlter = ()->Void
 class HEPhotoPickerCell: UICollectionViewCell {
     
     
-    private var checkBtnnClickClosure : HEPhotoPickerCellClosure?
+    var checkBtnnClickClosure : HEPhotoPickerCellClosure?
+    var topViewClickBlock : HEPhotoPickerCellAlter?
     var representedAssetIdentifier : String!
     var model : HEPhotoPickerListModel!{
         didSet{
-          imageView.image = UIImage()
-           checkBtn.isSelected =  model.isSelected
+            imageView.image = UIImage()
+            checkBtn.isSelected =  model.isSelected
             topView.isHidden =  model.isEnable
             let options = PHImageRequestOptions()
             let scale : CGFloat = 1.5
             self.representedAssetIdentifier = model.asset.localIdentifier
             let   thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height  * scale )
             PHImageManager.default().requestImage(for: model.asset,
-                                                                targetSize:thumbnailSize,
-                                                                  contentMode: .aspectFill,
-                                                                  options: options)
-                            { (image, nil) in
-                                DispatchQueue.main.async {
-                                    if self.representedAssetIdentifier == self.model.asset.localIdentifier{
-                                        
-                                        self.imageView.image = image
-                                    }
-                                }
+                                                  targetSize:thumbnailSize,
+                                                  contentMode: .aspectFill,
+                                                  options: options)
+            { (image, nil) in
+                DispatchQueue.main.async {
+                    if self.representedAssetIdentifier == self.model.asset.localIdentifier{
+                        
+                        self.imageView.image = image
+                    }
+                }
             }
         }
     }
@@ -62,8 +64,10 @@ class HEPhotoPickerCell: UICollectionViewCell {
         topView.addGestureRecognizer(tap)
         
     }
-    @objc func topViewClick()  {
-        HELog(message: "不能超过9张照片")
+    @objc func topViewClick() {
+        if let blcok = topViewClickBlock{
+            blcok()
+        }
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -77,9 +81,6 @@ class HEPhotoPickerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setCheckBtnClickClosure(_ closure:@escaping HEPhotoPickerCellClosure)  {
-        checkBtnnClickClosure = closure
-    }
     
     @objc func selectedBtnClick(_ btn: UIButton){
         

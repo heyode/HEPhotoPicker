@@ -12,6 +12,7 @@ import Photos
 
 class HEPhotoBrowserViewController: HEBaseViewController {
     var delegate : HEPhotoPickerViewControllerDelegate?
+    public var maxCount = 9
     typealias HEPhotoBrowserViewControllerCallback = (_ selecedModels:[HEPhotoPickerListModel])->Void
     // 供外部赋值，用于取最新的selectedimage值
     var selecedModelUpdateCallBack : HEPhotoBrowserViewControllerCallback?
@@ -153,8 +154,14 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         getImages()
     }
     @objc func selectedBtnClick(_ btn: UIButton){
-        guard selectedModels.count < 9 else {
-            HELog(message: "提示用户已经超过9个了")
+        guard selectedModels.count < self.maxCount else {
+            let title = String.init(format: "最多只能选择%d个照片", self.maxCount)
+            let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
+            let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in
+                
+            }
+            alertView.addAction(okAction)
+            self.present(alertView, animated: true, completion: nil)
             return
         }
         

@@ -15,12 +15,22 @@ let kScreenHeight = UIScreen.main.bounds.size.height
 
 @objc public protocol HEPhotoPickerViewControllerDelegate
 {
+    
+    /// 选择照片完成后调用的代理
+    ///
+    /// - Parameters:
+    ///   - picker: 选择图片的控制器
+    ///   - selectedImages: 选择的图片数组
     func pickerController(_ picker:UIViewController, didFinishPicking selectedImages:[UIImage])
     
+   /// 选择照片取消后调用的方法
+   ///
+   /// - Parameter picker: 选择图片的控制器
    @objc optional func pickerControllerDidCancel(_ picker:UIViewController)
 }
 class HEPhotoPickerViewController: HEBaseViewController {
   
+    public var maxCount = 9
     var delegate : HEPhotoPickerViewControllerDelegate?
     var options = PHImageRequestOptions()//请求选项设置
     var selectedImages = [UIImage]()
@@ -50,6 +60,7 @@ class HEPhotoPickerViewController: HEBaseViewController {
         return collectionView
     }()
 
+  
     
      // MARK: UIViewController / Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -83,7 +94,7 @@ class HEPhotoPickerViewController: HEBaseViewController {
         options.resizeMode = .none
      
         view.addSubview(collectionView)
-       
+   
         let rightBtn = UIButton.init(type: .custom)
         rightBtn.layer.cornerRadius = 4
         rightBtn.layer.masksToBounds = true
@@ -111,8 +122,7 @@ class HEPhotoPickerViewController: HEBaseViewController {
         leftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         leftBtn.setTitleColor(UIColor.gray, for: .normal)
         let left = UIBarButtonItem.init(customView: leftBtn)
-        
-        
+
         navigationItem.leftBarButtonItem = left
        
     }
@@ -153,7 +163,7 @@ class HEPhotoPickerViewController: HEBaseViewController {
                 item.isEnable = isEnable
             }
         }
-        if count >= 8{
+        if count >= self.maxCount - 1{
             
             self.collectionView.reloadData()
         }else{
@@ -214,7 +224,16 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:HEPhotoPickerCell.className , for: indexPath) as! HEPhotoPickerCell
         let model = self.models[indexPath.row]
         cell.model = model
-        cell.setCheckBtnClickClosure {[weak self] (selectedBtn) in
+        cell.topViewClickBlock = {[weak self] in
+            let title = String.init(format: "最多只能选择%d个照片", self?.maxCount ?? 0)
+            let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
+            let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in
+                
+            }
+            alertView.addAction(okAction)
+            self?.present(alertView, animated: true, completion: nil)
+        }
+        cell.checkBtnnClickClosure = {[weak self] (selectedBtn) in
             selectedBtn.isSelected = !selectedBtn.isSelected
             self?.models[indexPath.row].isSelected = selectedBtn.isSelected
             if selectedBtn.isSelected{
@@ -224,7 +243,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
                 self?.selectedModels = (arr?.filter{$0.index != model.index})!
             }
             guard let count = self?.selectedModels.count else {return}
-            if count >= 9{
+            if count >= (self?.maxCount)!{
                 self?.setCellEnable(isEnable: false,selectedIndexPath: indexPath,count: count)
             }else{
                 self?.setCellEnable(isEnable: true,selectedIndexPath: indexPath,count:count )
@@ -243,6 +262,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         { (image, nil) in
             let photoDetail = HEPhotoBrowserViewController()
             photoDetail.delegate = self.delegate
+            photoDetail.maxCount = self.maxCount
             photoDetail.image = image!
             photoDetail.imageIndex = indexPath
             photoDetail.phAssets = self.phAssets

@@ -26,9 +26,10 @@ class MasterViewController: UIViewController {
     }
   
     @IBAction func selectorBtnClick(_ sender: Any) {
-        let sel = HEPhotoPickerViewController()
-        sel.delegate = self
-        let nav = UINavigationController.init(rootViewController: sel)
+        let picker = HEPhotoPickerViewController()
+        picker.delegate = self
+        picker.maxCount = 5
+        let nav = UINavigationController.init(rootViewController: picker)
         self.present(nav, animated: true, completion: nil)
     }
 }
@@ -36,6 +37,9 @@ extension MasterViewController : HEPhotoPickerViewControllerDelegate{
     func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage]) {
         self.visibleImages = selectedImages
         picker.dismiss(animated: true, completion: nil)
+    }
+    func pickerControllerDidCancel(_ picker: UIViewController) {
+        // 取消选择后的一些操作
     }
 
 }
