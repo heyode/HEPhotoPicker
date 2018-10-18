@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.swift_version = '4.2'
   s.source       = { :git => "git@github.com:heyode/PhotoPicker.git", :tag => "#{s.version}" }
-
-  s.source_files  = "Source/Lib/*", "Source/Lib/*/*"
+  s.framework    = "UIKit"
+  s.source_files  = "Resources/Lib/*", "Resources/Lib/*/*"
   s.requires_arc = true
 
 end
