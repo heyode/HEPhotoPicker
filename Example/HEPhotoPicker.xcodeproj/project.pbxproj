@@ -20,12 +20,12 @@
 		1844CF6A21784D88000BCEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1844CF5421784D87000BCEC7 /* LaunchScreen.storyboard */; };
 		1844CF6B21784D88000BCEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1844CF5621784D87000BCEC7 /* Main.storyboard */; };
 		1844CF6C21784D88000BCEC7 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5821784D87000BCEC7 /* Tool.swift */; };
-		1844CF6D21784D88000BCEC7 /* HEBaseNavgationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5A21784D87000BCEC7 /* HEBaseNavgationViewController.swift */; };
-		1844CF6E21784D88000BCEC7 /* HEBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5B21784D87000BCEC7 /* HEBaseViewController.swift */; };
-		1844CF6F21784D88000BCEC7 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5D21784D88000BCEC7 /* UIColorExtension.swift */; };
-		1844CF7021784D88000BCEC7 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5E21784D88000BCEC7 /* NSObjectExtension.swift */; };
-		1844CF7121784D88000BCEC7 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5F21784D88000BCEC7 /* UIViewExtensions.swift */; };
 		1844CF7221784D88000BCEC7 /* MasterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF6021784D88000BCEC7 /* MasterCell.swift */; };
+		1844CF7A217858CE000BCEC7 /* HEBaseNavgationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF74217858CD000BCEC7 /* HEBaseNavgationViewController.swift */; };
+		1844CF7B217858CE000BCEC7 /* HEBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF75217858CD000BCEC7 /* HEBaseViewController.swift */; };
+		1844CF7C217858CE000BCEC7 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF77217858CD000BCEC7 /* UIColorExtension.swift */; };
+		1844CF7D217858CE000BCEC7 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF78217858CD000BCEC7 /* NSObjectExtension.swift */; };
+		1844CF7E217858CE000BCEC7 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF79217858CD000BCEC7 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,12 +44,12 @@
 		1844CF5521784D87000BCEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1844CF5721784D87000BCEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		1844CF5821784D87000BCEC7 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
-		1844CF5A21784D87000BCEC7 /* HEBaseNavgationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseNavgationViewController.swift; sourceTree = "<group>"; };
-		1844CF5B21784D87000BCEC7 /* HEBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseViewController.swift; sourceTree = "<group>"; };
-		1844CF5D21784D88000BCEC7 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		1844CF5E21784D88000BCEC7 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
-		1844CF5F21784D88000BCEC7 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1844CF6021784D88000BCEC7 /* MasterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterCell.swift; sourceTree = "<group>"; };
+		1844CF74217858CD000BCEC7 /* HEBaseNavgationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseNavgationViewController.swift; sourceTree = "<group>"; };
+		1844CF75217858CD000BCEC7 /* HEBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseViewController.swift; sourceTree = "<group>"; };
+		1844CF77217858CD000BCEC7 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		1844CF78217858CD000BCEC7 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		1844CF79217858CD000BCEC7 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +82,7 @@
 		1844CF3321784C9E000BCEC7 /* HEPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				1844CF5921784D87000BCEC7 /* Base */,
 				1844CF5321784D87000BCEC7 /* Base.lproj */,
-				1844CF5C21784D88000BCEC7 /* Extension */,
 				1844CF4921784D87000BCEC7 /* Lib */,
 				1844CF6021784D88000BCEC7 /* MasterCell.swift */,
 				1844CF5221784D87000BCEC7 /* MasterViewController.swift */,
@@ -99,6 +97,8 @@
 		1844CF4921784D87000BCEC7 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				1844CF73217858CD000BCEC7 /* Base */,
+				1844CF76217858CD000BCEC7 /* Extension */,
 				1844CF4A21784D87000BCEC7 /* HEPhotoBrowserViewController.swift */,
 				1844CF4B21784D87000BCEC7 /* HEPhotoPickerListModel.swift */,
 				1844CF4C21784D87000BCEC7 /* HEPhoneBrowserBottomCell.swift */,
@@ -119,21 +119,21 @@
 			path = Base.lproj;
 			sourceTree = "<group>";
 		};
-		1844CF5921784D87000BCEC7 /* Base */ = {
+		1844CF73217858CD000BCEC7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				1844CF5A21784D87000BCEC7 /* HEBaseNavgationViewController.swift */,
-				1844CF5B21784D87000BCEC7 /* HEBaseViewController.swift */,
+				1844CF74217858CD000BCEC7 /* HEBaseNavgationViewController.swift */,
+				1844CF75217858CD000BCEC7 /* HEBaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		1844CF5C21784D88000BCEC7 /* Extension */ = {
+		1844CF76217858CD000BCEC7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1844CF5D21784D88000BCEC7 /* UIColorExtension.swift */,
-				1844CF5E21784D88000BCEC7 /* NSObjectExtension.swift */,
-				1844CF5F21784D88000BCEC7 /* UIViewExtensions.swift */,
+				1844CF77217858CD000BCEC7 /* UIColorExtension.swift */,
+				1844CF78217858CD000BCEC7 /* NSObjectExtension.swift */,
+				1844CF79217858CD000BCEC7 /* UIViewExtensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -210,20 +210,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1844CF7A217858CE000BCEC7 /* HEBaseNavgationViewController.swift in Sources */,
+				1844CF7D217858CE000BCEC7 /* NSObjectExtension.swift in Sources */,
+				1844CF7C217858CE000BCEC7 /* UIColorExtension.swift in Sources */,
+				1844CF7B217858CE000BCEC7 /* HEBaseViewController.swift in Sources */,
 				1844CF6521784D88000BCEC7 /* HEPhotoBrowserCell.swift in Sources */,
-				1844CF7121784D88000BCEC7 /* UIViewExtensions.swift in Sources */,
 				1844CF6221784D88000BCEC7 /* HEPhotoPickerListModel.swift in Sources */,
 				1844CF6621784D88000BCEC7 /* HEPhotoPickerCell.swift in Sources */,
 				1844CF6C21784D88000BCEC7 /* Tool.swift in Sources */,
-				1844CF6E21784D88000BCEC7 /* HEBaseViewController.swift in Sources */,
 				1844CF6321784D88000BCEC7 /* HEPhoneBrowserBottomCell.swift in Sources */,
 				1844CF7221784D88000BCEC7 /* MasterCell.swift in Sources */,
-				1844CF6F21784D88000BCEC7 /* UIColorExtension.swift in Sources */,
-				1844CF7021784D88000BCEC7 /* NSObjectExtension.swift in Sources */,
+				1844CF7E217858CE000BCEC7 /* UIViewExtensions.swift in Sources */,
 				1844CF4821784D75000BCEC7 /* AppDelegate.swift in Sources */,
 				1844CF6921784D88000BCEC7 /* MasterViewController.swift in Sources */,
 				1844CF6721784D88000BCEC7 /* HEPhotoBrowserAnimator.swift in Sources */,
-				1844CF6D21784D88000BCEC7 /* HEBaseNavgationViewController.swift in Sources */,
 				1844CF6121784D88000BCEC7 /* HEPhotoBrowserViewController.swift in Sources */,
 				1844CF6421784D88000BCEC7 /* HEPhotoPickerViewController.swift in Sources */,
 			);
