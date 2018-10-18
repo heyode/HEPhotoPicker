@@ -11,6 +11,9 @@ import Photos
 
 
 class HEPhotoBrowserViewController: HEBaseViewController {
+    typealias HEPhotoBrowserViewCotrollerCloser = ()->Void
+    // 供外部赋值，在pop后调用刷新上个控制器的数据
+    var closer : HEPhotoBrowserViewCotrollerCloser?
     var delegate : HEPhotoPickerViewControllerDelegate?
     public var maxCount = 9
     typealias HEPhotoBrowserViewControllerCallback = (_ selecedModels:[HEPhotoPickerListModel])->Void
@@ -25,7 +28,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     var selectedImages = [UIImage]()
     
     var todoArray = [HEPhotoPickerListModel]()
-    var phAssets : PHFetchResult<PHAsset>!
+
     var image = UIImage()
     let barHeight : CGFloat = 130
     lazy var bootomBar : UIView = {
@@ -83,6 +86,13 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         self.scrollViewDidEndDecelerating(self.collectionView)
         
     }
+ 
+    override func pressBack() {
+        super.pressBack()
+        if let block = closer{
+            block()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +107,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         rightBtn.setBackgroundImage(UIColor.hex(hexString: "EEEEEE").image(), for: .disabled)
         rightBtn.setTitleColor(UIColor.hex(hexString: "FFFFFF"), for: .normal)
         rightBtn.setTitleColor(UIColor.hex(hexString: "666666"), for: .disabled)
-        rightBtn.setTitle("下一步", for: .disabled)
+        rightBtn.setTitle("选择", for: .disabled)
         rightBtn.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         rightBtn.sizeToFit()
         rightBtn.addTarget(self, action: #selector(nextBtnClick), for: .touchUpInside)
@@ -128,7 +138,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         
         rightBtn.isEnabled = self.selectedModels.count > 0
         bootomBar.isHidden = self.selectedModels.count <= 0
-        rightBtn.setTitle(String.init(format: "下一步(%d)", self.selectedModels.count), for: .normal)
+        rightBtn.setTitle(String.init(format: "选择(%d)", self.selectedModels.count), for: .normal)
         rightBtn.sizeToFit()
     }
     func getImages(){
@@ -136,7 +146,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         let option = PHImageRequestOptions()
         option.deliveryMode = .highQualityFormat
         if todoArray.count == 0 {
-            delegate?.pickerController(self, didFinishPicking: self.selectedImages)
+            delegate?.pickerController(self, didFinishPicking: self.selectedImages,selectedModel: self.selectedModels)
         }
         if todoArray.count > 0 {
             PHImageManager.default().requestImage(for: (todoArray.first?.asset)!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option) {[weak self] (image, _) in

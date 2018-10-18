@@ -21,7 +21,8 @@ let kScreenHeight = UIScreen.main.bounds.size.height
     /// - Parameters:
     ///   - picker: 选择图片的控制器
     ///   - selectedImages: 选择的图片数组
-    func pickerController(_ picker:UIViewController, didFinishPicking selectedImages:[UIImage])
+    ///   - selectedModel: 选择的图片列表模型
+    func pickerController(_ picker:UIViewController, didFinishPicking selectedImages:[UIImage],selectedModel:[HEPhotoPickerListModel])
     
    /// 选择照片取消后调用的方法
    ///
@@ -36,13 +37,9 @@ class HEPhotoPickerViewController: HEBaseViewController {
     var selectedImages = [UIImage]()
     var animator = HEPhotoBrowserAnimator()
     var todoArray = [HEPhotoPickerListModel]()
-    var selectedModels =  [HEPhotoPickerListModel](){
-        didSet{
-            updateNextBtnTitle()
-        }
-    }
+    var selectedModels =  [HEPhotoPickerListModel]()
     var models = [HEPhotoPickerListModel]()
-
+    var  homeFrame = CGRect.zero
     fileprivate var thumbnailSize: CGSize!
     var phAssets : PHFetchResult<PHAsset>!
     let layout = UICollectionViewFlowLayout.init()
@@ -69,12 +66,12 @@ class HEPhotoPickerViewController: HEBaseViewController {
         let scale = UIScreen.main.scale
         let cellSize = layout.itemSize
         thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.collectionView.reloadData()
-    }
+           }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +83,9 @@ class HEPhotoPickerViewController: HEBaseViewController {
         PHPhotoLibrary.shared().register(self)
        
         configUI()
-        
+        if self.selectedModels.count > 0{
+            updateSetCell()
+        }
     }
    func configUI() {
     
@@ -102,7 +101,7 @@ class HEPhotoPickerViewController: HEBaseViewController {
         rightBtn.setBackgroundImage(UIColor.hex(hexString: "EEEEEE").image(), for: .disabled)
         rightBtn.setTitleColor(UIColor.hex(hexString: "FFFFFF"), for: .normal)
         rightBtn.setTitleColor(UIColor.hex(hexString: "666666"), for: .disabled)
-        rightBtn.setTitle("下一步", for: .disabled)
+        rightBtn.setTitle("选择", for: .disabled)
         rightBtn.contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         rightBtn.sizeToFit()
         rightBtn.addTarget(self, action: #selector(nextBtnClick), for: .touchUpInside)  
@@ -131,7 +130,7 @@ class HEPhotoPickerViewController: HEBaseViewController {
         let option = PHImageRequestOptions()
         option.deliveryMode = .highQualityFormat
         if todoArray.count == 0 {
-             delegate?.pickerController(self, didFinishPicking: self.selectedImages)
+             delegate?.pickerController(self, didFinishPicking: self.selectedImages,selectedModel: self.selectedModels)
         }
         if todoArray.count > 0 {
             PHImageManager.default().requestImage(for: (todoArray.first?.asset)!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option) {[weak self] (image, _) in
@@ -175,10 +174,34 @@ class HEPhotoPickerViewController: HEBaseViewController {
         rightBtn.isEnabled = self.selectedModels.count > 0
         
         rightBtn.isEnabled = self.selectedModels.count > 0
-        rightBtn.setTitle(String.init(format: "下一步(%d)", self.selectedModels.count), for: .normal)
+        rightBtn.setTitle(String.init(format: "选择(%d)", self.selectedModels.count), for: .normal)
          rightBtn.sizeToFit()
     }
+    func updateSetCell(){
+        self.updateNextBtnTitle()
+       let count = selectedModels.count
+        if count >= self.maxCount{
+            setCellEnable(isEnable: false)
+        }else{
+            setCellEnable(isEnable: true)
+        }
+    }
 
+    func setCellEnable(isEnable:Bool){
+        for item in self.models{
+            for selItem in self.selectedModels{
+                if item.index == selItem.index{
+                    item.isSelected = true
+                }
+            }
+            if item.isSelected == false{
+                item.isEnable = isEnable
+            }
+        }
+        self.collectionView.reloadData() 
+       
+    }
+    
     //  MARK:- 获取全部图片
     private func getAllPhotos() {
         
@@ -208,7 +231,6 @@ extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
 
         DispatchQueue.main.async {
             self.getAllPhotos()
-            
         }
     }
 }
@@ -227,9 +249,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         cell.topViewClickBlock = {[weak self] in
             let title = String.init(format: "最多只能选择%d个照片", self?.maxCount ?? 0)
             let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
-            let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in
-                
-            }
+            let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in }
             alertView.addAction(okAction)
             self?.present(alertView, animated: true, completion: nil)
         }
@@ -242,6 +262,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
                 let arr = self?.selectedModels
                 self?.selectedModels = (arr?.filter{$0.index != model.index})!
             }
+            self?.updateNextBtnTitle()
             guard let count = self?.selectedModels.count else {return}
             if count >= (self?.maxCount)!{
                 self?.setCellEnable(isEnable: false,selectedIndexPath: indexPath,count: count)
@@ -265,11 +286,17 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
             photoDetail.maxCount = self.maxCount
             photoDetail.image = image!
             photoDetail.imageIndex = indexPath
-            photoDetail.phAssets = self.phAssets
+   
             photoDetail.models = self.models
             photoDetail.selectedModels = self.selectedModels
             photoDetail.selecedModelUpdateCallBack = {[weak self] model in
                 self?.selectedModels = model
+            }
+            photoDetail.closer = { [weak self] in
+                if self?.selectedModels.count ?? 0 > 0{
+                     self?.updateSetCell()
+                }
+
             }
             self.animator.popDelegate = photoDetail
             self.navigationController?.pushViewController(photoDetail, animated: true)
@@ -289,9 +316,9 @@ extension HEPhotoPickerViewController: HEPhotoBrowserAnimatorPushDelegate{
         guard   let cell = collectionView.cellForItem(at: indexPath) as? HEPhotoPickerCell else{
              fatalError("unexpected cell in collection view")
         }
-        let homeFrame =   UIApplication.shared.keyWindow?.convert(cell.imageView.frame, from: cell.contentView)
+        homeFrame =   UIApplication.shared.keyWindow?.convert(cell.imageView.frame, from: cell.contentView) ?? CGRect.zero
         //返回具体的尺寸
-        return homeFrame!
+        return homeFrame
     }
     func imageViewRectOfAnimatorEnd(at indexPath: IndexPath) -> CGRect {
         //取出cell

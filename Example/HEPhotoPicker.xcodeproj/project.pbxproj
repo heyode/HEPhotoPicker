@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1844CF4821784D75000BCEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF4721784D75000BCEC7 /* AppDelegate.swift */; };
+		1844CF6121784D88000BCEC7 /* HEPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF4A21784D87000BCEC7 /* HEPhotoBrowserViewController.swift */; };
+		1844CF6221784D88000BCEC7 /* HEPhotoPickerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF4B21784D87000BCEC7 /* HEPhotoPickerListModel.swift */; };
+		1844CF6321784D88000BCEC7 /* HEPhoneBrowserBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF4C21784D87000BCEC7 /* HEPhoneBrowserBottomCell.swift */; };
+		1844CF6421784D88000BCEC7 /* HEPhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF4D21784D87000BCEC7 /* HEPhotoPickerViewController.swift */; };
+		1844CF6521784D88000BCEC7 /* HEPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF4E21784D87000BCEC7 /* HEPhotoBrowserCell.swift */; };
+		1844CF6621784D88000BCEC7 /* HEPhotoPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF4F21784D87000BCEC7 /* HEPhotoPickerCell.swift */; };
+		1844CF6721784D88000BCEC7 /* HEPhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5021784D87000BCEC7 /* HEPhotoBrowserAnimator.swift */; };
+		1844CF6821784D88000BCEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1844CF5121784D87000BCEC7 /* Assets.xcassets */; };
+		1844CF6921784D88000BCEC7 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5221784D87000BCEC7 /* MasterViewController.swift */; };
+		1844CF6A21784D88000BCEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1844CF5421784D87000BCEC7 /* LaunchScreen.storyboard */; };
+		1844CF6B21784D88000BCEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1844CF5621784D87000BCEC7 /* Main.storyboard */; };
+		1844CF6C21784D88000BCEC7 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5821784D87000BCEC7 /* Tool.swift */; };
+		1844CF6D21784D88000BCEC7 /* HEBaseNavgationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5A21784D87000BCEC7 /* HEBaseNavgationViewController.swift */; };
+		1844CF6E21784D88000BCEC7 /* HEBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5B21784D87000BCEC7 /* HEBaseViewController.swift */; };
+		1844CF6F21784D88000BCEC7 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5D21784D88000BCEC7 /* UIColorExtension.swift */; };
+		1844CF7021784D88000BCEC7 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5E21784D88000BCEC7 /* NSObjectExtension.swift */; };
+		1844CF7121784D88000BCEC7 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF5F21784D88000BCEC7 /* UIViewExtensions.swift */; };
+		1844CF7221784D88000BCEC7 /* MasterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844CF6021784D88000BCEC7 /* MasterCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1844CF3121784C9E000BCEC7 /* HEPhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HEPhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1844CF4021784CA1000BCEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1844CF4721784D75000BCEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1844CF4A21784D87000BCEC7 /* HEPhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		1844CF4B21784D87000BCEC7 /* HEPhotoPickerListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerListModel.swift; sourceTree = "<group>"; };
+		1844CF4C21784D87000BCEC7 /* HEPhoneBrowserBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhoneBrowserBottomCell.swift; sourceTree = "<group>"; };
+		1844CF4D21784D87000BCEC7 /* HEPhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerViewController.swift; sourceTree = "<group>"; };
+		1844CF4E21784D87000BCEC7 /* HEPhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserCell.swift; sourceTree = "<group>"; };
+		1844CF4F21784D87000BCEC7 /* HEPhotoPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerCell.swift; sourceTree = "<group>"; };
+		1844CF5021784D87000BCEC7 /* HEPhotoBrowserAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserAnimator.swift; sourceTree = "<group>"; };
+		1844CF5121784D87000BCEC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1844CF5221784D87000BCEC7 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		1844CF5521784D87000BCEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1844CF5721784D87000BCEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		1844CF5821784D87000BCEC7 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		1844CF5A21784D87000BCEC7 /* HEBaseNavgationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseNavgationViewController.swift; sourceTree = "<group>"; };
+		1844CF5B21784D87000BCEC7 /* HEBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseViewController.swift; sourceTree = "<group>"; };
+		1844CF5D21784D88000BCEC7 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		1844CF5E21784D88000BCEC7 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		1844CF5F21784D88000BCEC7 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		1844CF6021784D88000BCEC7 /* MasterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1844CF2E21784C9E000BCEC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1844CF2821784C9E000BCEC7 = {
+			isa = PBXGroup;
+			children = (
+				1844CF3321784C9E000BCEC7 /* HEPhotoPicker */,
+				1844CF3221784C9E000BCEC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1844CF3221784C9E000BCEC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1844CF3121784C9E000BCEC7 /* HEPhotoPicker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1844CF3321784C9E000BCEC7 /* HEPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1844CF5921784D87000BCEC7 /* Base */,
+				1844CF5321784D87000BCEC7 /* Base.lproj */,
+				1844CF5C21784D88000BCEC7 /* Extension */,
+				1844CF4921784D87000BCEC7 /* Lib */,
+				1844CF6021784D88000BCEC7 /* MasterCell.swift */,
+				1844CF5221784D87000BCEC7 /* MasterViewController.swift */,
+				1844CF5821784D87000BCEC7 /* Tool.swift */,
+				1844CF4721784D75000BCEC7 /* AppDelegate.swift */,
+				1844CF5121784D87000BCEC7 /* Assets.xcassets */,
+				1844CF4021784CA1000BCEC7 /* Info.plist */,
+			);
+			path = HEPhotoPicker;
+			sourceTree = "<group>";
+		};
+		1844CF4921784D87000BCEC7 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				1844CF4A21784D87000BCEC7 /* HEPhotoBrowserViewController.swift */,
+				1844CF4B21784D87000BCEC7 /* HEPhotoPickerListModel.swift */,
+				1844CF4C21784D87000BCEC7 /* HEPhoneBrowserBottomCell.swift */,
+				1844CF4D21784D87000BCEC7 /* HEPhotoPickerViewController.swift */,
+				1844CF4E21784D87000BCEC7 /* HEPhotoBrowserCell.swift */,
+				1844CF4F21784D87000BCEC7 /* HEPhotoPickerCell.swift */,
+				1844CF5021784D87000BCEC7 /* HEPhotoBrowserAnimator.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		1844CF5321784D87000BCEC7 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1844CF5421784D87000BCEC7 /* LaunchScreen.storyboard */,
+				1844CF5621784D87000BCEC7 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		1844CF5921784D87000BCEC7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1844CF5A21784D87000BCEC7 /* HEBaseNavgationViewController.swift */,
+				1844CF5B21784D87000BCEC7 /* HEBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1844CF5C21784D88000BCEC7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1844CF5D21784D88000BCEC7 /* UIColorExtension.swift */,
+				1844CF5E21784D88000BCEC7 /* NSObjectExtension.swift */,
+				1844CF5F21784D88000BCEC7 /* UIViewExtensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1844CF3021784C9E000BCEC7 /* HEPhotoPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1844CF4321784CA1000BCEC7 /* Build configuration list for PBXNativeTarget "HEPhotoPicker" */;
+			buildPhases = (
+				1844CF2D21784C9E000BCEC7 /* Sources */,
+				1844CF2E21784C9E000BCEC7 /* Frameworks */,
+				1844CF2F21784C9E000BCEC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HEPhotoPicker;
+			productName = HEPhotoPicker;
+			productReference = 1844CF3121784C9E000BCEC7 /* HEPhotoPicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1844CF2921784C9E000BCEC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = heyode;
+				TargetAttributes = {
+					1844CF3021784C9E000BCEC7 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+				};
+			};
+			buildConfigurationList = 1844CF2C21784C9E000BCEC7 /* Build configuration list for PBXProject "HEPhotoPicker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1844CF2821784C9E000BCEC7;
+			productRefGroup = 1844CF3221784C9E000BCEC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1844CF3021784C9E000BCEC7 /* HEPhotoPicker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1844CF2F21784C9E000BCEC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1844CF6B21784D88000BCEC7 /* Main.storyboard in Resources */,
+				1844CF6821784D88000BCEC7 /* Assets.xcassets in Resources */,
+				1844CF6A21784D88000BCEC7 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1844CF2D21784C9E000BCEC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1844CF6521784D88000BCEC7 /* HEPhotoBrowserCell.swift in Sources */,
+				1844CF7121784D88000BCEC7 /* UIViewExtensions.swift in Sources */,
+				1844CF6221784D88000BCEC7 /* HEPhotoPickerListModel.swift in Sources */,
+				1844CF6621784D88000BCEC7 /* HEPhotoPickerCell.swift in Sources */,
+				1844CF6C21784D88000BCEC7 /* Tool.swift in Sources */,
+				1844CF6E21784D88000BCEC7 /* HEBaseViewController.swift in Sources */,
+				1844CF6321784D88000BCEC7 /* HEPhoneBrowserBottomCell.swift in Sources */,
+				1844CF7221784D88000BCEC7 /* MasterCell.swift in Sources */,
+				1844CF6F21784D88000BCEC7 /* UIColorExtension.swift in Sources */,
+				1844CF7021784D88000BCEC7 /* NSObjectExtension.swift in Sources */,
+				1844CF4821784D75000BCEC7 /* AppDelegate.swift in Sources */,
+				1844CF6921784D88000BCEC7 /* MasterViewController.swift in Sources */,
+				1844CF6721784D88000BCEC7 /* HEPhotoBrowserAnimator.swift in Sources */,
+				1844CF6D21784D88000BCEC7 /* HEBaseNavgationViewController.swift in Sources */,
+				1844CF6121784D88000BCEC7 /* HEPhotoBrowserViewController.swift in Sources */,
+				1844CF6421784D88000BCEC7 /* HEPhotoPickerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1844CF5421784D87000BCEC7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1844CF5521784D87000BCEC7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1844CF5621784D87000BCEC7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1844CF5721784D87000BCEC7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1844CF4121784CA1000BCEC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1844CF4221784CA1000BCEC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1844CF4421784CA1000BCEC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T2MMZRRDER;
+				INFOPLIST_FILE = HEPhotoPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = heyode.HEPhotoPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1844CF4521784CA1000BCEC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T2MMZRRDER;
+				INFOPLIST_FILE = HEPhotoPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = heyode.HEPhotoPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1844CF2C21784C9E000BCEC7 /* Build configuration list for PBXProject "HEPhotoPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1844CF4121784CA1000BCEC7 /* Debug */,
+				1844CF4221784CA1000BCEC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1844CF4321784CA1000BCEC7 /* Build configuration list for PBXNativeTarget "HEPhotoPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1844CF4421784CA1000BCEC7 /* Debug */,
+				1844CF4521784CA1000BCEC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1844CF2921784C9E000BCEC7 /* Project object */;
+}

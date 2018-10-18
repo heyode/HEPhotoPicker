@@ -59,26 +59,22 @@ class HEPhotoBrowserAnimator: NSObject {
         let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
         let fromView = fromVC!.view
         
-        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
-        let toView = toVC?.view
+        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! HEPhotoPickerViewController
+        let toView = toVC.view
 
         toView?.alpha = 0
         containerview.backgroundColor = UIColor.clear
         guard let popDel = popDelegate else {
             return
         }
-        guard let pushDel = pushDelegate else {
-            return
-        }
-        
+     
          containerview.insertSubview(toView!, aboveSubview: fromView!)
         let imageView: UIImageView = popDel.imageViewOfPopView()
         imageView.contentMode = .scaleAspectFill
         containerview.addSubview(imageView)
-        
-        let index = popDel.indexOfPopViewImageView()
+
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
-            imageView.frame = pushDel.imageViewRectOfAnimatorStart(at: index)
+            imageView.frame = toVC.homeFrame
              toView?.alpha = 1.0
         }) { (finished: Bool) in
             imageView.removeFromSuperview()

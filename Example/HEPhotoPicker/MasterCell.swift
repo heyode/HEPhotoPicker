@@ -9,6 +9,9 @@
 import UIKit
 import Photos
 class MasterCell: UICollectionViewCell {
+    typealias MasterCellHandle = ()->Void
+    @IBOutlet weak var closeBtn: UIButton!
+    var closeBtnClickHandle : MasterCellHandle?
     @IBOutlet weak var imageView: UIImageView!
     var model : HEPhotoPickerListModel!{
         didSet{
@@ -24,4 +27,10 @@ class MasterCell: UICollectionViewCell {
             }
         }
     }
+    @IBAction func closeBtnClick(_ sender: Any) {
+        if let blcok = closeBtnClickHandle{
+            blcok()
+        }
+    }
+    
 }
