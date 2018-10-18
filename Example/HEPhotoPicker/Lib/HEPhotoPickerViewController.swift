@@ -281,7 +281,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
                                               contentMode: .aspectFill,
                                               options: options)
         { (image, nil) in
-            let photoDetail = HEPhotoBrowserViewController()
+            let photoDetail = HEPhotoBrowser()
             photoDetail.delegate = self.delegate
             photoDetail.maxCount = self.maxCount
             photoDetail.image = image!

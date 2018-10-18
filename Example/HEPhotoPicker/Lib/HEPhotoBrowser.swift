@@ -1,5 +1,5 @@
 //
-//  HEPhotoBrowserViewController.swift
+//  HEPhotoBrowser.swift
 //  SwiftPhotoSelector
 //
 //  Created by apple on 2018/9/20.
@@ -10,15 +10,15 @@ import UIKit
 import Photos
 
 
-class HEPhotoBrowserViewController: HEBaseViewController {
+class HEPhotoBrowser: HEBaseViewController {
     typealias HEPhotoBrowserViewCotrollerCloser = ()->Void
     // 供外部赋值，在pop后调用刷新上个控制器的数据
     var closer : HEPhotoBrowserViewCotrollerCloser?
     var delegate : HEPhotoPickerViewControllerDelegate?
     public var maxCount = 9
-    typealias HEPhotoBrowserViewControllerCallback = (_ selecedModels:[HEPhotoPickerListModel])->Void
+    typealias HEPhotoBrowserCallback = (_ selecedModels:[HEPhotoPickerListModel])->Void
     // 供外部赋值，用于取最新的selectedimage值
-    var selecedModelUpdateCallBack : HEPhotoBrowserViewControllerCallback?
+    var selecedModelUpdateCallBack : HEPhotoBrowserCallback?
     var models = [HEPhotoPickerListModel]()
     var selectedModels = [HEPhotoPickerListModel](){
         didSet{
@@ -207,7 +207,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     }
     
 }
-extension HEPhotoBrowserViewController : UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
+extension HEPhotoBrowser : UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -270,7 +270,7 @@ extension HEPhotoBrowserViewController : UICollectionViewDelegate,UICollectionVi
         }
     }
 }
-extension HEPhotoBrowserViewController : HEPhotoBrowserAnimatorPopDelegate{
+extension HEPhotoBrowser : HEPhotoBrowserAnimatorPopDelegate{
     func indexOfPopViewImageView() -> IndexPath {
         
         return imageIndex ?? IndexPath.init()

@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   s.author             = { "heyode" => "1025335931@qq.com" }
   s.ios.deployment_target = '9.0'
   s.swift_version = '4.2'
-  s.source       = { :git => "git@github.com:heyode/PhotoPicker.git", :tag => "#{s.version}" }
+  s.source       = "https://github.com/heyode/PhotoPicker.git"
   s.framework    = "UIKit"
-  s.source_files  = "Resources/Lib/*", "Resources/Lib/*/*"
+  s.source_files  = ["Resources/Lib/*", "Resources/Lib/*/*"]
   s.requires_arc = true
 
 end
