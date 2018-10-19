@@ -29,15 +29,15 @@ let kScreenHeight = UIScreen.main.bounds.size.height
    /// - Parameter picker: 选择图片的控制器
    @objc optional func pickerControllerDidCancel(_ picker:UIViewController)
 }
-class HEPhotoPickerViewController: HEBaseViewController {
+public class HEPhotoPickerViewController: HEBaseViewController {
   
     public var maxCount = 9
-    var delegate : HEPhotoPickerViewControllerDelegate?
+    public var delegate : HEPhotoPickerViewControllerDelegate?
+    public var selectedModels =  [HEPhotoPickerListModel]()
     var options = PHImageRequestOptions()//请求选项设置
     var selectedImages = [UIImage]()
     var animator = HEPhotoBrowserAnimator()
     var todoArray = [HEPhotoPickerListModel]()
-    var selectedModels =  [HEPhotoPickerListModel]()
     var models = [HEPhotoPickerListModel]()
     var  homeFrame = CGRect.zero
     fileprivate var thumbnailSize: CGSize!
@@ -57,10 +57,18 @@ class HEPhotoPickerViewController: HEBaseViewController {
         return collectionView
     }()
 
-  
+    public init(delegate: HEPhotoPickerViewControllerDelegate ) {
+       
+        super.init(nibName: nil, bundle: nil)
+        self.delegate = delegate
+        
+    }
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
      // MARK: UIViewController / Life Cycle
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          self.edgesForExtendedLayout =  []
         let scale = UIScreen.main.scale
@@ -69,11 +77,11 @@ class HEPhotoPickerViewController: HEBaseViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
            }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         animator.pushDelegate = self
         options.isSynchronous = true
@@ -217,17 +225,14 @@ class HEPhotoPickerViewController: HEBaseViewController {
         
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
 
 }
 extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
-    func photoLibraryDidChange(_ changeInstance: PHChange) {
+  open  func photoLibraryDidChange(_ changeInstance: PHChange) {
 
         DispatchQueue.main.async {
             self.getAllPhotos()
@@ -235,13 +240,13 @@ extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
     }
 }
 extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionViewDataSource{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+   public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return phAssets.count
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:HEPhotoPickerCell.className , for: indexPath) as! HEPhotoPickerCell
         let model = self.models[indexPath.row]
@@ -273,7 +278,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         animator.selIndex = indexPath
         let size = CGSize.init(width: kScreenWidth, height: kScreenWidth)
         PHImageManager.default().requestImage(for: phAssets[indexPath.row] ,
@@ -305,7 +310,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
 }
 
 extension HEPhotoPickerViewController : UINavigationControllerDelegate{
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         animator.operation = operation
         return animator
     }

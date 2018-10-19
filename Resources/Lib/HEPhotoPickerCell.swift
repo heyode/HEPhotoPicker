@@ -51,8 +51,11 @@ class HEPhotoPickerCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         
         checkBtn = UIButton.init(type: .custom)
-        checkBtn.setImage(UIImage.init(named: "btn-check-selected"), for: .selected)
-        checkBtn.setImage(UIImage.init(named: "btn-check-normal"), for: .normal)
+        let budle = Bundle(path: Bundle(for: HEPhotoBrowser.self).path(forResource: "HEPhotoPicker", ofType: "bundle")!)!
+        let selImage = UIImage(named: "btn-check-selected", in: budle, compatibleWith: nil)
+        let norImage = UIImage(named: "btn-check-normal", in: budle, compatibleWith: nil)
+        checkBtn.setImage(selImage, for: .selected)
+        checkBtn.setImage(norImage, for: .normal)
         checkBtn.addTarget(self, action: #selector(selectedBtnClick(_:)), for: .touchUpInside)
         contentView.addSubview(checkBtn)
         

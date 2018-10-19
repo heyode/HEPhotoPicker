@@ -45,4 +45,22 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
+   
+}
+public extension UIViewController {
+    
+     /// 自定义present方法
+     ///
+     /// - Parameters:
+     ///   - picker: 图片选择器
+     ///   - maxCount: 选择图片的最大个数（默认是9）
+     ///   - defaultSelections: 已选择的模型（多次累加选择时用）
+     func hePresentPhotoPickerController(picker:HEPhotoPickerViewController ,
+                                         maxCount:Int = 9,
+                                         defaultSelections:[HEPhotoPickerListModel] = [HEPhotoPickerListModel]()){
+        picker.maxCount = maxCount
+        picker.selectedModels = defaultSelections
+        let nav = UINavigationController.init(rootViewController: picker)
+        present(nav, animated: true, completion: nil)
+    }
 }

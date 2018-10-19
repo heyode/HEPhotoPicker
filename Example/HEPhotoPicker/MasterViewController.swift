@@ -32,15 +32,13 @@ class MasterViewController: UIViewController {
     }
     @IBAction func selectorBtnClick(_ sender: Any) {
         self.view.endEditing(true)
-        let picker = HEPhotoPickerViewController()
+        let picker = HEPhotoPickerViewController(delegate: self)
         picker.delegate = self
         guard let str = maxCountTextfield.text,let count = Int(str) else {
             return
         }
-        picker.maxCount = count
+        hePresentPhotoPickerController(picker: picker, maxCount: count)
         
-        let nav = UINavigationController.init(rootViewController: picker)
-        present(nav, animated: true, completion: nil)
     }
     @IBAction func cleanSelectedBtnClick(_ sender: Any) {
         self.view.endEditing(true)
@@ -93,17 +91,12 @@ extension MasterViewController : UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row < visibleImages.count {
         }else{// 添加图片的的cell被点击时
-            let picker = HEPhotoPickerViewController()
-            picker.delegate = self
+            let picker = HEPhotoPickerViewController(delegate: self)
             guard let str = maxCountTextfield.text,let count = Int(str) else {
                 return
             }
-            picker.maxCount = count
-            // 将上次选择的模型传给picker，实现累加选择
-            picker.selectedModels = self.selectedModel
-            
-            let nav = UINavigationController.init(rootViewController: picker)
-            self.present(nav, animated: true, completion: nil)
+            hePresentPhotoPickerController(picker: picker, maxCount: count,defaultSelections: selectedModel)
+           
         }
     }
  

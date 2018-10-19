@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HEBaseViewController: UIViewController {
+public class HEBaseViewController: UIViewController {
 
-    override func viewDidLoad() {
+  public  override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.background
@@ -23,7 +23,7 @@ class HEBaseViewController: UIViewController {
       
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+  public  override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configNavigationBar()
     }
@@ -33,23 +33,20 @@ class HEBaseViewController: UIViewController {
     func configNavigationBar() {
         guard let navi = navigationController else { return }
         if navi.visibleViewController == self {
-            navi.barStyle(.white)
+            navi.navigationBar.barStyle = .default
+            navi.navigationBar.setBackgroundImage(UIColor.white.image(), for: .default)
+            navi.navigationBar.shadowImage = nil
             navi.setNavigationBarHidden(false, animated: true)
             if navi.viewControllers.count > 1 {
-              
-                navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "nav_back")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(pressBack))
+                let budle = Bundle(path: Bundle(for: HEBaseViewController.self).path(forResource: "HEPhotoPicker", ofType: "bundle")!)!
+                let backImage = UIImage(named: "nav_back", in: budle, compatibleWith: nil)
+                
+                navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: backImage?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(pressBack))
             }
         }
     }
     
     @objc func pressBack() {
         navigationController?.popViewController(animated: true)
-    }
-}
-
-extension HEBaseViewController {
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
     }
 }
