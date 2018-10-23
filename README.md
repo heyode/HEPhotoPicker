@@ -44,7 +44,7 @@ hePresentPhotoPickerController(picker: picker, maxCount: count,defaultSelections
 ```
 ## Author
 
-heyode, 1025335931@qq.com
+heyode, heyode68@gmail.com
 
 ## License
 
