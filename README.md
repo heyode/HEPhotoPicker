@@ -13,19 +13,25 @@
 - 可设置选择图片的最大个数
 
 ## Requirements
-` iOS 9.0
-` Xcode 10
-` Swift 4.2
+- iOS 9.0
+- Xcode 10
+- Swift 4.2
 ## Installation
-
-HEPhotoPicker is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'HEPhotoPicker'
 ```
 ## Usage
-
+### 导入HEPhotoPicker
+```Swift
+import HEPhotoPicker
+```
+### 弹出相册选择器
+```Swift
+let picker = HEPhotoPickerViewController(delegate: self)
+        hePresentPhotoPickerController(picker: picker)
+```
+ 
 ## Author
 
 heyode, 1025335931@qq.com
