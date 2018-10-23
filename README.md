@@ -11,7 +11,7 @@
 - 支持点击预览大图
 - 支持多次累加选择
 - 可设置选择图片的最大个数
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/photopicker.gif)
+- ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/photopicker.gif)
 ## Requirements
 - iOS 9.0
 - Xcode 10
