@@ -1,0 +1,6 @@
+framework module HEPhotoPicker {
+  umbrella header "HEPhotoPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import HEPhotoPicker
 class MasterViewController: UIViewController {
 
     @IBOutlet weak var maxCountTextfield: UITextField!

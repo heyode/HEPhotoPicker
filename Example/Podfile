@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HEPhotoPicker_Example' do
+  pod 'HEPhotoPicker', :path => '../'
+
+  target 'HEPhotoPicker_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,27 +1,40 @@
-
+#
+# Be sure to run `pod lib lint HEPhotoPicker.podspec' to ensure this is a
+# valid spec before submitting.
+#
+# Any lines starting with a # are optional, but their use is encouraged
+# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
+#
 
 Pod::Spec.new do |s|
+  s.name             = 'HEPhotoPicker'
+  s.version          = '0.0.1'
+  s.summary          = 'Elegant photo picker in Swift.'
 
+# This description is used to generate tags and improve search results.
+#   * Think: What does it do? Why did you write it? What is the focus?
+#   * Try to keep it short, snappy and to the point.
+#   * Write the description between the DESC delimiters below.
+#   * Finally, don't worry about the indent, CocoaPods strips it!
 
-s.name         = "HEPhotoPicker"
-s.version      = "0.0.1"
-s.summary      = 'Elegant photo picker in Swift.'
-s.description  = 'Elegant photo picker in Swift. Inspired by Weibo.'
-s.homepage     = "https://github.com/heyode/PhotoPicker"
-s.screenshots  = "https://github.com/heyode/PhotoPicker/blob/master/Resources/photopicker.gif"
+  s.description      = 'Elegant photo picker in Swift. Inspired by Weibo.'
 
-s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.homepage         = 'https://github.com/heyode/HEPhotoPicker'
+    s.screenshots     = 'https://github.com/heyode/PhotoPicker/blob/master/Assets/photopicker.gif'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'heyode' => '1025335931@qq.com' }
+  s.source           = { :git => "https://github.com/heyode/HEPhotoPicker.git", :tag => "#{s.version}" }
+  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-s.author             = { "heyode" => "1025335931@qq.com" }
-s.ios.deployment_target = '9.0'
-s.swift_version = '4.2'
-s.source       = { :git => "https://github.com/heyode/PhotoPicker.git", :tag => "#{s.version}" }
-s.framework    = 'UIKit','Photos'
-s.source_files  = ["Resources/Lib/*.swift", "Resources/Lib/*/*.swift"]
-s.requires_arc = true
-
-s.resource_bundles = {
-'HEPhotoPicker' => ['Resources/Assets.xcassets']
-}
-
+  s.ios.deployment_target = '9.0'
+  s.swift_version = '4.2'
+  s.source_files = ["Source/*.swift", "Source/*/*.swift"]
+  
+  s.resource_bundles = {
+      'HEPhotoPicker' => ['Assets/*.png']
+  }
+  
+  # s.public_header_files = 'Pod/Classes/**/*.h'
+ s.frameworks = 'UIKit','Photos'
+  # s.dependency 'AFNetworking', '~> 2.3'
 end
