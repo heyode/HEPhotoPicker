@@ -1,5 +1,6 @@
 # HEPhotoPicker
- ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/photopicker.gif)
+- ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/photopicker.gif)
+
 [![CI Status](https://img.shields.io/travis/heyode/HEPhotoPicker.svg?style=flat)](https://travis-ci.org/heyode/HEPhotoPicker)
 [![Version](https://img.shields.io/cocoapods/v/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
