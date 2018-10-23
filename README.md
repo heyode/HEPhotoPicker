@@ -29,9 +29,20 @@ import HEPhotoPicker
 ### 弹出相册选择器
 ```Swift
 let picker = HEPhotoPickerViewController(delegate: self)
-        hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker)
 ```
- 
+### 设置选择图片的最大个数和多次累加选择
+```Swift
+
+let picker = HEPhotoPickerViewController(delegate: self)
+  /// 自定义present方法
+     ///
+     /// - Parameters:
+     ///   - picker: 图片选择器
+     ///   - maxCount: 选择图片的最大个数（默认是9）
+     ///   - defaultSelections: 已选择的模型（多次累加选择时用）
+hePresentPhotoPickerController(picker: picker, maxCount: count,defaultSelections: selectedModel)
+```
 ## Author
 
 heyode, 1025335931@qq.com
