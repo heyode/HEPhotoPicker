@@ -17,4 +17,5 @@ class Tool: NSObject {
             return false
         }
     }
+    static var  bundle = Bundle(path: Bundle(for: Tool.self).path(forResource: "HEPhotoPicker", ofType: "bundle")!)!
 }

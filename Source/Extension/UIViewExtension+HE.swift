@@ -1,9 +1,9 @@
 //
-//  UIViewExtensions.swift
-//  guiai
+//  NSObjectExtension.swift
+//  SwiftPhotoSelector
 //
-//  Created by apple on 2018/7/19.
-//  Copyright © 2018年 youkouxin. All rights reserved.
+//  Created by apple on 2018/9/19.
+//  Copyright © 2018年 heyode. All rights reserved.
 //
 
 import UIKit

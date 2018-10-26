@@ -40,6 +40,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     var todoArray = [HEPhotoPickerListModel]()
     var models = [HEPhotoPickerListModel]()
     var homeFrame = CGRect.zero
+    var smartAlbums = [PHFetchResult<PHAssetCollection>]()
     fileprivate var thumbnailSize: CGSize!
     var phAssets : PHFetchResult<PHAsset>!
     let layout = UICollectionViewFlowLayout.init()
@@ -57,6 +58,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         return collectionView
     }()
 
+  
     public init(delegate: HEPhotoPickerViewControllerDelegate ) {
        
         super.init(nibName: nil, bundle: nil)
@@ -98,9 +100,24 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     }
    func configUI() {
     
-        title = "相机胶卷"
+    
         view.addSubview(collectionView)
-   
+        let result1 = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumSyncedAlbum, options: nil)
+        smartAlbums.append(result1)
+    
+        let btn = UIButton.init(type: .custom)
+        btn.setTitleColor(UIColor.hex(hexString: "222222"), for: .normal)
+        let image = UIImage.init(named: "nav-arrow", in: Tool.bundle, compatibleWith: nil)
+        btn.setImage(image, for: .normal)
+    
+        if let title = result1.firstObject?.localizedTitle{
+            btn.setTitle(title, for: .normal)
+        }else{
+            btn.setTitle("相机胶卷", for: .normal)
+        }
+        btn.addTarget(self, action: #selector(HEPhotoPickerViewController.titleViewClick(_:)), for: .touchUpInside)
+    
+        self.navigationItem.titleView = btn
         let rightBtn = UIButton.init(type: .custom)
         rightBtn.layer.cornerRadius = 4
         rightBtn.layer.masksToBounds = true
@@ -151,6 +168,17 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         
     }
     // MARK: UI Actions
+    @objc func titleViewClick(_ sender:UIButton){
+        let popViewFrame : CGRect!
+        if Tool.isiPhoneX() {
+            popViewFrame = CGRect.init(x: 0, y: 88, width: kScreenWidth, height: kScreenHeight/2)
+        }else{
+            popViewFrame = CGRect.init(x: 0, y: 64, width: kScreenWidth, height: kScreenHeight/2)
+        }
+      let header =  HEAlbumListView.showOnKeyWidows(rect:popViewFrame) { (item) in
+            
+        }
+    }
     @objc func nextBtnClick(){
          todoArray = self.selectedModels
         getImages()
@@ -219,14 +247,22 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             self.models.append(model)
         }
         self.collectionView.reloadData()
-        
-        
+ 
     }
     
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
 
+}
+extension HEPhotoPickerViewController :UIPopoverPresentationControllerDelegate{
+    private func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    private func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
+    }
 }
 extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
   open  func photoLibraryDidChange(_ changeInstance: PHChange) {

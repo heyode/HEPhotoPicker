@@ -1,11 +1,10 @@
 //
-//  UIColorExtension.swift
-//  U17
+//  NSObjectExtension.swift
+//  SwiftPhotoSelector
 //
-//  Created by charles on 2017/7/31.
-//  Copyright © 2017年 charles. All rights reserved.
+//  Created by apple on 2018/9/19.
+//  Copyright © 2018年 heyode. All rights reserved.
 //
-
 import UIKit
 extension UIColor {
     class var background: UIColor {
