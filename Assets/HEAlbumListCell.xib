@@ -30,7 +30,7 @@
                         <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZDF-90-iNy">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZDF-90-iNy">
                         <rect key="frame" x="15" y="17.5" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Sl1-y3-ZI5"/>
@@ -47,7 +47,12 @@
                     <constraint firstItem="ZDF-90-iNy" firstAttribute="centerY" secondItem="tUp-oS-R9T" secondAttribute="centerY" id="yhq-Kj-bc5"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="245.59999999999999" y="-142.57871064467767"/>
+            <connections>
+                <outlet property="albumImageView" destination="ZDF-90-iNy" id="iOA-fA-8xq"/>
+                <outlet property="countLab" destination="mxe-aP-Hbt" id="4u9-5N-yah"/>
+                <outlet property="titleLab" destination="5gc-Vk-XJ6" id="yfl-8w-KdV"/>
+            </connections>
+            <point key="canvasLocation" x="4" y="-183"/>
         </tableViewCell>
     </objects>
 </document>

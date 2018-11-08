@@ -1,16 +1,18 @@
 //
-//  HEPhotoBrowserCell.swift
-//  SwiftPhotoSelector
+//  BrowserCell.swift
+//  HEPhotoPicker_Example
 //
-//  Created by heyode on 2018/9/23.
-//  Copyright © 2018年 heyode. All rights reserved.
+//  Created by apple on 2018/11/8.
+//  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
 import UIKit
-import Photos
-class HEPhotoBrowserCell: UICollectionViewCell {
-    var playerLayer: AVPlayerLayer?
+import HEPhotoPicker
 
+import Photos
+class BrowserCell: UICollectionViewCell {
+    var playerLayer: AVPlayerLayer?
+    
     var imageView : UIImageView!
     var palayBtn : UIButton!
     var palyBtnCloser :((_ cell:UICollectionViewCell,_ model:HEPhotoPickerListModel)->Void)?
@@ -19,7 +21,7 @@ class HEPhotoBrowserCell: UICollectionViewCell {
             
             if model.asset.mediaType == .video {
                 palayBtn.isHidden = false
-               
+                
             }else{
                 palayBtn.isHidden = true
             }
@@ -41,9 +43,9 @@ class HEPhotoBrowserCell: UICollectionViewCell {
         self.contentView.addSubview(imageView)
         
         palayBtn = UIButton.init(type: .custom)
-        palayBtn.addTarget(self, action: #selector(HEPhotoBrowserCell.palyBtnClick), for: .touchUpInside)
+        palayBtn.addTarget(self, action: #selector(BrowserCell.palyBtnClick), for: .touchUpInside)
         palayBtn.isHidden = true
-        palayBtn.setImage(UIImage.init(named: "play-btn", in: HETool.bundle, compatibleWith: nil), for: .normal)
+        palayBtn.setImage(UIImage.init(named: "play-btn"), for: .normal)
         contentView.addSubview(palayBtn)
         
         
@@ -61,13 +63,13 @@ class HEPhotoBrowserCell: UICollectionViewCell {
             let options = PHVideoRequestOptions()
             options.isNetworkAccessAllowed = true
             options.deliveryMode = .automatic
-//            options.progressHandler = { progress, _, _, _ in
-//                // The handler may originate on a background queue, soÒ
-//                // re-dispatch to the main queue for UI work.
-//                DispatchQueue.main.sync {
-//                    //                    self.progressView.progress = Float(progress)
-//                }
-//            }
+            //            options.progressHandler = { progress, _, _, _ in
+            //                // The handler may originate on a background queue, soÒ
+            //                // re-dispatch to the main queue for UI work.
+            //                DispatchQueue.main.sync {
+            //                    //                    self.progressView.progress = Float(progress)
+            //                }
+            //            }
             // Request an AVPlayerItem for the displayed PHAsset.
             // Then configure a layer for playing it.
             PHImageManager.default().requestPlayerItem(forVideo:asset, options: options, resultHandler: { playerItem, info in
@@ -93,7 +95,7 @@ class HEPhotoBrowserCell: UICollectionViewCell {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-         guard self.playerLayer != nil else { return }
+        guard self.playerLayer != nil else { return }
         playerLayer?.player!.pause()
         palayBtn.isHidden = false
     }
@@ -106,7 +108,7 @@ class HEPhotoBrowserCell: UICollectionViewCell {
         
     }
     deinit {
-       canlePlayerAction()
+        canlePlayerAction()
     }
     
     func canlePlayerAction() {
@@ -114,9 +116,9 @@ class HEPhotoBrowserCell: UICollectionViewCell {
         guard self.playerLayer != nil else { return }
         playerLayer?.removeFromSuperlayer()
         playerLayer = nil
-//        playerLayer?.player!.pause()
+        //        playerLayer?.player!.pause()
         palayBtn.isHidden = false
-//        playerLayer?.player?.seek(to: CMTime.init(value: 0, timescale: 1))
+        //        playerLayer?.player?.seek(to: CMTime.init(value: 0, timescale: 1))
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

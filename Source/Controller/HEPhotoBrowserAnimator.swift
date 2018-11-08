@@ -9,8 +9,9 @@
 import UIKit
 
 //MARK: - 定义协议用来拿到图片起始位置;最终位置和图片
-protocol HEPhotoBrowserAnimatorPushDelegate : class {
+public protocol HEPhotoBrowserAnimatorPushDelegate : class {
 
+    var homeFrame: CGRect { get set }
     /// 获取图片动画前的位置
     ///
     /// - Parameter indexPath: 图片的下标
@@ -32,7 +33,7 @@ protocol HEPhotoBrowserAnimatorPushDelegate : class {
     func imageView(at indexPath : IndexPath) ->UIImageView
 }
 
-protocol HEPhotoBrowserAnimatorPopDelegate : class{
+public protocol HEPhotoBrowserAnimatorPopDelegate : class{
     /// 获取当前浏览的图片的下标
     ///
     /// - Returns: 当前浏览图片的下标
@@ -43,24 +44,42 @@ protocol HEPhotoBrowserAnimatorPopDelegate : class{
     /// - Returns: 当前浏览的图片
     func imageViewOfPopView() -> UIImageView
 }
-
-class HEPhotoBrowserAnimator: NSObject {
-    weak var popDelegate : HEPhotoBrowserAnimatorPopDelegate?
-    weak var pushDelegate : HEPhotoBrowserAnimatorPushDelegate?
+public enum HETransitionType :Int {
+    case navigation
+    case modal
+}
+public class HEPhotoBrowserAnimator: NSObject {
+    public var transitionType : HETransitionType = .navigation
+    
+  public  weak var popDelegate : HEPhotoBrowserAnimatorPopDelegate?
+  public  weak var pushDelegate : HEPhotoBrowserAnimatorPushDelegate?
     // 用于接受外界的图片索引
-    var selIndex : IndexPath?
+   public var selIndex : IndexPath?
   
     // 用于接受外界的operation
-    var operation:UINavigationController.Operation!
+   public var operation:UINavigationController.Operation!
     
-   
-    func popAnimator(transitionContext: UIViewControllerContextTransitioning) {
+    // dimmiss不能共用单独写出来
+    public func dimmiss(transitionContext: UIViewControllerContextTransitioning){
+        let dismissView = transitionContext.view(forKey: UITransitionContextViewKey.from)
+        dismissView?.removeFromSuperview()
+        let imageView: UIImageView = (popDelegate?.imageViewOfPopView())!
+        transitionContext.containerView.addSubview(imageView)
+        let index = popDelegate?.indexOfPopViewImageView()
+        UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
+            imageView.frame = (self.pushDelegate?.imageViewRectOfAnimatorStart(at: index!))!
+        }) { (finished: Bool) in
+            //告诉上下文动画完成
+            transitionContext.completeTransition(true)
+        }
+    }
+   public func popAnimator(transitionContext: UIViewControllerContextTransitioning) {
         let containerview = transitionContext.containerView
         let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
         let fromView = fromVC!.view
         
-        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! HEPhotoPickerViewController
-        let toView = toVC.view
+        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+        let toView = toVC!.view
 
         toView?.alpha = 0
         containerview.backgroundColor = UIColor.clear
@@ -73,8 +92,14 @@ class HEPhotoBrowserAnimator: NSObject {
         imageView.contentMode = .scaleAspectFill
         containerview.addSubview(imageView)
 
+   
+    
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext), animations: {
-            imageView.frame = toVC.homeFrame
+            
+            if let vc = toVC as? HEPhotoBrowserAnimatorPushDelegate{
+                imageView.frame = vc.homeFrame
+            }
+            
              toView?.alpha = 1.0
         }) { (finished: Bool) in
             imageView.removeFromSuperview()
@@ -83,7 +108,7 @@ class HEPhotoBrowserAnimator: NSObject {
             transitionContext.completeTransition(true)
         }
     }
-    func pushAnimator(transitionContext: UIViewControllerContextTransitioning) {
+   public func pushAnimator(transitionContext: UIViewControllerContextTransitioning) {
         let containerview = transitionContext.containerView
         let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
         let toView = toVC?.view
@@ -131,23 +156,47 @@ class HEPhotoBrowserAnimator: NSObject {
     }
     
     
+    /// 判断当前动画是弹出还是消失
+   public var isPresented: Bool = false
+   
     
    
 }
 
-extension HEPhotoBrowserAnimator : UIViewControllerAnimatedTransitioning{
+extension HEPhotoBrowserAnimator : UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate{
+   public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresented = true
+        return self
+    }
+    
+   public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isPresented = false
+        return self
+    }
     // 返回动画时间
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
     // 要设置的动画
     //UIKit calls this method when presenting or dismissing a view controller. Use this method to configure the animations associated with your custom transition. You can use view-based animations or Core Animation to configure your animations.
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        if self.operation ==  UINavigationController.Operation.pop {
-         popAnimator(transitionContext: transitionContext)
-        } else {
-         pushAnimator(transitionContext: transitionContext)
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        if self.transitionType == .navigation{
+            // 用于push时的过场动画
+            if self.operation ==  UINavigationController.Operation.pop {
+                popAnimator(transitionContext: transitionContext)
+            } else {
+                pushAnimator(transitionContext: transitionContext)
+            }
+        }else{
+            // 用于present时的过场动画
+            if isPresented {
+                pushAnimator(transitionContext: transitionContext)
+            } else {
+                dimmiss(transitionContext: transitionContext)
+            }
+            
         }
+       
         
     }
 }

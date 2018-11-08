@@ -6,12 +6,31 @@
 //
 
 import UIKit
-
+import Photos
 class HEAlbumListCell: UITableViewCell {
 
     @IBOutlet weak var countLab: UILabel!
     @IBOutlet weak var titleLab: UILabel!
     @IBOutlet weak var albumImageView: UIImageView!
+    var album : HEAlbum!{
+        didSet{
+            titleLab.text = album.title
+       
+            
+            countLab.text = String.init(format: "%d", album.count)
+            let size = CGSize.init(width: albumImageView.frame.width * 2, height: albumImageView.frame.height * 2)
+            guard let asset = album.fetchResult.firstObject else{
+                return
+            }
+            PHImageManager.default().requestImage(for:asset,
+                                                  targetSize: size,
+                                                  contentMode: .aspectFill,
+                                                  options: nil, resultHandler:  { image, _ in
+                                                    self.albumImageView.image = image
+            })
+          
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
