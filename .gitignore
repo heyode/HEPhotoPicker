@@ -12,6 +12,8 @@ DerivedData/
 *.mode1v3
 !default.mode1v3
 *.mode2v3
+.DS_Store
+.DS_Store?
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
@@ -66,3 +68,5 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+.DS_Store
+.DS_Store
