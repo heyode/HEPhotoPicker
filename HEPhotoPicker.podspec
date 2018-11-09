@@ -33,7 +33,10 @@ s.swift_version = '4.2'
 s.source_files = ["Source/*.swift", "Source/*/*.swift"]
 
 s.resource_bundles = {
-    'HEPhotoPicker' => ['Assets/*.png']
+    'HEPhotoPicker' => [
+    'Assets/*.png',
+    'Assets/*.xib'
+    ]
 }
   
   # s.public_header_files = 'Pod/Classes/**/*.h'

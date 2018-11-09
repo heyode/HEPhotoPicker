@@ -11,20 +11,20 @@
 		1833263E2181A41A00447D91 /* HEPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833262D2181A41A00447D91 /* HEPhotoBrowserViewController.swift */; };
 		1833263F2181A41A00447D91 /* HEPhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833262E2181A41A00447D91 /* HEPhotoPickerViewController.swift */; };
 		183326402181A41A00447D91 /* HEPhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833262F2181A41A00447D91 /* HEPhotoBrowserAnimator.swift */; };
-		183326412181A41A00447D91 /* HEPhoneBrowserBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183326312181A41A00447D91 /* HEPhoneBrowserBottomCell.swift */; };
-		183326422181A41A00447D91 /* HEPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183326322181A41A00447D91 /* HEPhotoBrowserCell.swift */; };
-		183326432181A41A00447D91 /* HEPhotoPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183326332181A41A00447D91 /* HEPhotoPickerCell.swift */; };
 		183326442181A41A00447D91 /* HEPhotoPickerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183326352181A41A00447D91 /* HEPhotoPickerListModel.swift */; };
 		183326452181A41A00447D91 /* HETool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183326372181A41A00447D91 /* HETool.swift */; };
 		183326462181A41A00447D91 /* HEBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183326382181A41A00447D91 /* HEBaseViewController.swift */; };
 		183326472181A41A00447D91 /* NSObjectExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833263A2181A41A00447D91 /* NSObjectExtension+HE.swift */; };
 		183326482181A41A00447D91 /* UIViewExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833263B2181A41A00447D91 /* UIViewExtension+HE.swift */; };
 		183326492181A41A00447D91 /* UIColorExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833263C2181A41A00447D91 /* UIColorExtension+HE.swift */; };
-		183326522181B6D000447D91 /* HEAlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183326512181B6D000447D91 /* HEAlbumListCell.swift */; };
-		1833265F218304D000447D91 /* HEAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833265E218304D000447D91 /* HEAlbumListView.swift */; };
 		18332661218307FD00447D91 /* HEAlbumListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18332660218307FD00447D91 /* HEAlbumListCell.xib */; };
+		188ACF44219562C1004B6B0D /* HEAlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ACF3E219562C1004B6B0D /* HEAlbumListCell.swift */; };
+		188ACF45219562C1004B6B0D /* HEAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ACF3F219562C1004B6B0D /* HEAlbumListView.swift */; };
+		188ACF46219562C1004B6B0D /* HEPhoneBrowserBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ACF40219562C1004B6B0D /* HEPhoneBrowserBottomCell.swift */; };
+		188ACF47219562C1004B6B0D /* HEAlbumTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ACF41219562C1004B6B0D /* HEAlbumTitleView.swift */; };
+		188ACF48219562C1004B6B0D /* HEPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ACF42219562C1004B6B0D /* HEPhotoBrowserCell.swift */; };
+		188ACF49219562C1004B6B0D /* HEPhotoPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188ACF43219562C1004B6B0D /* HEPhotoPickerCell.swift */; };
 		18C513C621901C6B0064C63F /* HEAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C513C521901C6B0064C63F /* HEAlbum.swift */; };
-		18DF8FEC2188609400978C15 /* HEAlbumTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF8FEB2188609400978C15 /* HEAlbumTitleView.swift */; };
 		18DF8FF12188613100978C15 /* nav-arrow-up@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF8FED2188613000978C15 /* nav-arrow-up@3x.png */; };
 		18DF8FF22188613100978C15 /* nav-arrow-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF8FEE2188613100978C15 /* nav-arrow-down@2x.png */; };
 		18DF8FF32188613100978C15 /* nav-arrow-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF8FEF2188613100978C15 /* nav-arrow-up@2x.png */; };
@@ -80,20 +80,20 @@
 		1833262D2181A41A00447D91 /* HEPhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		1833262E2181A41A00447D91 /* HEPhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerViewController.swift; sourceTree = "<group>"; };
 		1833262F2181A41A00447D91 /* HEPhotoBrowserAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserAnimator.swift; sourceTree = "<group>"; };
-		183326312181A41A00447D91 /* HEPhoneBrowserBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhoneBrowserBottomCell.swift; sourceTree = "<group>"; };
-		183326322181A41A00447D91 /* HEPhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserCell.swift; sourceTree = "<group>"; };
-		183326332181A41A00447D91 /* HEPhotoPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerCell.swift; sourceTree = "<group>"; };
 		183326352181A41A00447D91 /* HEPhotoPickerListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerListModel.swift; sourceTree = "<group>"; };
 		183326372181A41A00447D91 /* HETool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HETool.swift; sourceTree = "<group>"; };
 		183326382181A41A00447D91 /* HEBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseViewController.swift; sourceTree = "<group>"; };
 		1833263A2181A41A00447D91 /* NSObjectExtension+HE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjectExtension+HE.swift"; sourceTree = "<group>"; };
 		1833263B2181A41A00447D91 /* UIViewExtension+HE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewExtension+HE.swift"; sourceTree = "<group>"; };
 		1833263C2181A41A00447D91 /* UIColorExtension+HE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColorExtension+HE.swift"; sourceTree = "<group>"; };
-		183326512181B6D000447D91 /* HEAlbumListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEAlbumListCell.swift; sourceTree = "<group>"; };
-		1833265E218304D000447D91 /* HEAlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEAlbumListView.swift; sourceTree = "<group>"; };
 		18332660218307FD00447D91 /* HEAlbumListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HEAlbumListCell.xib; path = Assets/HEAlbumListCell.xib; sourceTree = "<group>"; };
+		188ACF3E219562C1004B6B0D /* HEAlbumListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAlbumListCell.swift; sourceTree = "<group>"; };
+		188ACF3F219562C1004B6B0D /* HEAlbumListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAlbumListView.swift; sourceTree = "<group>"; };
+		188ACF40219562C1004B6B0D /* HEPhoneBrowserBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhoneBrowserBottomCell.swift; sourceTree = "<group>"; };
+		188ACF41219562C1004B6B0D /* HEAlbumTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAlbumTitleView.swift; sourceTree = "<group>"; };
+		188ACF42219562C1004B6B0D /* HEPhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserCell.swift; sourceTree = "<group>"; };
+		188ACF43219562C1004B6B0D /* HEPhotoPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerCell.swift; sourceTree = "<group>"; };
 		18C513C521901C6B0064C63F /* HEAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEAlbum.swift; sourceTree = "<group>"; };
-		18DF8FEB2188609400978C15 /* HEAlbumTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEAlbumTitleView.swift; sourceTree = "<group>"; };
 		18DF8FED2188613000978C15 /* nav-arrow-up@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-arrow-up@3x.png"; path = "Assets/nav-arrow-up@3x.png"; sourceTree = "<group>"; };
 		18DF8FEE2188613100978C15 /* nav-arrow-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-arrow-down@2x.png"; path = "Assets/nav-arrow-down@2x.png"; sourceTree = "<group>"; };
 		18DF8FEF2188613100978C15 /* nav-arrow-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-arrow-up@2x.png"; path = "Assets/nav-arrow-up@2x.png"; sourceTree = "<group>"; };
@@ -220,19 +220,6 @@
 			path = Source/Controller;
 			sourceTree = "<group>";
 		};
-		183326302181A41A00447D91 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				183326312181A41A00447D91 /* HEPhoneBrowserBottomCell.swift */,
-				183326322181A41A00447D91 /* HEPhotoBrowserCell.swift */,
-				183326332181A41A00447D91 /* HEPhotoPickerCell.swift */,
-				183326512181B6D000447D91 /* HEAlbumListCell.swift */,
-				1833265E218304D000447D91 /* HEAlbumListView.swift */,
-				18DF8FEB2188609400978C15 /* HEAlbumTitleView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		183326342181A41A00447D91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +249,20 @@
 			);
 			name = Extension;
 			path = Source/Extension;
+			sourceTree = "<group>";
+		};
+		188ACF3D219562C1004B6B0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				188ACF3E219562C1004B6B0D /* HEAlbumListCell.swift */,
+				188ACF3F219562C1004B6B0D /* HEAlbumListView.swift */,
+				188ACF40219562C1004B6B0D /* HEPhoneBrowserBottomCell.swift */,
+				188ACF41219562C1004B6B0D /* HEAlbumTitleView.swift */,
+				188ACF42219562C1004B6B0D /* HEPhotoBrowserCell.swift */,
+				188ACF43219562C1004B6B0D /* HEPhotoPickerCell.swift */,
+			);
+			name = View;
+			path = Source/View;
 			sourceTree = "<group>";
 		};
 		4C92323D020CCF0BCF326E6A4573BA8B /* iOS */ = {
@@ -359,8 +360,8 @@
 		E54FA6D5E71DA6FF5427676A6AA28FF2 /* HEPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				188ACF3D219562C1004B6B0D /* View */,
 				183326342181A41A00447D91 /* Model */,
-				183326302181A41A00447D91 /* View */,
 				1833262C2181A41A00447D91 /* Controller */,
 				183326362181A41A00447D91 /* Base */,
 				183326392181A41A00447D91 /* Extension */,
@@ -586,22 +587,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				183326462181A41A00447D91 /* HEBaseViewController.swift in Sources */,
-				183326522181B6D000447D91 /* HEAlbumListCell.swift in Sources */,
-				183326422181A41A00447D91 /* HEPhotoBrowserCell.swift in Sources */,
+				188ACF49219562C1004B6B0D /* HEPhotoPickerCell.swift in Sources */,
 				183326442181A41A00447D91 /* HEPhotoPickerListModel.swift in Sources */,
 				18C513C621901C6B0064C63F /* HEAlbum.swift in Sources */,
 				602A731DCCCDB542E4F80FC8EBDFE59B /* HEPhotoPicker-dummy.m in Sources */,
-				1833265F218304D000447D91 /* HEAlbumListView.swift in Sources */,
 				183326472181A41A00447D91 /* NSObjectExtension+HE.swift in Sources */,
 				183326482181A41A00447D91 /* UIViewExtension+HE.swift in Sources */,
-				183326432181A41A00447D91 /* HEPhotoPickerCell.swift in Sources */,
 				183326402181A41A00447D91 /* HEPhotoBrowserAnimator.swift in Sources */,
 				1833263F2181A41A00447D91 /* HEPhotoPickerViewController.swift in Sources */,
 				183326452181A41A00447D91 /* HETool.swift in Sources */,
-				18DF8FEC2188609400978C15 /* HEAlbumTitleView.swift in Sources */,
 				1833263E2181A41A00447D91 /* HEPhotoBrowserViewController.swift in Sources */,
+				188ACF45219562C1004B6B0D /* HEAlbumListView.swift in Sources */,
+				188ACF44219562C1004B6B0D /* HEAlbumListCell.swift in Sources */,
+				188ACF47219562C1004B6B0D /* HEAlbumTitleView.swift in Sources */,
 				183326492181A41A00447D91 /* UIColorExtension+HE.swift in Sources */,
-				183326412181A41A00447D91 /* HEPhoneBrowserBottomCell.swift in Sources */,
+				188ACF48219562C1004B6B0D /* HEPhotoBrowserCell.swift in Sources */,
+				188ACF46219562C1004B6B0D /* HEPhoneBrowserBottomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
