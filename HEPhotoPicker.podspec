@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HEPhotoPicker'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'Elegant photo picker in Swift.'
 
 # This description is used to generate tags and improve search results.
@@ -17,22 +17,24 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'Elegant photo picker in Swift. Inspired by Weibo.'
+s.description      = 'Elegant photo picker in Swift. Inspired by Weibo.'
 
-  s.homepage         = 'https://github.com/heyode/HEPhotoPicker'
-    s.screenshots     = 'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/photopicker.gif'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'heyode' => '1025335931@qq.com' }
-  s.source           = { :git => "https://github.com/heyode/HEPhotoPicker.git", :tag => "#{s.version}" }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+s.homepage         = 'https://github.com/heyode/HEPhotoPicker'
+s.screenshots     = ['https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif',
+'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif',
+'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif']
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'heyode' => '1025335931@qq.com' }
+s.source           = { :git => "https://github.com/heyode/HEPhotoPicker.git", :tag => "#{s.version}" }
+# s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
-  s.swift_version = '4.2'
-  s.source_files = ["Source/*.swift", "Source/*/*.swift"]
-  
-  s.resource_bundles = {
-      'HEPhotoPicker' => ['Assets/*.png']
-  }
+s.ios.deployment_target = '9.0'
+s.swift_version = '4.2'
+s.source_files = ["Source/*.swift", "Source/*/*.swift"]
+
+s.resource_bundles = {
+    'HEPhotoPicker' => ['Assets/*.png']
+}
   
   # s.public_header_files = 'Pod/Classes/**/*.h'
  s.frameworks = 'UIKit','Photos'
