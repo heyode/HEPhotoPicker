@@ -104,7 +104,7 @@ extension LikeWeiBoViewController : UICollectionViewDelegate,UICollectionViewDat
             }
         }else{// 添加图片的的cell被点击时
             self.view.endEditing(true)
-            
+            // 配置项
             let option = HEPhotoPickerOptions.init()
             // 只能选择一个视频
             option.singleVideo = true
@@ -114,9 +114,9 @@ extension LikeWeiBoViewController : UICollectionViewDelegate,UICollectionViewDat
             option.defaultSelections = self.selectedModel
             // 选择图片的最大个数
             option.maxCountOfImage = 9
+            // 创建选择器
             let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
-            
-            
+            // 弹出
             hePresentPhotoPickerController(picker: picker)
             
         }

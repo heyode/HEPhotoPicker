@@ -45,9 +45,9 @@ open class HEPhotoPickerOptions : NSObject{
     /// 列表是否按创建时间升序排列
     public var ascendingOfCreationDateSort : Bool = false
     /// 挑选图片的最大个数
-    public var maxCountOfImage = 0
+    public var maxCountOfImage = 9
     /// 挑选视频的最大个数
-    public var maxCountOfVideo = 0
+    public var maxCountOfVideo = 2
     /// 是否支持图片单选，默认是false，如果是ture只允许选择一张图片（如果 mediaType = imageAndVideo 或者 imageOrVideo 此属性无效）
     public var singlePicture = false
     /// 是否支持视频单选 默认是false，如果是ture只允许选择一个视频（如果 mediaType = imageAndVideo 此属性无效）
@@ -117,7 +117,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     }()
     // MARK:- 初始化
     
-    public init(delegate: HEPhotoPickerViewControllerDelegate,options:HEPhotoPickerOptions ) {
+    public init(delegate: HEPhotoPickerViewControllerDelegate,options:HEPhotoPickerOptions = HEPhotoPickerOptions() ) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
         self.pickerOptions = options
@@ -435,11 +435,20 @@ extension HEPhotoPickerViewController :UIPopoverPresentationControllerDelegate{
 }
 extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
     open  func photoLibraryDidChange(_ changeInstance: PHChange) {
-        
         DispatchQueue.main.sync {
-            self.getAllPhotos()
-        }
-        DispatchQueue.main.sync {
+            if let changeDetails = changeInstance.changeDetails(for: phAssets){
+                phAssets = changeDetails.fetchResultAfterChanges
+            }
+            models =  [HEPhotoPickerListModel]()
+            phAssets.enumerateObjects {[weak self] (asset, index, ff) in
+                let model = HEPhotoPickerListModel.init(asset: asset)
+                self?.checkIsSingle(model: model)
+                model.index = index
+                self?.models.append(model)
+                
+                self?.collectionView.reloadData()
+                
+            }
             
             // Update the cached fetch results, and reload the table sections to match.
             if let changeDetails = changeInstance.changeDetails(for: smartAlbums) {
