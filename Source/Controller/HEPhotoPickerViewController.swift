@@ -62,7 +62,12 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     private var todoArray = [HEPhotoPickerListModel]()
     private var models = [HEPhotoPickerListModel]()
     
-    private var selectedModels =  [HEPhotoPickerListModel]()
+    private var selectedModels =  [HEPhotoPickerListModel](){
+        didSet{
+            selectedImageModels = selectedModels.filter{$0.asset.mediaType == .image}
+            selectedVideoModels = selectedModels.filter{$0.asset.mediaType == .video}
+        }
+    }
     private var selectedImages = [UIImage]()
     private var selectedVideoModels = [HEPhotoPickerListModel]()
     private var selectedImageModels = [HEPhotoPickerListModel]()
@@ -301,6 +306,12 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         case .video:
             pickerOptions.maxCountOfImage = 0
         }
+        if pickerOptions.singleVideo {
+            pickerOptions.maxCountOfVideo = 0
+        }
+        if pickerOptions.singlePicture{
+            pickerOptions.maxCountOfImage = 0
+        }
        
         if let models = pickerOptions.defaultSelections{
             selectedModels = models
@@ -328,11 +339,11 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     @objc func titleViewClick(_ sender:UIButton){
         sender.isSelected = true
         let popViewFrame : CGRect!
-        if HETool.isiPhoneX() {
-            popViewFrame = CGRect.init(x: 0, y: 88, width: kScreenWidth, height: kScreenHeight/2)
-        }else{
-            popViewFrame = CGRect.init(x: 0, y: 64, width: kScreenWidth, height: kScreenHeight/2)
-        }
+//        if HETool.isiPhoneX() {
+        popViewFrame = CGRect.init(x: 0, y: (self.navigationController?.navigationBar.frame.maxY)!, width: kScreenWidth, height: kScreenHeight/2)
+//        }else{
+//            popViewFrame = CGRect.init(x: 0, y: 64, width: kScreenWidth, height: kScreenHeight/2)
+//        }
         let listView =  HEAlbumListView.showOnKeyWidows(rect: popViewFrame, assetCollections: tempAlbums, cellClick: { [weak self](list,ablum,selecedIndex) in
             self?.preSelectedTableViewIndex = selecedIndex
             self?.models = [HEPhotoPickerListModel]()
@@ -511,21 +522,21 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
             self.models[indexPath.row].isSelected = selectedBtn.isSelected
             if selectedBtn.isSelected{
                 self.selectedModels.append(model)
-                if model.asset.mediaType == .image{
-                    self.selectedImageModels.append(model)
-                }
-                if model.asset.mediaType == .video{
-                    self.selectedVideoModels.append(model)
-                }
+//                if model.asset.mediaType == .image{
+//                    self.selectedImageModels.append(model)
+//                }
+//                if model.asset.mediaType == .video{
+//                    self.selectedVideoModels.append(model)
+//                }
             }else{
                 let arr = self.selectedModels
                 self.selectedModels = arr.filter{$0.index != model.index}
-                if model.asset.mediaType == .image{
-                    self.selectedImageModels = self.selectedImageModels.filter{$0.index != model.index}
-                }
-                if model.asset.mediaType == .video{
-                    self.selectedVideoModels = self.selectedVideoModels.filter{$0.index != model.index}
-                }
+//                if model.asset.mediaType == .image{
+//                    self.selectedImageModels = self.selectedImageModels.filter{$0.index != model.index}
+//                }
+//                if model.asset.mediaType == .video{
+//                    self.selectedVideoModels = self.selectedVideoModels.filter{$0.index != model.index}
+//                }
             }
             self.updateNextBtnTitle()
             
