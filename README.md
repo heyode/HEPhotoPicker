@@ -4,8 +4,13 @@
 [![Version](https://img.shields.io/cocoapods/v/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
+###### 图片和视频
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif)
+
+###### 只有图片
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif)
+
+###### 单选图片
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif)
 
 ## Features
