@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class HEBaseViewController: UIViewController {
+open class HEBaseViewController: UIViewController {
 
   open override func viewDidLoad() {
         super.viewDidLoad()

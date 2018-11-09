@@ -1,9 +1,9 @@
 //
-//  UIViewExtensions.swift
-//  guiai
+//  NSObjectExtension.swift
+//  SwiftPhotoSelector
 //
-//  Created by apple on 2018/7/19.
-//  Copyright © 2018年 youkouxin. All rights reserved.
+//  Created by apple on 2018/9/19.
+//  Copyright © 2018年 heyode. All rights reserved.
 //
 
 import UIKit
@@ -56,10 +56,8 @@ public extension UIViewController {
      ///   - maxCount: 选择图片的最大个数（默认是9）
      ///   - defaultSelections: 已选择的模型（多次累加选择时用）
     public func hePresentPhotoPickerController(picker:HEPhotoPickerViewController ,
-                                         maxCount:Int = 9,
                                          defaultSelections:[HEPhotoPickerListModel] = [HEPhotoPickerListModel]()){
-        picker.maxCount = maxCount
-        picker.selectedModels = defaultSelections
+     
         let nav = UINavigationController.init(rootViewController: picker)
         present(nav, animated: true, completion: nil)
     }

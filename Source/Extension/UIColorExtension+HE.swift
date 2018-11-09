@@ -1,37 +1,36 @@
 //
-//  UIColorExtension.swift
-//  U17
+//  NSObjectExtension.swift
+//  SwiftPhotoSelector
 //
-//  Created by charles on 2017/7/31.
-//  Copyright © 2017年 charles. All rights reserved.
+//  Created by apple on 2018/9/19.
+//  Copyright © 2018年 heyode. All rights reserved.
 //
-
 import UIKit
 extension UIColor {
     class var background: UIColor {
         return UIColor(r: 242, g: 242, b: 242)
     }
     
-    class var themeYellow: UIColor {
+   public class var themeYellow: UIColor {
         return UIColor(r: 219, g: 147, b: 79)
     }
 }
 extension UIColor {
     
-    convenience init(r:UInt32 ,g:UInt32 , b:UInt32 , a:CGFloat = 1.0) {
+    public convenience init(r:UInt32 ,g:UInt32 , b:UInt32 , a:CGFloat = 1.0) {
         self.init(red: CGFloat(r) / 255.0,
                   green: CGFloat(g) / 255.0,
                   blue: CGFloat(b) / 255.0,
                   alpha: a)
     }
     
-    class var random: UIColor {
+   public class var random: UIColor {
         return UIColor(r: arc4random_uniform(256),
                        g: arc4random_uniform(256),
                        b: arc4random_uniform(256))
     }
     
-    func image() -> UIImage {
+   public func image() -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -42,7 +41,7 @@ extension UIColor {
         return image!
     }
     
-    class func hex(hexString: String) -> UIColor {
+   public class func hex(hexString: String) -> UIColor {
         var cString: String = hexString.trimmingCharacters(in: .whitespacesAndNewlines)
         if cString.count < 6 { return UIColor.black }
         

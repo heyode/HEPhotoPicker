@@ -7,14 +7,19 @@
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/photopicker.gif)
 
 ## Features
-- 基于Swift4.2实现的iOS相册选择器
-- 支持点击预览大图
-- 支持多次累加选择
-- 可设置选择图片的最大个数
+- [x] 支持选择视频和图片（可自定义）
+- [x] 支持预览大图
+- [x] 支持累加选择
+- [x] 可切换相册
+- [x] 可设置视频和图片最大选择个数
+- [x] 支持图片单选
+- [x] 可定制为微博相册选择器
+
 ## Requirements
 - iOS 9.0
 - Xcode 10
 - Swift 4.2
+
 ## Installation
 
 ```ruby
@@ -25,22 +30,46 @@ pod 'HEPhotoPicker'
 ```Swift
 import HEPhotoPicker
 ```
-### 弹出相册选择器
+### 弹出相册选择器，使用默认配置
 ```Swift
-let picker = HEPhotoPickerViewController(delegate: self)
+// 创建选择器
+let picker = HEPhotoPickerViewController.init(delegate: self)
+// 弹出
 hePresentPhotoPickerController(picker: picker)
 ```
-### 设置选择图片的最大个数和多次累加选择
+### 自定义，类似微博的相册选择器
 ```Swift
-
-let picker = HEPhotoPickerViewController(delegate: self)
-  /// 自定义present方法
-     ///
-     /// - Parameters:
-     ///   - picker: 图片选择器
-     ///   - maxCount: 选择图片的最大个数（默认是9）
-     ///   - defaultSelections: 已选择的模型（多次累加选择时用）
-hePresentPhotoPickerController(picker: picker, maxCount: count,defaultSelections: selectedModel)
+// 配置项
+let option = HEPhotoPickerOptions.init()
+// 只能选择一个视频
+option.singleVideo = true
+// 图片和视频只能选择一种
+option.mediaType = .imageOrVideo
+// 将上次选择的数据传入，表示支持多次累加选择，
+option.defaultSelections = self.selectedModel
+// 选择图片的最大个数
+option.maxCountOfImage = 9
+// 创建选择器
+let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
+// 弹出
+hePresentPhotoPickerController(picker: picker)
+```
+### 自定义配置对象HEPhotoPickerOptions支持的属性
+```Swift
+  /// 要挑选的数据类型
+  public var mediaType : HEMediaType = .imageAndVideo
+  /// 列表是否按创建时间升序排列
+  public var ascendingOfCreationDateSort : Bool = false
+  /// 挑选图片的最大个数
+  public var maxCountOfImage = 9
+  /// 挑选视频的最大个数
+  public var maxCountOfVideo = 2
+  /// 是否支持图片单选，默认是false，如果是ture只允许选择一张图片（如果 mediaType = imageAndVideo 或者 imageOrVideo 此属性无效）
+  public var singlePicture = false
+  /// 是否支持视频单选 默认是false，如果是ture只允许选择一个视频（如果 mediaType = imageAndVideo 此属性无效）
+  public var singleVideo = false
+  ///  实现多次累加选择时，需要传入的选中的模型。为空时表示不需要多次累加
+  public var defaultSelections : [HEPhotoPickerListModel]?
 ```
 ## Author
 

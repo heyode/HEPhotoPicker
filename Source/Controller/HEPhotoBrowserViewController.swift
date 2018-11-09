@@ -15,16 +15,21 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     // 供外部赋值，在pop后调用刷新上个控制器的数据
     var closer : HEPhotoBrowserViewCotrollerCloser?
     var delegate : HEPhotoPickerViewControllerDelegate?
-    public var maxCount = 9
+  
+    /// 配置
+    public var pickerOptions = HEPhotoPickerOptions()
     typealias HEPhotoBrowserCallback = (_ selecedModels:[HEPhotoPickerListModel])->Void
     // 供外部赋值，用于取最新的selectedimage值
     var selecedModelUpdateCallBack : HEPhotoBrowserCallback?
     var models = [HEPhotoPickerListModel]()
+   
     var selectedModels = [HEPhotoPickerListModel](){
         didSet{
             updateNextBtnTitle()
         }
     }
+    var selectedVideoModels = [HEPhotoPickerListModel]()
+    var selectedImageModels = [HEPhotoPickerListModel]()
     var selectedImages = [UIImage]()
     
     var todoArray = [HEPhotoPickerListModel]()
@@ -32,7 +37,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     var image = UIImage()
     let barHeight : CGFloat = 130
     lazy var bootomBar : UIView = {
-        let navigationMaxY : CGFloat = Tool.isiPhoneX() ? 88 : 64
+        let navigationMaxY : CGFloat = HETool.isiPhoneX() ? 88 : 64
         let view = UIView.init(frame: CGRect.init(x: 0, y: self.view.bounds.size.height -  barHeight -  navigationMaxY , width: self.view.bounds.width, height: barHeight))
         view.backgroundColor = UIColor.init(r: 50, g: 50, b: 50, a: 0.3)
         view.addSubview(bottomCollectionView)
@@ -55,7 +60,8 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         collectionView.register(HEPhoneBrowserBottomCell.classForCoder(), forCellWithReuseIdentifier: HEPhoneBrowserBottomCell.className)
         return collectionView
     }()
-    var imageIndex : IndexPath?
+    var currentIndex : Int!
+    var imageIndex : IndexPath!
     var checkBtn  : UIButton!
     let layout = UICollectionViewFlowLayout.init()
     lazy var collectionView : UICollectionView = {
@@ -63,7 +69,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
-        let y : CGFloat = Tool.isiPhoneX() ? -88 : -64
+        let y : CGFloat = HETool.isiPhoneX() ? -88 : -64
         let collectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: y, width: kScreenWidth, height: kScreenHeight), collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
         collectionView.isPagingEnabled = true
@@ -73,7 +79,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         return collectionView
     }()
     
- 
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = .black
@@ -96,7 +102,10 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentIndex = imageIndex.row
         configUI()
+
+        
     }
     
     func configUI() {
@@ -118,10 +127,9 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         
         updateNextBtnTitle()
         
-        checkBtn = UIButton.init(type: .custom)
-      
        
-       let budle = Bundle(path: Bundle(for: HEPhotoBrowserViewController.self).path(forResource: "HEPhotoPicker", ofType: "bundle")!)!
+        checkBtn = UIButton.init(type: .custom)
+        let budle = Bundle(path: Bundle(for: HEPhotoBrowserViewController.self).path(forResource: "HEPhotoPicker", ofType: "bundle")!)!
         let selImage = UIImage(named: "btn-check-selected", in: budle, compatibleWith: nil)
         let norImage = UIImage(named: "btn-check-normal", in: budle, compatibleWith: nil)
         checkBtn.setImage(selImage, for: .selected)
@@ -129,23 +137,39 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         checkBtn.addTarget(self, action: #selector(selectedBtnClick(_:)), for: .touchUpInside)
         let btnW : CGFloat = 30
         checkBtn.frame = CGRect.init(x:view.bounds.width - 10 - btnW, y: 10, width: btnW, height: btnW)
-        view.addSubview(collectionView)
-        view.addSubview(checkBtn)
-        view.addSubview(bootomBar)
         
-        collectionView.setContentOffset(CGPoint.init(x: CGFloat(self.imageIndex?.row ?? 0) * kScreenWidth, y: 0), animated: false)
+        
+        view.addSubview(collectionView)
+        view.addSubview(bootomBar)
+        view.addSubview(checkBtn)
+        
+        collectionView.setContentOffset(CGPoint.init(x: CGFloat(currentIndex) * kScreenWidth, y: 0), animated: false)
 
     }
     func updateNextBtnTitle() {
         guard let rightBtn = self.navigationItem.rightBarButtonItem?.customView as? UIButton  else {
             return
         }
-        
         rightBtn.isEnabled = self.selectedModels.count > 0
-        bootomBar.isHidden = self.selectedModels.count <= 0
         rightBtn.setTitle(String.init(format: "选择(%d)", self.selectedModels.count), for: .normal)
+        if self.pickerOptions.singlePicture == true || self.pickerOptions.singleVideo == true{
+            let currentModel = models[currentIndex]
+            
+            if self.pickerOptions.singlePicture == true && currentModel.asset.mediaType == .image {
+                    rightBtn.isEnabled = true
+                    rightBtn.setTitle("选择", for: .normal)
+                }
+            if  self.pickerOptions.singleVideo == true && currentModel.asset.mediaType == .video{
+                    rightBtn.isEnabled = true
+                    rightBtn.setTitle("选择", for: .normal)
+            }
+        }
         rightBtn.sizeToFit()
+        bootomBar.isHidden = self.selectedModels.count <= 0
+        
+        
     }
+    
     func getImages(){
         
         let option = PHImageRequestOptions()
@@ -165,35 +189,74 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         
     }
     @objc func nextBtnClick(){
-        todoArray = self.selectedModels
-        getImages()
-    }
-    @objc func selectedBtnClick(_ btn: UIButton){
-        guard selectedModels.count < self.maxCount else {
-            let title = String.init(format: "最多只能选择%d个照片", self.maxCount)
-            let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
-            let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in
-                
-            }
-            alertView.addAction(okAction)
-            self.present(alertView, animated: true, completion: nil)
-            return
+        let currentModel = self.models[currentIndex]
+        if currentModel.asset.mediaType == .image &&  self.pickerOptions.singlePicture == true && currentModel.isEnable == true{
+            selectedModels.append(currentModel)
+            todoArray = self.selectedModels
+            getImages()
+        }else if  currentModel.asset.mediaType == .video &&  self.pickerOptions.singleVideo == true && currentModel.isEnable == true{
+            selectedModels.append(currentModel)
+            todoArray = self.selectedModels
+            getImages()
+        }else{
+            todoArray = self.selectedModels
+            getImages()
         }
         
-        btn.isSelected = !btn.isSelected
+        
+    }
+    @objc func selectedBtnClick(_ btn: UIButton){
+       
         let row = Int(collectionView.contentOffset.x / collectionView.frame.width)
         
         let model = models[row]
+        if !btn.isSelected{
+            let maxImageCount = self.pickerOptions.maxCountOfImage
+            let selectedImageCount =  self.selectedImageModels.count
+            
+            if  model.asset.mediaType == .image{
+                if selectedImageCount >= maxImageCount {
+                    let title = String.init(format: "最多只能选择%d个照片", maxImageCount)
+                    HETool.presentAlert(title: title, viewController: self)
+                    return
+                }
+                
+            }
+            let maxVideoCount = self.pickerOptions.maxCountOfVideo
+            let selectedVideoCount =  self.selectedVideoModels.count
+            if  model.asset.mediaType == .video {
+                if selectedVideoCount >= maxVideoCount {
+                    let title = String.init(format: "最多只能选择%d个视频", maxVideoCount)
+                    HETool.presentAlert(title: title, viewController: self)
+                    return
+                }
+                
+            }
+        }
+        
+        btn.isSelected = !btn.isSelected
+        
         model.isSelected = btn.isSelected
         
         if btn.isSelected{
             
             selectedModels.append(model)
+            if model.asset.mediaType == .image{
+                self.selectedImageModels.append(model)
+            }
+            if model.asset.mediaType == .video{
+                self.selectedVideoModels.append(model)
+            }
         }else{
             
             let arr = selectedModels
             selectedModels = (arr.filter{$0.index != model.index})
-            
+            if model.asset.mediaType == .image{
+                self.selectedImageModels = self.selectedImageModels.filter{$0.index != model.index}
+            }
+            if model.asset.mediaType == .video{
+                self.selectedVideoModels = self.selectedVideoModels.filter{$0.index != model.index}
+            }
         }
         
         
@@ -229,6 +292,7 @@ extension HEPhotoBrowserViewController : UICollectionViewDelegate,UICollectionVi
                 fatalError("unexpected cell in collection view")
             }
             let model  = models[indexPath.row]
+            
             cell.model = model
             
             return cell
@@ -248,21 +312,50 @@ extension HEPhotoBrowserViewController : UICollectionViewDelegate,UICollectionVi
         
         if collectionView == self.bottomCollectionView {
             let selectedModel = selectedModels[indexPath.row]
-            for (index,_) in self.models.enumerated(){
-                if  index == selectedModel.index{
+            for (index,model) in self.models.enumerated(){
+                if  model.asset.localIdentifier == selectedModel.asset.localIdentifier{
                     self.checkBtn.isSelected = true
                     self.collectionView.setContentOffset(CGPoint.init(x: CGFloat(index) * collectionView.frame.width , y: 0), animated: false)
                 }
             }
         }
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let model  = models[indexPath.row]
+        
+        if model.asset.mediaType == .video{
+            if let browserCell = cell as? HEPhotoBrowserCell{
+                browserCell.canlePlayerAction()
+            }
+        }
+        
+    }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         if scrollView == self.collectionView {
             let row = Int(scrollView.contentOffset.x / scrollView.frame.width)
+            currentIndex = row
             let currentModel = self.models[row]
+            
             checkBtn.isSelected = currentModel.isSelected
+            // 是否支持视频图片二选一的模式
+            var isfalg : Bool? = nil
+            if self.pickerOptions.mediaType == .imageOrVideo && self.selectedModels.count > 0{
+                isfalg = true
+            }else if self.pickerOptions.mediaType == .imageOrVideo && self.selectedModels.count <= 0{
+                isfalg = false
+            }
+            if let falg = isfalg, falg == true{// 如果是
+                if currentModel.asset.mediaType == self.selectedModels.first?.asset.mediaType{//与已选择的文件类型相同，显示可选按钮
+                    checkBtn.isHidden = false
+                }else{
+                    checkBtn.isHidden = true
+                }
+            }else{//如果不是
+                
+                checkBtn.isHidden = !currentModel.isEnableSelected
+                updateNextBtnTitle()
+            }
             if currentModel.isSelected == true{
                 for (index,item) in self.selectedModels.enumerated(){
                     if item.index == currentModel.index{
