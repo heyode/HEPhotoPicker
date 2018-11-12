@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
-
+![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif)
 ## Features
 - [x] 支持选择视频和图片（可自定义）
 - [x] 支持预览大图
