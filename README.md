@@ -6,19 +6,19 @@
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
 <div>
 <figure style="width: 25%;float: left;margin: 0;text-align: center;padding: 0;">
-    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif"  style="width:270;heigt:470;padding: 5">
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif"  width="270" height="480">
     <figcaption>类似微博相册</figcaption>
 </figure>
 <figure style="width: 25%;float: left;margin: 0;text-align: center;padding: 0;">
-    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif" style="width:270;heigt:470;padding: 5" >
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif"  width="270" height="480" >
     <figcaption>图片和视频</figcaption>
 </figure>
 <figure style="width: 25%;float: left;margin: 0;text-align: center;padding: 0;">
-    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif" style="width:270;heigt:470;padding: 5" >
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif"  width="270" height="480">
     <figcaption>只有图片</figcaption>
 </figure>
 <figure style="width: 25%;float: left;margin: 0;text-align: center;padding: 0;">
-    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" style="width:270;heigt:470;padding: 5" >
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif"  width="270" height="480" >
     <figcaption>图片单选</figcaption>
 </figure>
 <!-- <style type="text/css">
