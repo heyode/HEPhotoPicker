@@ -4,17 +4,38 @@
 [![Version](https://img.shields.io/cocoapods/v/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
-##### 类似微博相册（图片和视频只能选一种）
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif)
 
-##### 图片和视频
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif)
+<div>
+<figure>
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif">
+    <figcaption>类似微博相册</figcaption>
+</figure>
+<figure display:inline>
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif" >
+    <figcaption>图片和视频</figcaption>
+</figure>
+<figure>
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif" >
+    <figcaption>只有图片</figcaption>
+</figure>
+<figure>
+    <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" >
+    <figcaption>图片单选</figcaption>
+</figure>
+<style type="text/css">
+figure {
+    width: 25%;
+    float: left;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+}
+</style>
+</div>
 
-##### 只有图片
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif)
+<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif" width="270" height="480">
+<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" width="270" height="480">
 
-##### 单选图片
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif)
 
 ## Features
 - [x] 支持选择视频和图片（可自定义）
