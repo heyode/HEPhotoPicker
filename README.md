@@ -53,7 +53,8 @@ let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
 hePresentPhotoPickerController(picker: picker)
 ```
-<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif" width="250" height="451">
+![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif)
+
 ### 多选图片
 ```Swift
 // 配置项
@@ -65,7 +66,7 @@ let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
 hePresentPhotoPickerController(picker: picker)
 ```
-<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif" width="250" height="451">
+![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif)
 ### 单选图片
 ```Swift
 // 配置项
@@ -79,8 +80,7 @@ let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
 hePresentPhotoPickerController(picker: picker)
 ```
-<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" width="250" height="451">
-
+![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif)
 ### 自定义配置对象HEPhotoPickerOptions支持的属性
 ```Swift
   /// 要挑选的数据类型
