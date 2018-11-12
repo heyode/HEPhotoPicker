@@ -19,8 +19,7 @@
     <figcaption>图片单选</figcaption>
 </figure>
 
-<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif" width="270" height="480">
-<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" width="270" height="480">
+<img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif" width="270" height="480"><img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" width="270" height="480">
 
 
 ## Features
