@@ -5,12 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
 
-<div>
 <figure>
     <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif">
     <figcaption>类似微博相册</figcaption>
 </figure>
-<figure display:inline>
+<figure >
     <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif" >
     <figcaption>图片和视频</figcaption>
 </figure>
@@ -22,16 +21,6 @@
     <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" >
     <figcaption>图片单选</figcaption>
 </figure>
-<style type="text/css">
-figure {
-    width: 25%;
-    float: left;
-    margin: 0;
-    text-align: center;
-    padding: 0;
-}
-</style>
-</div>
 
 <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif" width="270" height="480">
 <img src="https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif" width="270" height="480">
