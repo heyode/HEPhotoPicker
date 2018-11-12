@@ -30,7 +30,13 @@ s.source           = { :git => "https://github.com/heyode/HEPhotoPicker.git", :t
 
 s.ios.deployment_target = '9.0'
 s.swift_version = '4.2'
-s.source_files = ["Source/*.swift", "Source/*/*.swift"]
+s.source_files = [
+  "Source/*.swift",
+  "Source/Base/*.swift",
+   "Source/Controller/*.swift",
+   "Source/Extension/*.swift",
+   "Source/Model/*.swift",
+   "Source/View/*.swift"]
 
 s.resource_bundles = {
     'HEPhotoPicker' => [
@@ -38,7 +44,7 @@ s.resource_bundles = {
     'Assets/*.xib'
     ]
 }
-  
+
   # s.public_header_files = 'Pod/Classes/**/*.h'
  s.frameworks = 'UIKit','Photos'
   # s.dependency 'AFNetworking', '~> 2.3'

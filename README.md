@@ -4,6 +4,9 @@
 [![Version](https://img.shields.io/cocoapods/v/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
+##### 类似微博相册（图片和视频只能选一种）
+![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif)
+
 ##### 图片和视频
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif)
 
