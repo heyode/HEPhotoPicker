@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0359A8C81D81FA5C0E4DA96F /* Pods_HEPhotoPicker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0787034D53B7BEF19C0799E2 /* Pods_HEPhotoPicker_Example.framework */; };
-		18344A77217DB86200EFA8D0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18344A75217DB86200EFA8D0 /* MasterViewController.swift */; };
-		18344A78217DB86200EFA8D0 /* MasterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18344A76217DB86200EFA8D0 /* MasterCell.swift */; };
 		18344A7A217DB87200EFA8D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18344A79217DB87200EFA8D0 /* Main.storyboard */; };
-		18983FEC21919D7700985C7E /* CusomDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18983FEB21919D7700985C7E /* CusomDemoViewController.swift */; };
-		18983FEE2191A48800985C7E /* LikeWeiBoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18983FED2191A48800985C7E /* LikeWeiBoViewController.swift */; };
-		18F495B72193DEF5005AC6E5 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F495B62193DEF5005AC6E5 /* BrowserViewController.swift */; };
-		18F495B92193E62E005AC6E5 /* BrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F495B82193E62E005AC6E5 /* BrowserCell.swift */; };
-		18F495BF2193EA97005AC6E5 /* BrowserBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F495BE2193EA97005AC6E5 /* BrowserBottomCell.swift */; };
+		184F670D219A83DB00B8D711 /* BrowserBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F6705219A83DB00B8D711 /* BrowserBottomCell.swift */; };
+		184F670E219A83DB00B8D711 /* BrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F6706219A83DB00B8D711 /* BrowserCell.swift */; };
+		184F670F219A83DB00B8D711 /* MasterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F6707219A83DB00B8D711 /* MasterCell.swift */; };
+		184F6710219A83DB00B8D711 /* CusomDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F6709219A83DB00B8D711 /* CusomDemoViewController.swift */; };
+		184F6711219A83DB00B8D711 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F670A219A83DB00B8D711 /* BrowserViewController.swift */; };
+		184F6712219A83DB00B8D711 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F670B219A83DB00B8D711 /* MasterViewController.swift */; };
+		184F6713219A83DB00B8D711 /* LikeWeiBoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F670C219A83DB00B8D711 /* LikeWeiBoViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -35,14 +35,14 @@
 
 /* Begin PBXFileReference section */
 		0787034D53B7BEF19C0799E2 /* Pods_HEPhotoPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HEPhotoPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		18344A75217DB86200EFA8D0 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		18344A76217DB86200EFA8D0 /* MasterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterCell.swift; sourceTree = "<group>"; };
 		18344A79217DB87200EFA8D0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		18983FEB21919D7700985C7E /* CusomDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusomDemoViewController.swift; sourceTree = "<group>"; };
-		18983FED2191A48800985C7E /* LikeWeiBoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeWeiBoViewController.swift; sourceTree = "<group>"; };
-		18F495B62193DEF5005AC6E5 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
-		18F495B82193E62E005AC6E5 /* BrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCell.swift; sourceTree = "<group>"; };
-		18F495BE2193EA97005AC6E5 /* BrowserBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserBottomCell.swift; sourceTree = "<group>"; };
+		184F6705219A83DB00B8D711 /* BrowserBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserBottomCell.swift; sourceTree = "<group>"; };
+		184F6706219A83DB00B8D711 /* BrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserCell.swift; sourceTree = "<group>"; };
+		184F6707219A83DB00B8D711 /* MasterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterCell.swift; sourceTree = "<group>"; };
+		184F6709219A83DB00B8D711 /* CusomDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CusomDemoViewController.swift; sourceTree = "<group>"; };
+		184F670A219A83DB00B8D711 /* BrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
+		184F670B219A83DB00B8D711 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		184F670C219A83DB00B8D711 /* LikeWeiBoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeWeiBoViewController.swift; sourceTree = "<group>"; };
 		3E245EC4E60AAD7E2E3170B6 /* HEPhotoPicker.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HEPhotoPicker.podspec; path = ../HEPhotoPicker.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* HEPhotoPicker_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HEPhotoPicker_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +81,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184F6704219A83DB00B8D711 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				184F6705219A83DB00B8D711 /* BrowserBottomCell.swift */,
+				184F6706219A83DB00B8D711 /* BrowserCell.swift */,
+				184F6707219A83DB00B8D711 /* MasterCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		184F6708219A83DB00B8D711 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				184F6709219A83DB00B8D711 /* CusomDemoViewController.swift */,
+				184F670A219A83DB00B8D711 /* BrowserViewController.swift */,
+				184F670B219A83DB00B8D711 /* MasterViewController.swift */,
+				184F670C219A83DB00B8D711 /* LikeWeiBoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		20EEA5A4EEBAAA434EBCDE39 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,15 +146,10 @@
 		607FACD21AFB9204008FA782 /* Example for HEPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				184F6708219A83DB00B8D711 /* Controller */,
+				184F6704219A83DB00B8D711 /* View */,
 				18344A79217DB87200EFA8D0 /* Main.storyboard */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				18344A76217DB86200EFA8D0 /* MasterCell.swift */,
-				18344A75217DB86200EFA8D0 /* MasterViewController.swift */,
-				18983FEB21919D7700985C7E /* CusomDemoViewController.swift */,
-				18983FED2191A48800985C7E /* LikeWeiBoViewController.swift */,
-				18F495B62193DEF5005AC6E5 /* BrowserViewController.swift */,
-				18F495B82193E62E005AC6E5 /* BrowserCell.swift */,
-				18F495BE2193EA97005AC6E5 /* BrowserBottomCell.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -342,14 +358,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184F670E219A83DB00B8D711 /* BrowserCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				18F495B72193DEF5005AC6E5 /* BrowserViewController.swift in Sources */,
-				18344A77217DB86200EFA8D0 /* MasterViewController.swift in Sources */,
-				18F495BF2193EA97005AC6E5 /* BrowserBottomCell.swift in Sources */,
-				18F495B92193E62E005AC6E5 /* BrowserCell.swift in Sources */,
-				18344A78217DB86200EFA8D0 /* MasterCell.swift in Sources */,
-				18983FEE2191A48800985C7E /* LikeWeiBoViewController.swift in Sources */,
-				18983FEC21919D7700985C7E /* CusomDemoViewController.swift in Sources */,
+				184F6713219A83DB00B8D711 /* LikeWeiBoViewController.swift in Sources */,
+				184F6710219A83DB00B8D711 /* CusomDemoViewController.swift in Sources */,
+				184F670D219A83DB00B8D711 /* BrowserBottomCell.swift in Sources */,
+				184F6711219A83DB00B8D711 /* BrowserViewController.swift in Sources */,
+				184F670F219A83DB00B8D711 /* MasterCell.swift in Sources */,
+				184F6712219A83DB00B8D711 /* MasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
