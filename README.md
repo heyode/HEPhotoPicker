@@ -18,6 +18,7 @@
 - iOS 9.0
 - Xcode 10
 - Swift 4.2
+- 需要在使用项目的info.plist文件中加上用户授权相册的描述Privacy - Photo Library Usage Description
 
 ## Installation
 
