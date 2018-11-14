@@ -321,6 +321,7 @@ extension HEPhotoBrowserViewController : UICollectionViewDelegate,UICollectionVi
         }
     }
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard indexPath.row < models.count else {return}
         let model  = models[indexPath.row]
         
         if model.asset.mediaType == .video{

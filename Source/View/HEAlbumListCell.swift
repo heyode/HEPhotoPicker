@@ -18,11 +18,12 @@ class HEAlbumListCell: UITableViewCell {
        
             
             countLab.text = String.init(format: "%d", album.count)
-            let size = CGSize.init(width: albumImageView.frame.width * 2, height: albumImageView.frame.height * 2)
+            let scale = UIScreen.main.scale
+            let size = CGSize.init(width: albumImageView.frame.width * scale, height:albumImageView.frame.height * scale)
             guard let asset = album.fetchResult.firstObject else{
                 return
             }
-            PHImageManager.default().requestImage(for:asset,
+            PHCachingImageManager.default().requestImage(for:asset,
                                                   targetSize: size,
                                                   contentMode: .aspectFill,
                                                   options: nil, resultHandler:  { image, _ in

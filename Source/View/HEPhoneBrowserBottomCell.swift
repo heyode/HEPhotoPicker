@@ -16,7 +16,7 @@ class HEPhoneBrowserBottomCell: UICollectionViewCell {
         didSet{
             let scale = UIScreen.main.scale
             let thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height * scale)
-            PHImageManager.default().requestImage(for: model.asset,
+            PHCachingImageManager.default().requestImage(for: model.asset,
                                                   targetSize: thumbnailSize,
                                                   contentMode: .aspectFill,
                                                   options: nil)

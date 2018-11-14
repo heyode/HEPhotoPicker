@@ -24,7 +24,7 @@ class HEPhotoBrowserCell: UICollectionViewCell {
                 palayBtn.isHidden = true
             }
             let options = PHImageRequestOptions()
-            PHImageManager.default().requestImage(for: model.asset,
+            PHCachingImageManager.default().requestImage(for: model.asset,
                                                   targetSize: self.bounds.size,
                                                   contentMode: .aspectFill,
                                                   options: options)

@@ -531,6 +531,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
             }else{
                 let arr = self.selectedModels
                 self.selectedModels = arr.filter{$0.index != model.index}
+             
 //                if model.asset.mediaType == .image{
 //                    self.selectedImageModels = self.selectedImageModels.filter{$0.index != model.index}
 //                }
