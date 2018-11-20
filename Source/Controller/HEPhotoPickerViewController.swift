@@ -40,9 +40,11 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     
     // MARK : - Private
     
-    /// 图片list的模型
+    /// 图片列表的数据模型
     private var models = [HEPhotoPickerListModel]()
+    /// 选中的数据模型
     private var selectedModels =  [HEPhotoPickerListModel]()
+    /// 选中的图片模型（若有视频，则取它第一帧作为图片保存）
     private var selectedImages = [UIImage]()
     /// 用于处理选中的数组
     private var todoArray = [HEPhotoPickerListModel]()
@@ -88,6 +90,11 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     }()
     // MARK:- 初始化
 
+    /// 初始化方法
+    ///
+    /// - Parameters:
+    ///   - delegate: 控制器的代理
+    ///   - options: 配置项
     public init(delegate: HEPhotoPickerViewControllerDelegate,options:HEPhotoPickerOptions = HEPhotoPickerOptions() ) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
