@@ -38,7 +38,7 @@ extension LikeWeiBoViewController : HEPhotoPickerViewControllerDelegate{
         self.selectedModel = selectedModel
       
         self.visibleImages = selectedImages
-        picker.dismiss(animated: true, completion: nil)
+        
     }
     func pickerControllerDidCancel(_ picker: UIViewController) {
         // 取消选择后的一些操作

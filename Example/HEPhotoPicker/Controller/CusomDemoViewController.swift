@@ -37,7 +37,7 @@ class CusomDemoViewController: UIViewController {
         a.transitionType = .modal
         return a
     }()
-    var homeFrame = CGRect.zero
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,7 +96,7 @@ class CusomDemoViewController: UIViewController {
             fatalError()
         }
         if accumulationSwitch.isOn {
-            option.defaultSelections = self.selectedModel
+            option.defaultSelections = selectedModel
         }
         option.maxCountOfImage = count
         option.maxCountOfVideo = videoCount
@@ -107,7 +107,7 @@ class CusomDemoViewController: UIViewController {
         
     }
   func cleanSelectedBtnClick() {
-        self.view.endEditing(true)
+        view.endEditing(true)
         selectedModel = [HEPhotoPickerListModel]()
         visibleImages = [UIImage]()
         
@@ -118,7 +118,7 @@ extension CusomDemoViewController : HEPhotoPickerViewControllerDelegate{
         // 实现多次累加选择时，需要把选中的模型保存起来，传给picker
         self.selectedModel = selectedModel
         self.visibleImages = selectedImages
-        picker.dismiss(animated: true, completion: nil)
+   
     }
     func pickerControllerDidCancel(_ picker: UIViewController) {
         // 取消选择后的一些操作
@@ -186,7 +186,7 @@ extension CusomDemoViewController: HEPhotoBrowserAnimatorPushDelegate{
         guard   let cell = collectionView.cellForItem(at: indexPath) as? MasterCell else{
             fatalError("unexpected cell in collection view")
         }
-        homeFrame =   UIApplication.shared.keyWindow?.convert(cell.imageView.frame, from: cell.contentView) ?? CGRect.zero
+        let homeFrame =   UIApplication.shared.keyWindow?.convert(cell.imageView.frame, from: cell.contentView) ?? CGRect.zero
         //返回具体的尺寸
         return homeFrame
     }

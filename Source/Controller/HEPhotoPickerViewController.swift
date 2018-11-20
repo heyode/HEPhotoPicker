@@ -29,79 +29,45 @@ let kScreenHeight = UIScreen.main.bounds.size.height
     /// - Parameter picker: 选择图片的控制器
     @objc optional func pickerControllerDidCancel(_ picker:UIViewController)
 }
-public enum HEMediaType : Int {
-    /// 只显示图片
-    case image
-    /// 只显示视频
-    case video
-    /// 所有类型都显示,并且都可以选择
-    case imageAndVideo
-    /// 所有类型都显示,但只能选一类
-    case imageOrVideo
-}
-open class HEPhotoPickerOptions : NSObject{
-    /// 要挑选的数据类型
-    public var mediaType : HEMediaType = .imageAndVideo
-    /// 列表是否按创建时间升序排列
-    public var ascendingOfCreationDateSort : Bool = false
-    /// 挑选图片的最大个数
-    public var maxCountOfImage = 9
-    /// 挑选视频的最大个数
-    public var maxCountOfVideo = 2
-    /// 是否支持图片单选，默认是false，如果是ture只允许选择一张图片（如果 mediaType = imageAndVideo 或者 imageOrVideo 此属性无效）
-    public var singlePicture = false
-    /// 是否支持视频单选 默认是false，如果是ture只允许选择一个视频（如果 mediaType = imageAndVideo 此属性无效）
-    public var singleVideo = false
-    ///  实现多次累加选择时，需要传入的选中的模型。为空时表示不需要多次累加
-    public var defaultSelections : [HEPhotoPickerListModel]?
-}
+
+
 public class HEPhotoPickerViewController: HEBaseViewController {
+    // MARK : - Public
     /// 选择器配置
     public var pickerOptions : HEPhotoPickerOptions!
+    /// 选择完成后的相关代理
+    public var delegate : HEPhotoPickerViewControllerDelegate?
     
-    private var todoArray = [HEPhotoPickerListModel]()
+    // MARK : - Private
+    
+    /// 图片list的模型
     private var models = [HEPhotoPickerListModel]()
-    
-    private var selectedModels =  [HEPhotoPickerListModel](){
-        didSet{
-            selectedImageModels = selectedModels.filter{$0.asset.mediaType == .image}
-            selectedVideoModels = selectedModels.filter{$0.asset.mediaType == .video}
-        }
-    }
+    private var selectedModels =  [HEPhotoPickerListModel]()
     private var selectedImages = [UIImage]()
-    private var selectedVideoModels = [HEPhotoPickerListModel]()
-    private var selectedImageModels = [HEPhotoPickerListModel]()
-    public var homeFrame = CGRect.zero
-    
+    /// 用于处理选中的数组
+    private var todoArray = [HEPhotoPickerListModel]()
     /// 图片请求项的配置
     private let options = PHImageRequestOptions()
     /// 相册请求项
     private let photosOptions = PHFetchOptions()
-    /// 代理
-    public var delegate : HEPhotoPickerViewControllerDelegate?
-    
-    
+    /// 过场动画
     private var animator = HEPhotoBrowserAnimator()
-    
-    
-   
     /// 所有的相册
     private var smartAlbums: PHFetchResult<PHAssetCollection>!
     /// 整理过后的相册
     private var tempAlbums = [HEAlbum]()
     /// 所有展示的多媒体数据集合
     private var phAssets : PHFetchResult<PHAsset>!
-    private var thumbnailSize: CGSize!
-    private let layout = UICollectionViewFlowLayout.init()
+    /// 相册按钮
     private var titleBtn : UIButton!
-    
-    
     /// 待刷新的IndexPath
     private var willUpadateIndex = [IndexPath]()
     /// titleBtn展开的tableView的上一个选中的IndexPath
     private var preSelectedTableViewIndex = IndexPath.init(row: 0, section: 0 )
+    /// 图片视图
     private lazy var collectionView : UICollectionView = {
         let cellW = (self.view.frame.width - 3) / 4.0
+        let layout = UICollectionViewFlowLayout.init()
         layout.itemSize = CGSize.init(width: cellW, height: cellW)
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
@@ -121,7 +87,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         return collectionView
     }()
     // MARK:- 初始化
-    
+
     public init(delegate: HEPhotoPickerViewControllerDelegate,options:HEPhotoPickerOptions = HEPhotoPickerOptions() ) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
@@ -134,10 +100,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     // MARK:- 控制器生命周期和设置UI
     public override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.edgesForExtendedLayout =  []
-        let scale = UIScreen.main.scale
-        let cellSize = layout.itemSize
-        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
+        edgesForExtendedLayout =  []
     }
     
     public override  func viewDidAppear(_ animated: Bool) {
@@ -150,7 +113,6 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         options.isSynchronous = true
         options.resizeMode = .none
         configPickerOption()
-        
         navigationController?.delegate = self
         
         getAllPhotos()
@@ -159,14 +121,16 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         PHPhotoLibrary.shared().register(self)
         
         configUI()
-        if self.selectedModels.count > 0{
+        if selectedModels.count > 0{
             updateUI()
         }
     }
+    
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
       
     }
+    
     func configUI() {
         view.addSubview(collectionView)
         let btn = HEAlbumTitleView.init(type: .custom)
@@ -178,7 +142,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         }
         btn.addTarget(self, action: #selector(HEPhotoPickerViewController.titleViewClick(_:)), for: .touchUpInside)
         
-        self.navigationItem.titleView = btn
+        navigationItem.titleView = btn
         let rightBtn = UIButton.init(type: .custom)
         rightBtn.layer.cornerRadius = 4
         rightBtn.layer.masksToBounds = true
@@ -191,8 +155,6 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         rightBtn.sizeToFit()
         rightBtn.addTarget(self, action: #selector(nextBtnClick), for: .touchUpInside)
         rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        
-        
         let right = UIBarButtonItem.init(customView: rightBtn)
         navigationItem.rightBarButtonItem = right
         rightBtn.isEnabled = false
@@ -200,7 +162,6 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     
     override public func configNavigationBar() {
         super.configNavigationBar()
-        
         let leftBtn = UIButton.init(type: .custom)
         leftBtn.setTitle("取消", for: .normal)
         leftBtn.addTarget(self, action: #selector(goBack), for: .touchUpInside)
@@ -210,57 +171,53 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         navigationItem.leftBarButtonItem = left
     }
     
-    
     /// 将给定类型模型设为不可点击状态
     ///
     /// - Parameter type: 给定媒体数据类型
     func setCellDisableEnable(with type:PHAssetMediaType){
-        for item in self.models{
+        for item in models{
             if item.asset.mediaType == type{
                 item.isEnable = false
             }
         }
-        self.collectionView.reloadData()
+        collectionView.reloadData()
     }
+    
     func updateNextBtnTitle() {
-        let rightBtn = self.navigationItem.rightBarButtonItem?.customView as! UIButton
-        rightBtn.isEnabled = self.selectedModels.count > 0
-        
-        rightBtn.isEnabled = self.selectedModels.count > 0
-        rightBtn.setTitle(String.init(format: "选择(%d)", self.selectedModels.count), for: .normal)
+        let rightBtn = navigationItem.rightBarButtonItem?.customView as! UIButton
+        rightBtn.isEnabled = selectedModels.count > 0
+        rightBtn.setTitle(String.init(format: "选择(%d)", selectedModels.count), for: .normal)
         rightBtn.sizeToFit()
     }
     
     /// 数据源重置后更新UI
     func updateUI(){
-        self.updateNextBtnTitle()
+        updateNextBtnTitle()
         let count = selectedModels.count
         
-        if count >= self.pickerOptions.maxCountOfImage + self.pickerOptions.maxCountOfVideo{
-            setCellState(isEnable: false, isUpdateSelecetd: true)
+        if count >= pickerOptions.maxCountOfImage + pickerOptions.maxCountOfVideo{
+            setCellState(isEnable: false,sel: nil, isUpdateSelecetd: true)
         }else{
-            setCellState(isEnable: true, isUpdateSelecetd: true)
+            setCellState(isEnable: true,sel: nil, isUpdateSelecetd: true)
         }
     }
-    
     
     /// 设置cell的可用和选中状态
     ///
     /// - Parameters:
     ///   - isEnable:其他cell是否能被选中
+    ///   - sel:当前选中的cell索引
     ///   - isUpdateSelecetd: 是否更新选中状态
-    
-    func setCellState(isEnable:Bool,isUpdateSelecetd:Bool = false){
-        willUpadateIndex = [IndexPath]()
+    func setCellState(isEnable:Bool,sel:Int?,isUpdateSelecetd:Bool = false){
         var isfalg : Bool? = nil
-        if self.pickerOptions.mediaType == .imageOrVideo && self.selectedModels.count > 0{
+        if pickerOptions.mediaType == .imageOrVideo && selectedModels.count > 0{
             isfalg = true
-        }else if self.pickerOptions.mediaType == .imageOrVideo && self.selectedModels.count <= 0{
+        }else if pickerOptions.mediaType == .imageOrVideo && selectedModels.count <= 0{
             isfalg = false
         }
-        for item in self.models{
+        for item in models{
             if isUpdateSelecetd == true{
-                for selItem in self.selectedModels{
+                for selItem in selectedModels{
                     if item.asset.localIdentifier ==  selItem.asset.localIdentifier{
                         item.isSelected = true
                     }
@@ -269,31 +226,67 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             if item.isSelected == false{// 根据当前用户选中的个数，将所有未选中的cell重置给定可用状态
                 item.isEnable = isEnable
                 if let falg = isfalg,falg == true{ //选中模式：是图片和视频只能选中其中一种，并且已经选中了至少一个
-                    if self.selectedModels.first?.asset.mediaType == .image{ // 用户选中的是图片的话，就把视频类型的cell都设置为不可选中
+                    if selectedModels.first?.asset.mediaType == .image{ // 用户选中的是图片的话，就把视频类型的cell都设置为不可选中
                         if item.asset.mediaType == .video{
                             item.isEnable = false
                         }
-                    }else if self.selectedModels.first?.asset.mediaType == .video{
+                    }else if selectedModels.first?.asset.mediaType == .video{
                         if item.asset.mediaType == .image{
                             item.isEnable = false
                         }
                     }
-                    
                 }
-                willUpadateIndex.append(IndexPath.init(row: item.index, section: 0))
+                if let i = sel,item.index != i{// 当前点击的cell已经在前面加入了，所以要排除
+                    willUpadateIndex.append(IndexPath.init(row: item.index, section: 0))
+                }
             }
         }
         if isUpdateSelecetd {// 整个数据源重置，必须刷新所有cell
-            self.collectionView.reloadData()
+            collectionView.reloadData()
         }else{
-            self.collectionView.reloadItems(at: willUpadateIndex)
+            collectionView.reloadItems(at: willUpadateIndex)
         }
-        
+    }
+    
+    func updateSelectedCell(sel:Int,isSelected:Bool) {
+        let model = models[sel]
+        if isSelected {
+            switch model.asset.mediaType {
+            case .image:
+                let selectedImageCount =  selectedModels.count{$0.asset.mediaType == .image}
+                guard selectedImageCount < pickerOptions.maxCountOfImage  else{
+                    let title = String.init(format: "最多只能选择%d个照片", pickerOptions.maxCountOfImage)
+                    HETool.presentAlert(title: title, viewController: self)
+                    return
+                }
+            case .video:
+                let selectedVideoCount =  selectedModels.count{$0.asset.mediaType == .video}
+                guard selectedVideoCount < pickerOptions.maxCountOfVideo else{
+                    let title = String.init(format: "最多只能选择%d个视频", pickerOptions.maxCountOfVideo)
+                    HETool.presentAlert(title: title, viewController: self)
+                    return
+                }
+            default:
+                break
+            }
+            selectedModels.append(model)
+        }else{// 切勿使用index去匹配
+            selectedModels.removeAll(where: {$0.asset.localIdentifier == model.asset.localIdentifier})
+        }
+        models[sel].isSelected = isSelected
+        updateNextBtnTitle()
+        let  count = selectedModels.count
+        willUpadateIndex = [IndexPath]()
+        willUpadateIndex.append(IndexPath.init(row: sel, section: 0))
+        if count >= pickerOptions.maxCountOfImage + pickerOptions.maxCountOfVideo{// 根据当前用户选中的个数，将所有未选中的cell重置给定可用状态
+            setCellState(isEnable: false, sel: sel)
+        }else{
+            setCellState(isEnable: true, sel: sel)
+        }
     }
     // MARK:- 初始化配置项
     
     func configPickerOption() {
-       
         switch pickerOptions.mediaType {
         case .imageAndVideo:
             pickerOptions.singlePicture = false
@@ -302,7 +295,6 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             pickerOptions.singlePicture = false
         case .image:
             pickerOptions.maxCountOfVideo = 0
-            
         case .video:
             pickerOptions.maxCountOfImage = 0
         }
@@ -312,26 +304,22 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         if pickerOptions.singlePicture{
             pickerOptions.maxCountOfImage = 0
         }
-       
         if let models = pickerOptions.defaultSelections{
             selectedModels = models
         }
-        
     }
-    
-    /// 如果是单选模式隐藏多选按钮
+    func isSinglePicture(model:HEPhotoPickerListModel) ->Bool{
+        return model.asset.mediaType == .image &&  pickerOptions.singlePicture == true
+    }
+    func isSingleVideo(model:HEPhotoPickerListModel) ->Bool{
+        return model.asset.mediaType == .video &&  pickerOptions.singleVideo == true
+    }
+    /// 如果当前模型是单选模式隐藏多选按钮
     ///
     /// - Parameter model: 当前模型
     func checkIsSingle(model:HEPhotoPickerListModel){
-        if self.pickerOptions.singlePicture == true{
-            if model.asset.mediaType == .image{
-                model.isEnableSelected = false
-            }
-        }
-        if self.pickerOptions.singleVideo == true{
-            if model.asset.mediaType == .video{
-                model.isEnableSelected = false
-            }
+        if isSinglePicture(model: model) ||  isSingleVideo(model: model) {
+            model.isEnableSelected = false
         }
     }
     
@@ -339,11 +327,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     @objc func titleViewClick(_ sender:UIButton){
         sender.isSelected = true
         let popViewFrame : CGRect!
-//        if HETool.isiPhoneX() {
-        popViewFrame = CGRect.init(x: 0, y: (self.navigationController?.navigationBar.frame.maxY)!, width: kScreenWidth, height: kScreenHeight/2)
-//        }else{
-//            popViewFrame = CGRect.init(x: 0, y: 64, width: kScreenWidth, height: kScreenHeight/2)
-//        }
+        popViewFrame = CGRect.init(x: 0, y: (navigationController?.navigationBar.frame.maxY)!, width: kScreenWidth, height: kScreenHeight/2)
         let listView =  HEAlbumListView.showOnKeyWidows(rect: popViewFrame, assetCollections: tempAlbums, cellClick: { [weak self](list,ablum,selecedIndex) in
             self?.preSelectedTableViewIndex = selecedIndex
             self?.models = [HEPhotoPickerListModel]()
@@ -363,7 +347,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         listView.tableView.selectRow(at: preSelectedTableViewIndex, animated: false, scrollPosition: .top)
     }
     @objc func nextBtnClick(){
-        todoArray = self.selectedModels
+        todoArray = selectedModels
         getImages()
     }
     @objc  func goBack(){
@@ -371,12 +355,9 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         delegate?.pickerControllerDidCancel?(self)
     }
     
-    
-    
-    
     //  MARK:- 获取全部图片
     private func getAllPhotos() {
-        switch self.pickerOptions.mediaType{
+        switch pickerOptions.mediaType{
         case .image:
             photosOptions.predicate = NSPredicate.init(format: "mediaType == %ld", PHAssetMediaType.image.rawValue)
         case .video:
@@ -384,7 +365,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         default:
             break
         }
-        photosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: self.pickerOptions.ascendingOfCreationDateSort)]
+        photosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: pickerOptions.ascendingOfCreationDateSort)]
         phAssets = PHAsset.fetchAssets(with: photosOptions)
         models =  [HEPhotoPickerListModel]()
         phAssets.enumerateObjects {[weak self] (asset, index, ff) in
@@ -392,20 +373,20 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             self?.checkIsSingle(model: model)
             model.index = index
             self?.models.append(model)
-            
             self?.collectionView.reloadData()
-            
         }
     }
     
     private func getClassList(){
         smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
-        
         smartAlbums.enumerateObjects { [weak self] (collection, index, stop) in
             let asset = PHAsset.fetchAssets(in: collection, options: self!.photosOptions)
             let album = HEAlbum.init(result: asset, title: collection.localizedTitle)
             if asset.count > 0 && collection.localizedTitle != "最近删除" &&  collection.localizedTitle != "Recently Deleted"{
-                if collection.localizedTitle == "所有照片" || collection.localizedTitle == "All Photos"{
+                if collection.localizedTitle == "所有照片"
+                    || collection.localizedTitle == "All Photos"
+                    || collection.localizedTitle == "相机胶卷"
+                    || collection.localizedTitle == "Camera Roll" {
                     self?.tempAlbums.insert(album, at: 0)
                 }else{
                     self?.tempAlbums.append(album)
@@ -419,7 +400,8 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         let option = PHImageRequestOptions()
         option.deliveryMode = .highQualityFormat
         if todoArray.count == 0 {
-            delegate?.pickerController(self, didFinishPicking: self.selectedImages,selectedModel: self.selectedModels)
+            delegate?.pickerController(self, didFinishPicking: selectedImages,selectedModel: selectedModels)
+            dismiss(animated: true, completion: nil)
         }
         if todoArray.count > 0 {
             PHImageManager.default().requestImage(for: (todoArray.first?.asset)!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option) {[weak self] (image, _) in
@@ -456,9 +438,7 @@ extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
                 self?.checkIsSingle(model: model)
                 model.index = index
                 self?.models.append(model)
-                
                 self?.collectionView.reloadData()
-                
             }
             
             // Update the cached fetch results, and reload the table sections to match.
@@ -468,7 +448,10 @@ extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
                     let asset = PHAsset.fetchAssets(in: collection, options: self?.photosOptions)
                     let album = HEAlbum.init(result: asset, title: collection.localizedTitle)
                     if asset.count > 0 && collection.localizedTitle != "最近删除" &&  collection.localizedTitle != "Recently Deleted"{
-                        if collection.localizedTitle == "所有照片" || collection.localizedTitle == "All Photos"{
+                        if collection.localizedTitle == "所有照片"
+                            || collection.localizedTitle == "All Photos"
+                            || collection.localizedTitle == "相机胶卷"
+                            || collection.localizedTitle == "Camera Roll"{
                             self?.tempAlbums.insert(album, at: 0)
                         }else{
                             self?.tempAlbums.append(album)
@@ -488,66 +471,14 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         return models.count
     }
     public  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:HEPhotoPickerCell.className , for: indexPath) as! HEPhotoPickerCell
-        
-        let model = self.models[indexPath.row]
+        let model = models[indexPath.row]
         cell.model = model
-        
         cell.checkBtnnClickClosure = {[unowned self] (selectedBtn) in
             if !selectedBtn.isSelected{
-                let maxImageCount = self.pickerOptions.maxCountOfImage
-                let selectedImageCount =  self.selectedImageModels.count
-                if  model.asset.mediaType == .image{
-                    guard selectedImageCount < maxImageCount else{
-                        let title = String.init(format: "最多只能选择%d个照片", maxImageCount)
-                        HETool.presentAlert(title: title, viewController: self)
-                        return
-                    }
-                    
-                }
-                let maxVideoCount = self.pickerOptions.maxCountOfVideo
-                let selectedVideoCount =  self.selectedVideoModels.count
-                if  model.asset.mediaType == .video {
-                    guard selectedVideoCount < maxVideoCount else{
-                        let title = String.init(format: "最多只能选择%d个视频", maxVideoCount)
-                        HETool.presentAlert(title: title, viewController: self)
-                        return
-                    }
-                    
-                }
-            }
-            selectedBtn.isSelected = !selectedBtn.isSelected
-            
-            self.models[indexPath.row].isSelected = selectedBtn.isSelected
-            if selectedBtn.isSelected{
-                self.selectedModels.append(model)
-//                if model.asset.mediaType == .image{
-//                    self.selectedImageModels.append(model)
-//                }
-//                if model.asset.mediaType == .video{
-//                    self.selectedVideoModels.append(model)
-//                }
+                self.updateSelectedCell(sel: indexPath.row, isSelected: true)
             }else{
-                let arr = self.selectedModels
-                self.selectedModels = arr.filter{$0.index != model.index}
-             
-//                if model.asset.mediaType == .image{
-//                    self.selectedImageModels = self.selectedImageModels.filter{$0.index != model.index}
-//                }
-//                if model.asset.mediaType == .video{
-//                    self.selectedVideoModels = self.selectedVideoModels.filter{$0.index != model.index}
-//                }
-            }
-            self.updateNextBtnTitle()
-            
-            
-            let  count = self.selectedModels.count
-            
-            if count >= self.pickerOptions.maxCountOfImage + self.pickerOptions.maxCountOfVideo{// 根据当前用户选中的个数，将所有未选中的cell重置给定可用状态
-                self.setCellState(isEnable: false)
-            }else{
-                self.setCellState(isEnable: true)
+                self.updateSelectedCell(sel: indexPath.row, isSelected: false)
             }
         }
         return cell
@@ -564,20 +495,17 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
             let photoDetail = HEPhotoBrowserViewController()
             photoDetail.delegate = self.delegate
             photoDetail.pickerOptions = self.pickerOptions
-            photoDetail.image = image!
             photoDetail.imageIndex = indexPath
-            
             photoDetail.models = self.models
             photoDetail.selectedModels = self.selectedModels
-            photoDetail.selectedVideoModels = self.selectedVideoModels
-            photoDetail.selectedImageModels = self.selectedImageModels
-            photoDetail.selecedModelUpdateCallBack = {[weak self] model in
-                self?.selectedModels = model
+            photoDetail.selectedCloser = { selectedIndex in
+                self.updateSelectedCell(sel: selectedIndex, isSelected: true)
             }
-            photoDetail.closer = { [weak self] in
-                if self?.selectedModels.count ?? 0 >= 0{
-                    self?.updateUI()
-                }
+            photoDetail.unSelectedCloser = { selectedIndex in
+                self.updateSelectedCell(sel: selectedIndex, isSelected: false)
+            }
+            photoDetail.clickBottomCellCloser = { selectedIndex in
+               collectionView.scrollToItem(at: IndexPath.init(item: selectedIndex, section: 0), at: .centeredVertically, animated: false)
                 
             }
             self.animator.popDelegate = photoDetail
@@ -594,14 +522,10 @@ extension HEPhotoPickerViewController : UINavigationControllerDelegate{
 }
 
 extension HEPhotoPickerViewController: HEPhotoBrowserAnimatorPushDelegate{
-    
-
-    
     public func imageViewRectOfAnimatorStart(at indexPath: IndexPath) -> CGRect {
-        guard   let cell = collectionView.cellForItem(at: indexPath) as? HEPhotoPickerCell else{
-            fatalError("unexpected cell in collection view")
-        }
-        homeFrame =  UIApplication.shared.keyWindow?.convert(cell.imageView.frame, from: cell.contentView) ?? CGRect.zero
+        // 获取指定cell的laout
+        let cellLayout = collectionView.layoutAttributesForItem(at: indexPath)
+        let homeFrame =  UIApplication.shared.keyWindow?.convert(cellLayout?.frame ??  CGRect.zero, from: collectionView) ?? CGRect.zero
         //返回具体的尺寸
         return homeFrame
     }

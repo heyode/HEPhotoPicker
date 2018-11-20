@@ -97,7 +97,7 @@ class HEPhotoPickerCell: UICollectionViewCell {
         durationBackView.isHidden = true
         contentView.addSubview(durationBackView)
         maskLayer = CAGradientLayer()
-        maskLayer.colors = [UIColor.clear.cgColor,UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor]
+        maskLayer.colors = [UIColor.clear.cgColor,UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor]
         maskLayer.startPoint = CGPoint.init(x: 0, y: 0)
         maskLayer.endPoint = CGPoint.init(x: 0, y: 1)
         maskLayer.locations = [0,1]

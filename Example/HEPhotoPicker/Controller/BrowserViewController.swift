@@ -190,21 +190,25 @@ class BrowserViewController: UIViewController {
 extension BrowserViewController : HEPhotoBrowserAnimatorPopDelegate{
         func indexOfPopViewImageView() -> IndexPath {
             
-            return imageIndex ?? IndexPath.init()
+            return IndexPath.init(item: currentIndex, section: 0)
         }
         func imageViewOfPopView() -> UIImageView {
+            guard  let cell = collectionView.cellForItem(at: IndexPath.init(item: currentIndex, section: 0)) as? BrowserCell ,let img = cell.imageView.image else {
+                fatalError("unexpected cell in collection view")
+                
+            }
             let temp = UIImageView()
             let x: CGFloat = 0
             let width: CGFloat = kScreenWidth
-            let height: CGFloat = width / (image.size.width) * (image.size.height)
+            let height: CGFloat = width / (img.size.width) * (img.size.height)
             var y: CGFloat = 0
             if height < kScreenHeight {
                 y = (kScreenHeight  -  height) * 0.5
             }
             temp.frame =  CGRect(x: x, y: y, width: width, height: height)
-            temp.image = image
+            temp.image = img
             temp.clipsToBounds = true
+            
             return temp
-        
         }
 }

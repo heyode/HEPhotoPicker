@@ -42,6 +42,7 @@ class HEPhotoBrowserCell: UICollectionViewCell {
         
         palayBtn = UIButton.init(type: .custom)
         palayBtn.addTarget(self, action: #selector(HEPhotoBrowserCell.palyBtnClick), for: .touchUpInside)
+        palayBtn.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3)
         palayBtn.isHidden = true
         palayBtn.setImage(UIImage.init(named: "play-btn", in: HETool.bundle, compatibleWith: nil), for: .normal)
         contentView.addSubview(palayBtn)
@@ -61,15 +62,6 @@ class HEPhotoBrowserCell: UICollectionViewCell {
             let options = PHVideoRequestOptions()
             options.isNetworkAccessAllowed = true
             options.deliveryMode = .automatic
-//            options.progressHandler = { progress, _, _, _ in
-//                // The handler may originate on a background queue, soÒ
-//                // re-dispatch to the main queue for UI work.
-//                DispatchQueue.main.sync {
-//                    //                    self.progressView.progress = Float(progress)
-//                }
-//            }
-            // Request an AVPlayerItem for the displayed PHAsset.
-            // Then configure a layer for playing it.
             PHImageManager.default().requestPlayerItem(forVideo:asset, options: options, resultHandler: { playerItem, info in
                 DispatchQueue.main.sync {
                     guard self.playerLayer == nil else { return }

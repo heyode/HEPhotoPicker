@@ -32,7 +32,7 @@ class HEAlbumListView: UIView {
    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(tableView)
+        addSubview(tableView)
        
     }
     
@@ -72,13 +72,13 @@ class HEAlbumListView: UIView {
     }
     
     public func dismiss(){
-        self.removeFromSuperview()
+        removeFromSuperview()
         backgroundView.removeFromSuperview()
     }
     private func dismissAnimate(){
-        let startY = self.frame.origin.y + 4
-        let endY = -self.frame.size.height
-        self.tableView.alpha = 1
+        let startY = frame.origin.y + 4
+        let endY = -frame.size.height
+        tableView.alpha = 1
         UIView.animate(withDuration: 0.2, animations: {
             self.frame.origin.y = startY
             
