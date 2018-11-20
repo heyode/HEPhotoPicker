@@ -255,6 +255,11 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         }
     }
     
+    /// 更新cell的选中状态
+    ///
+    /// - Parameters:
+    ///   - sel: 选中的索引
+    ///   - isSelected: 是否选中
     func updateSelectedCell(sel:Int,isSelected:Bool) {
         let model = models[sel]
         if isSelected {
@@ -471,9 +476,6 @@ extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
     }
 }
 extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionViewDataSource{
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
     }
