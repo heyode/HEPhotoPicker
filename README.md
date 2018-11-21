@@ -97,6 +97,7 @@ hePresentPhotoPickerController(picker: picker)
   public var singleVideo = false
   ///  实现多次累加选择时，需要传入的选中的模型。为空时表示不需要多次累加
   public var defaultSelections : [HEPhotoAsset]?
+
 ```
 ## Author
 
