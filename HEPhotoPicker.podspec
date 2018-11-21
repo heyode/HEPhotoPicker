@@ -20,9 +20,9 @@ Pod::Spec.new do |s|
 s.description      = 'Elegant photo picker in Swift. Inspired by Weibo.'
 
 s.homepage         = 'https://github.com/heyode/HEPhotoPicker'
-s.screenshots     = ['https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif',
-                    'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif',
-                    'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif']
+s.screenshots     = ['https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/image%26video.gif',
+                    'https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/OnlyImage.gif',
+                    'https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/singlePicture.gif']
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'heyode' => '1025335931@qq.com' }
 s.source           = { :git => "https://github.com/heyode/HEPhotoPicker.git", :tag => "#{s.version}" }
