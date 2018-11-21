@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif)
+![image](https://github.com/heyode/HEPhotoPicker/tree/master/ExampleImage/image%26video.gif)
 ## Features
 - [x] 支持选择视频和图片（可自定义）
 - [x] 支持预览大图
@@ -53,7 +53,7 @@ let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
 hePresentPhotoPickerController(picker: picker)
 ```
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/weibo.gif)
+![image](https://github.com/heyode/HEPhotoPicker/tree/master/ExampleImage/weibo.gif)
 
 ### 多选图片
 ```Swift
@@ -66,7 +66,7 @@ let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
 hePresentPhotoPickerController(picker: picker)
 ```
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif)
+![image](https://github.com/heyode/HEPhotoPicker/tree/master/ExampleImage/OnlyImage.gif)
 ### 单选图片
 ```Swift
 // 配置项
@@ -80,7 +80,7 @@ let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
 hePresentPhotoPickerController(picker: picker)
 ```
-![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif)
+![image](https://github.com/heyode/HEPhotoPicker/tree/master/ExampleImage/singlePicture.gif)
 ### 自定义配置对象HEPickerOptions支持的属性
 ```Swift
   /// 要挑选的数据类型
