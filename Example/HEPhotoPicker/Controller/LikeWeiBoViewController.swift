@@ -2,9 +2,26 @@
 //  LikeWeiBoViewController.swift
 //  HEPhotoPicker_Example
 //
-//  Created by apple on 2018/11/6.
-//  Copyright © 2018 CocoaPods. All rights reserved.
+//  Created by heyode on 2018/11/6.
+//  Copyright (c) 2018 heyode <1025335931@qq.com>
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 import HEPhotoPicker
@@ -15,9 +32,9 @@ class LikeWeiBoViewController: UIViewController {
         a.transitionType = .modal
         return a
     }()
-    var homeFrame = CGRect.zero
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    var selectedModel = [HEPhotoPickerListModel]()
+    var selectedModel = [HEPhotoAsset]()
     var visibleImages = [UIImage](){
         didSet{
             if oldValue != visibleImages{
@@ -33,7 +50,7 @@ class LikeWeiBoViewController: UIViewController {
     }
 }
 extension LikeWeiBoViewController : HEPhotoPickerViewControllerDelegate{
-    func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage],selectedModel:[HEPhotoPickerListModel]) {
+    func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage],selectedModel:[HEPhotoAsset]) {
         // 实现多次累加选择时，需要把选中的模型保存起来，传给picker
         self.selectedModel = selectedModel
       
@@ -105,17 +122,17 @@ extension LikeWeiBoViewController : UICollectionViewDelegate,UICollectionViewDat
         }else{// 添加图片的的cell被点击时
             self.view.endEditing(true)
             // 配置项
-            let option = HEPhotoPickerOptions.init()
+            let options = HEPickerOptions.init()
             // 只能选择一个视频
-            option.singleVideo = true
+            options.singleVideo = true
             // 图片和视频只能选择一种
-            option.mediaType = .imageOrVideo
+            options.mediaType = .imageOrVideo
             // 将上次选择的数据传入，表示支持多次累加选择，
-            option.defaultSelections = self.selectedModel
+            options.defaultSelections = self.selectedModel
             // 选择图片的最大个数
-            option.maxCountOfImage = 9
+            options.maxCountOfImage = 9
             // 创建选择器
-            let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
+            let picker = HEPhotoPickerViewController.init(delegate: self, options:options)
             // 弹出
             hePresentPhotoPickerController(picker: picker)
             
@@ -128,10 +145,9 @@ extension LikeWeiBoViewController : UICollectionViewDelegate,UICollectionViewDat
 extension LikeWeiBoViewController: HEPhotoBrowserAnimatorPushDelegate{
     
     public func imageViewRectOfAnimatorStart(at indexPath: IndexPath) -> CGRect {
-        guard   let cell = collectionView.cellForItem(at: indexPath) as? MasterCell else{
-            fatalError("unexpected cell in collection view")
-        }
-        homeFrame =   UIApplication.shared.keyWindow?.convert(cell.imageView.frame, from: cell.contentView) ?? CGRect.zero
+        // 获取指定cell的laout
+        let cellLayout = collectionView.layoutAttributesForItem(at: indexPath)
+        let homeFrame =  UIApplication.shared.keyWindow?.convert(cellLayout?.frame ??  CGRect.zero, from: collectionView) ?? CGRect.zero
         //返回具体的尺寸
         return homeFrame
     }

@@ -1,8 +1,8 @@
 //
-//  BrowserBottomCell.swift
-//  HEPhotoPicker_Example
+//  HEPhoneBrowserBottomCell.swift
+//  SwiftPhotoSelector
 //
-//  Created by heyode on 2018/11/8.
+//  Created by heyode on 2018/9/25.
 //  Copyright (c) 2018 heyode <1025335931@qq.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,15 @@
 
 import UIKit
 import Photos
-import HEPhotoPicker
-class BrowserBottomCell: UICollectionViewCell {
+class HEPhoneBrowserBottomCell: UICollectionViewCell {
     var imageView : UIImageView!
     
-    private var checkBtnnClickClosure : ((_ btn: UIButton)->Void)?
+    private var checkBtnnClickClosure : HEPhotoPickerCellClosure?
     var model : HEPhotoAsset!{
         didSet{
             let scale = UIScreen.main.scale
             let thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height * scale)
-            PHImageManager.default().requestImage(for: model.asset,
+            PHCachingImageManager.default().requestImage(for: model.asset,
                                                   targetSize: thumbnailSize,
                                                   contentMode: .aspectFill,
                                                   options: nil)
@@ -67,7 +66,7 @@ class BrowserBottomCell: UICollectionViewCell {
             }
         }
     }
-    
+  
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -39,7 +39,7 @@ hePresentPhotoPickerController(picker: picker)
 ### 类似微博的相册选择器
 ```Swift
 // 配置项
-let option = HEPhotoPickerOptions.init()
+let option = HEPickerOptions.init()
 // 只能选择一个视频
 option.singleVideo = true
 // 图片和视频只能选择一种
@@ -58,7 +58,7 @@ hePresentPhotoPickerController(picker: picker)
 ### 多选图片
 ```Swift
 // 配置项
-let option = HEPhotoPickerOptions.init()
+let option = HEPickerOptions.init()
 // 图片和视频只能选择一种
 option.mediaType = .image
 // 创建选择器
@@ -70,7 +70,7 @@ hePresentPhotoPickerController(picker: picker)
 ### 单选图片
 ```Swift
 // 配置项
-let option = HEPhotoPickerOptions.init()
+let option = HEPickerOptions.init()
 // 只能选择一个图片
 option.singleImage = true
 // 图片和视频只能选择一种
@@ -81,7 +81,7 @@ let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 hePresentPhotoPickerController(picker: picker)
 ```
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif)
-### 自定义配置对象HEPhotoPickerOptions支持的属性
+### 自定义配置对象HEPickerOptions支持的属性
 ```Swift
   /// 要挑选的数据类型
   public var mediaType : HEMediaType = .imageAndVideo
@@ -96,7 +96,7 @@ hePresentPhotoPickerController(picker: picker)
   /// 是否支持视频单选 默认是false，如果是ture只允许选择一个视频（如果 mediaType = imageAndVideo 此属性无效）
   public var singleVideo = false
   ///  实现多次累加选择时，需要传入的选中的模型。为空时表示不需要多次累加
-  public var defaultSelections : [HEPhotoPickerListModel]?
+  public var defaultSelections : [HEPhotoAsset]?
 ```
 ## Author
 

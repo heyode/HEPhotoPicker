@@ -1,8 +1,8 @@
 //
-//  NSObjectExtension.swift
+//  Tool.swift
 //  SwiftPhotoSelector
 //
-//  Created by heyode on 2018/9/19.
+//  Created by heyode on 2018/9/26.
 //  Copyright (c) 2018 heyode <1025335931@qq.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,26 +23,27 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+
 import Foundation
-extension NSObject {
-    public var className: String {
-        return type(of: self).className
-    }
+
+
+public class HETool: NSObject {
+   public static var  bundle = Bundle(for: HETool.classForCoder())
     
-    public static var className: String {
-        return String(describing: self)
-    }
-}
-
-extension Sequence {
-    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
-        var count = 0
-        for element in self {
-            if try predicate(element) {
-                count += 1
-            }
+   public static func isiPhoneX() -> Bool {
+        if kScreenHeight == 812 {
+            return true
+        }else{
+            return false
         }
-        return count
     }
+   public static func presentAlert(title:String,viewController:UIViewController){
+        let title = title
+        let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
+        let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in }
+        alertView.addAction(okAction)
+        viewController.present(alertView, animated: true, completion: nil)
+    }
+   
+    
 }
-

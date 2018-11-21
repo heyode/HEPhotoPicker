@@ -1,8 +1,8 @@
 //
-//  NSObjectExtension.swift
+//  HEPhotoAsset.swift
 //  SwiftPhotoSelector
 //
-//  Created by heyode on 2018/9/19.
+//  Created by heyode on 2018/9/22.
 //  Copyright (c) 2018 heyode <1025335931@qq.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,25 +24,23 @@
 //  THE SOFTWARE.
 
 import Foundation
-extension NSObject {
-    public var className: String {
-        return type(of: self).className
+import Photos
+public class HEPhotoAsset : NSObject{
+    /// 是否选中
+    public  var isSelected = false
+    /// 是否显示可选按钮
+    public var isEnableSelected = true
+    /// 是否可点击
+    public  var isEnable = true
+    /// 图片集合
+    public var asset = PHAsset()
+    /// 照片在指定相册中的索引（同一张照片在不同相册中索引不同）
+    public  var index : Int = 0
+    public init(asset:PHAsset) {
+        self.asset = asset
+    }
+    public override init() {
+        super.init()
     }
     
-    public static var className: String {
-        return String(describing: self)
-    }
 }
-
-extension Sequence {
-    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
-        var count = 0
-        for element in self {
-            if try predicate(element) {
-                count += 1
-            }
-        }
-        return count
-    }
-}
-
