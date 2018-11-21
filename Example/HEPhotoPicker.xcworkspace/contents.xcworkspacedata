@@ -5,6 +5,6 @@
       location = "group:HEPhotoPicker.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:Pods/Pod.xcodeproj">
    </FileRef>
 </Workspace>
