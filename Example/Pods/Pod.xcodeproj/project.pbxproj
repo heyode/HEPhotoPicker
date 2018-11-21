@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		02E69ED662ED707414117967CD3A9FC5 /* Pods-HEPhotoPicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 518AC6792A938D2511FA96FEE193101C /* Pods-HEPhotoPicker_Example-dummy.m */; };
 		188487A521A525A600BE9BE2 /* HESeletecedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188487A421A525A600BE9BE2 /* HESeletecedButton.swift */; };
-		188487C421A54C7700BE9BE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A75E1521A4F866007DA632 /* Assets.xcassets */; };
+		189D68E421A56E0700A2C90E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D68E321A56E0700A2C90E /* Assets.xcassets */; };
+		189D68E521A56E1400A2C90E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D68E321A56E0700A2C90E /* Assets.xcassets */; };
 		18A75E2921A4F866007DA632 /* HEPhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E1021A4F866007DA632 /* HEPhotoBrowserAnimator.swift */; };
 		18A75E2A21A4F866007DA632 /* NSObjectExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E1221A4F866007DA632 /* NSObjectExtension+HE.swift */; };
 		18A75E2B21A4F866007DA632 /* UIViewExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E1321A4F866007DA632 /* UIViewExtension+HE.swift */; };
@@ -28,7 +29,6 @@
 		18A75E3921A4F866007DA632 /* HEPickerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E2621A4F866007DA632 /* HEPickerOptions.swift */; };
 		18A75E3A21A4F866007DA632 /* HEPhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E2721A4F866007DA632 /* HEPhotoAsset.swift */; };
 		18A75E3B21A4F866007DA632 /* HEAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E2821A4F866007DA632 /* HEAlbum.swift */; };
-		18A75E3C21A4FAB0007DA632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A75E1521A4F866007DA632 /* Assets.xcassets */; };
 		24BC44BAA443F9DD90C5B9625EFC9307 /* Pods-HEPhotoPicker_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D58B77A85207A3C69FDA45583E480A7 /* Pods-HEPhotoPicker_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29EEC332860C49FA4E74499B962DC4F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4F1EF685C1EC56FFC932A062AD4855 /* UIKit.framework */; };
 		3C444919205FABFD48735C07DA13D4C3 /* HEPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 53660AAE3F3112A555CAE8A96E2889A2 /* HEPhotoPicker.bundle */; };
@@ -70,11 +70,11 @@
 		0D85FD032539428A6F88361A2C9EC328 /* Pods-HEPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		11F71CF63C13394065E2B809591204F8 /* ResourceBundle-HEPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HEPhotoPicker-Info.plist"; sourceTree = "<group>"; };
 		188487A421A525A600BE9BE2 /* HESeletecedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HESeletecedButton.swift; sourceTree = "<group>"; };
+		189D68E321A56E0700A2C90E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = "<group>"; };
 		18A75E1021A4F866007DA632 /* HEPhotoBrowserAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		18A75E1221A4F866007DA632 /* NSObjectExtension+HE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjectExtension+HE.swift"; sourceTree = "<group>"; };
 		18A75E1321A4F866007DA632 /* UIViewExtension+HE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewExtension+HE.swift"; sourceTree = "<group>"; };
 		18A75E1421A4F866007DA632 /* UIColorExtension+HE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColorExtension+HE.swift"; sourceTree = "<group>"; };
-		18A75E1521A4F866007DA632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18A75E1721A4F866007DA632 /* HEBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEBaseViewController.swift; sourceTree = "<group>"; };
 		18A75E1821A4F866007DA632 /* HETool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HETool.swift; sourceTree = "<group>"; };
 		18A75E1B21A4F866007DA632 /* HEAlbumListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HEAlbumListCell.swift; sourceTree = "<group>"; };
@@ -335,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				E54FA6D5E71DA6FF5427676A6AA28FF2 /* HEPhotoPicker */,
-				18A75E1521A4F866007DA632 /* Assets.xcassets */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -343,6 +342,7 @@
 		E54FA6D5E71DA6FF5427676A6AA28FF2 /* HEPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				189D68E321A56E0700A2C90E /* Assets.xcassets */,
 				18A75E1921A4F866007DA632 /* ViewController */,
 				18A75E2521A4F866007DA632 /* Data */,
 				18A75E0F21A4F866007DA632 /* Animator */,
@@ -516,7 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C444919205FABFD48735C07DA13D4C3 /* HEPhotoPicker.bundle in Resources */,
-				188487C421A54C7700BE9BE2 /* Assets.xcassets in Resources */,
+				189D68E421A56E0700A2C90E /* Assets.xcassets in Resources */,
 				18A75E3421A4F866007DA632 /* HEAlbumListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,7 +525,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A75E3C21A4FAB0007DA632 /* Assets.xcassets in Resources */,
+				189D68E521A56E1400A2C90E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
