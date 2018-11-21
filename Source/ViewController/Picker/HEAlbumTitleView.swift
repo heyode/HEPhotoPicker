@@ -1,8 +1,8 @@
 //
-//  NSObjectExtension.swift
-//  SwiftPhotoSelector
+//  HEAlbumTitleView.swift
+//  HEPhotoPicker
 //
-//  Created by heyode on 2018/9/19.
+//  Created by heyode on 2018/10/30.
 //  Copyright (c) 2018 heyode <1025335931@qq.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,26 +23,33 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
-extension NSObject {
-    public var className: String {
-        return type(of: self).className
+import UIKit
+
+
+class HEAlbumTitleView: UIButton {
+
+    //MARK:- 重写init函数
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setImage(UIImage.init(named: "nav-arrow-down", in: HETool.bundle, compatibleWith: nil), for: .normal)
+        setImage(UIImage.init(named: "nav-arrow-up", in: HETool.bundle, compatibleWith: nil), for: .selected)
+        setTitleColor(UIColor.hex(hexString: "222222"), for: .normal)
     }
     
-    public static var className: String {
-        return String(describing: self)
-    }
-}
 
-extension Sequence {
-    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
-        var count = 0
-        for element in self {
-            if try predicate(element) {
-                count += 1
-            }
-        }
-        return count
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let margin = CGFloat(8)
+        let btnW = frame.size.width
+        let w = titleLabel!.frame.size.width + imageView!.frame.size.width + margin
+        titleLabel!.frame.origin.x = (btnW-w)*0.5
+        imageView!.frame.origin.x = titleLabel!.frame.maxX + margin
+    }
+    
 }
-

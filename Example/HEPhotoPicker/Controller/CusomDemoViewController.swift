@@ -2,9 +2,26 @@
 //  CusomDemoViewController.swift
 //  HEPhotoPicker_Example
 //
-//  Created by apple on 2018/11/6.
-//  Copyright © 2018 CocoaPods. All rights reserved.
+//  Created by heyode on 2018/11/6.
+//  Copyright (c) 2018 heyode <1025335931@qq.com>
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
 import Photos
@@ -23,7 +40,7 @@ class CusomDemoViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var accumulationSwitch: UISwitch!
     @IBOutlet weak var macCountOfVideoTextfield: UITextField!
-    var selectedModel = [HEPhotoPickerListModel]()
+    var selectedModel = [HEPhotoAsset]()
     var visibleImages = [UIImage](){
         didSet{
             if oldValue != visibleImages{
@@ -37,7 +54,7 @@ class CusomDemoViewController: UIViewController {
         a.transitionType = .modal
         return a
     }()
-    var homeFrame = CGRect.zero
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,47 +95,46 @@ class CusomDemoViewController: UIViewController {
             return
         }
         
-        let option = HEPhotoPickerOptions.init()
-        option.ascendingOfCreationDateSort = ascendingSwitch.isOn
         
-        option.singlePicture = pickturSwitch.isOn
-        option.singleVideo = videoSwitch.isOn
+        let options = HEPickerOptions.init()
+        options.ascendingOfCreationDateSort = ascendingSwitch.isOn
+        
+        options.singlePicture = pickturSwitch.isOn
+        options.singleVideo = videoSwitch.isOn
         switch pickerTypeSegment.selectedSegmentIndex{
         case 0:
-            option.mediaType = .image
+            options.mediaType = .image
         case 1:
-            option.mediaType = .video
+            options.mediaType = .video
         case 2 :
-            option.mediaType = .imageAndVideo
+            options.mediaType = .imageAndVideo
         case 3 :
-            option.mediaType = .imageOrVideo
+            options.mediaType = .imageOrVideo
         default:
             fatalError()
         }
         if accumulationSwitch.isOn {
-            option.defaultSelections = self.selectedModel
+            options.defaultSelections = selectedModel
         }
-        option.maxCountOfImage = count
-        option.maxCountOfVideo = videoCount
-        let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
-        
-        
+        options.maxCountOfImage = count
+        options.maxCountOfVideo = videoCount
+        let picker = HEPhotoPickerViewController.init(delegate: self, options: options)
         hePresentPhotoPickerController(picker: picker)
         
     }
   func cleanSelectedBtnClick() {
-        self.view.endEditing(true)
-        selectedModel = [HEPhotoPickerListModel]()
+        view.endEditing(true)
+        selectedModel = [HEPhotoAsset]()
         visibleImages = [UIImage]()
         
     }
 }
 extension CusomDemoViewController : HEPhotoPickerViewControllerDelegate{
-    func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage],selectedModel:[HEPhotoPickerListModel]) {
+    func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage],selectedModel:[HEPhotoAsset]) {
         // 实现多次累加选择时，需要把选中的模型保存起来，传给picker
         self.selectedModel = selectedModel
         self.visibleImages = selectedImages
-        picker.dismiss(animated: true, completion: nil)
+   
     }
     func pickerControllerDidCancel(_ picker: UIViewController) {
         // 取消选择后的一些操作
@@ -183,10 +199,9 @@ extension CusomDemoViewController : UICollectionViewDelegate,UICollectionViewDat
 extension CusomDemoViewController: HEPhotoBrowserAnimatorPushDelegate{
     
     public func imageViewRectOfAnimatorStart(at indexPath: IndexPath) -> CGRect {
-        guard   let cell = collectionView.cellForItem(at: indexPath) as? MasterCell else{
-            fatalError("unexpected cell in collection view")
-        }
-        homeFrame =   UIApplication.shared.keyWindow?.convert(cell.imageView.frame, from: cell.contentView) ?? CGRect.zero
+        // 获取指定cell的laout
+        let cellLayout = collectionView.layoutAttributesForItem(at: indexPath)
+        let homeFrame =  UIApplication.shared.keyWindow?.convert(cellLayout?.frame ??  CGRect.zero, from: collectionView) ?? CGRect.zero
         //返回具体的尺寸
         return homeFrame
     }

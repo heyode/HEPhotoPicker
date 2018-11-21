@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HEPhotoPicker'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'Elegant photo picker in Swift.'
 
 # This description is used to generate tags and improve search results.
@@ -21,8 +21,8 @@ s.description      = 'Elegant photo picker in Swift. Inspired by Weibo.'
 
 s.homepage         = 'https://github.com/heyode/HEPhotoPicker'
 s.screenshots     = ['https://github.com/heyode/HEPhotoPicker/blob/master/Assets/image%26video.gif',
-'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif',
-'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif']
+                    'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/OnlyImage.gif',
+                    'https://github.com/heyode/HEPhotoPicker/blob/master/Assets/singlePicture.gif']
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'heyode' => '1025335931@qq.com' }
 s.source           = { :git => "https://github.com/heyode/HEPhotoPicker.git", :tag => "#{s.version}" }
@@ -30,18 +30,12 @@ s.source           = { :git => "https://github.com/heyode/HEPhotoPicker.git", :t
 
 s.ios.deployment_target = '9.0'
 s.swift_version = '4.2'
-s.source_files = [
-  "Source/*.swift",
-  "Source/Base/*.swift",
-   "Source/Controller/*.swift",
-   "Source/Extension/*.swift",
-   "Source/Model/*.swift",
-   "Source/View/*.swift"]
+s.source_files = ["Source/**/*.swift"]
 
 s.resource_bundles = {
     'HEPhotoPicker' => [
-    'Assets/*.png',
-    'Assets/*.xib'
+    'Source/Assets.xcassets',
+    'Source/**/*.xib'
     ]
 }
 

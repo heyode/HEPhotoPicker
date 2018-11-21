@@ -1,8 +1,8 @@
 //
-//  NSObjectExtension.swift
-//  SwiftPhotoSelector
+//  HESeletecedButton.swift
+//  HEPhotoPicker
 //
-//  Created by heyode on 2018/9/19.
+//  Created by heyode on 2018/11/21.
 //  Copyright (c) 2018 heyode <1025335931@qq.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,26 +23,34 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
-extension NSObject {
-    public var className: String {
-        return type(of: self).className
+import UIKit
+
+class HESeletecedButton: UIButton {
+
+    //MARK:- 重写init函数
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.cornerRadius = 4
+        layer.masksToBounds = true
+        setBackgroundImage(UIColor.hex(hexString: "E98F36").image(), for:.normal)
+        setBackgroundImage(UIColor.hex(hexString: "EEEEEE").image(), for: .disabled)
+        setTitleColor(UIColor.hex(hexString: "FFFFFF"), for: .normal)
+        setTitleColor(UIColor.hex(hexString: "666666"), for: .disabled)
+        
+        contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
+        titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        isEnabled = false
     }
     
-    public static var className: String {
-        return String(describing: self)
+    func setTitle(_ title:String)  {
+        setTitle(title, for: .normal)
+        sizeToFit()
     }
-}
-
-extension Sequence {
-    func count(where predicate: (Element) throws -> Bool) rethrows -> Int {
-        var count = 0
-        for element in self {
-            if try predicate(element) {
-                count += 1
-            }
-        }
-        return count
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-}
+    
+   
+    
 
+}
