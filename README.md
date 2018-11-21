@@ -40,6 +40,14 @@ pod 'HEPhotoPicker'
 ```Swift
 import HEPhotoPicker
 ```
+### 实现代理
+```Swift
+extension ViewController:HEPhotoPickerViewControllerDelegate{
+    func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage], selectedModel: [HEPhotoAsset]) {
+        
+    }
+}
+```
 ### 弹出相册选择器，使用默认配置
 ```Swift
 // 创建选择器
