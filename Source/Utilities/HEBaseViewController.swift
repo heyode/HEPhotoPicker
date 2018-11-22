@@ -52,7 +52,7 @@ public class HEBaseViewController: UIViewController {
             navi.navigationBar.shadowImage = nil
             navi.setNavigationBarHidden(false, animated: true)
             if navi.viewControllers.count > 1 {
-                let budle = Bundle(path: Bundle(for: HEBaseViewController.self).path(forResource: "HEPhotoPicker", ofType: "bundle")!)!
+                let budle = HETool.bundle
                 let backImage = UIImage(named: "nav-back", in: budle, compatibleWith: nil)
                 
                 navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: backImage?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(pressBack))

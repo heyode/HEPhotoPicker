@@ -28,7 +28,14 @@ import Foundation
 
 
 public class HETool: NSObject {
-   public static var  bundle = Bundle(for: HETool.classForCoder())
+    public static var  bundle :Bundle?{
+        get{
+            guard let url = Bundle(for: HETool.self).url(forResource: "HEPhotoPicker", withExtension: "bundle")else {
+                return nil
+            }
+          return  Bundle.init(url:url)
+        }
+    }
     
    public static func isiPhoneX() -> Bool {
         if kScreenHeight == 812 {

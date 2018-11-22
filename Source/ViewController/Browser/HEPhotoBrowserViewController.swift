@@ -80,7 +80,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     var imageIndex : IndexPath!
     lazy var checkBtn  : UIButton = {
         let btn = UIButton.init(type: .custom)
-        let budle = Bundle(path: Bundle(for: HEPhotoBrowserViewController.self).path(forResource: "HEPhotoPicker", ofType: "bundle")!)!
+        let budle = HETool.bundle
         let selImage = UIImage(named: "btn-check-selected", in: budle, compatibleWith: nil)
         let norImage = UIImage(named: "btn-check-normal", in: budle, compatibleWith: nil)
         btn.setImage(selImage, for: .selected)
