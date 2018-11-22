@@ -44,7 +44,7 @@ import HEPhotoPicker
 ```Swift
 extension ViewController:HEPhotoPickerViewControllerDelegate{
     func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage], selectedModel: [HEPhotoAsset]) {
-        
+        // 接受回调数据
     }
 }
 ```
