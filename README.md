@@ -24,7 +24,7 @@
 ```
 pod 'HEPhotoPicker'
 ```
-在终端运行`pod install`
+在终端运行`pod install`或`pod update`
 ## Usage
 ### 导入HEPhotoPicker
 ```Swift
