@@ -113,4 +113,4 @@ heyode, heyode68@gmail.com
 
 ## License
 
-HEPhotoPicker is available under the MIT license. See the LICENSE file for more info.
+HEPhotoPicker 使用 MIT 许可证，详情见 LICENSE 文件。
