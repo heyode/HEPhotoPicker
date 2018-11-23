@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)
 [![Platform](https://img.shields.io/cocoapods/p/HEPhotoPicker.svg?style=flat)](https://cocoapods.org/pods/HEPhotoPicker)<br/>
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/image%26video.gif)
-## Features
+## 功能
 - [x] 支持选择视频和图片（可自定义）
 - [x] 支持预览大图
 - [x] 支持累加选择
@@ -13,19 +13,18 @@
 - [x] 支持图片单选
 - [x] 可定制为微博相册选择器
 
-## Requirements
+## 系统要求
 - iOS 9.0
 - Xcode 10
 - Swift 4.2
-- Privacy - Photo Library Usage Description
 
-## Installation
+## 安装
 使用CocoaPods安装，添加以下内容至你的Podfile
 ```
 pod 'HEPhotoPicker'
 ```
 在终端运行`pod install`或`pod update`
-## Usage
+## 使用
 ### 注意
 使用前需要在使用项目的info.plist文件中加上用户授权相册的描述Privacy - Photo Library Usage Description
 ### 导入HEPhotoPicker
@@ -107,10 +106,6 @@ hePresentPhotoPickerController(picker: picker, animated: true)
   public var defaultSelections : [HEPhotoAsset]?
 
 ```
-## Author
-
-heyode, heyode68@gmail.com
-
-## License
+## 许可证
 
 HEPhotoPicker 使用 MIT 许可证，详情见 LICENSE 文件。
