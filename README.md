@@ -25,7 +25,6 @@ pod 'HEPhotoPicker'
 ```
 在终端运行`pod install`或`pod update`
 ## 使用
-### 注意
 使用前需要在使用项目的info.plist文件中加上用户授权相册的描述Privacy - Photo Library Usage Description
 ### 导入HEPhotoPicker
 ```Swift
