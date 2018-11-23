@@ -22,9 +22,7 @@
 ## Installation
 使用CocoaPods安装，添加以下内容至你的Podfile
 ```
-target 'MyApp' do
-  pod 'HEPhotoPicker'
-end
+pod 'HEPhotoPicker'
 ```
 在终端运行`pod install`
 ## Usage
