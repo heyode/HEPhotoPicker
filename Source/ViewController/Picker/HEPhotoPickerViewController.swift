@@ -380,7 +380,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             self?.titleBtn.setTitle(ablum.title, for: .normal)
             self?.titleBtn.sizeToFit()
             
-            self?.fetchPhotoModes(photos: ablum.fetchResult)
+            self?.fetchPhotoModels(photos: ablum.fetchResult)
             self?.updateUI()
             
             },dismiss:{
@@ -410,13 +410,13 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         }
         photosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: pickerOptions.ascendingOfCreationDateSort)]
         phAssets = PHAsset.fetchAssets(with: photosOptions)
-        fetchPhotoModes(photos: phAssets)
+        fetchPhotoModels(photos: phAssets)
     }
     func getAllAlbums(){
         smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
         fetchAlbumsListModels(albums: smartAlbums)
     }
-    private func fetchPhotoModes(photos:PHFetchResult<PHAsset>){
+    private func fetchPhotoModels(photos:PHFetchResult<PHAsset>){
         models =  [HEPhotoAsset]()
         photos.enumerateObjects {[weak self] (asset, index, ff) in
             let model = HEPhotoAsset.init(asset: asset)
@@ -470,7 +470,7 @@ extension HEPhotoPickerViewController :UIPopoverPresentationControllerDelegate{
         return .none
     }
     
-    private func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+    private func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool{
         return true
     }
 }
@@ -479,7 +479,7 @@ extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
         DispatchQueue.main.sync {
             if let changeDetails = changeInstance.changeDetails(for: phAssets){
                 phAssets = changeDetails.fetchResultAfterChanges
-                fetchPhotoModes(photos: phAssets)
+                fetchPhotoModels(photos: phAssets)
             }
             // Update the cached fetch results, and reload the table sections to match.
             if let changeDetails = changeInstance.changeDetails(for: smartAlbums) {

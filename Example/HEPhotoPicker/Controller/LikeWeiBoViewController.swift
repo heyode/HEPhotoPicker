@@ -134,7 +134,7 @@ extension LikeWeiBoViewController : UICollectionViewDelegate,UICollectionViewDat
             // 创建选择器
             let picker = HEPhotoPickerViewController.init(delegate: self, options:options)
             // 弹出
-            hePresentPhotoPickerController(picker: picker)
+            hePresentPhotoPickerController(picker: picker, animated: true)
             
         }
     }

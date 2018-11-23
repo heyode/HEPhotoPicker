@@ -70,8 +70,9 @@ public extension UIViewController {
      ///
      /// - Parameters:
      ///   - picker: 图片选择器
-    public func hePresentPhotoPickerController(picker:HEPhotoPickerViewController){
+    ///   - animated: 是否需要动画
+    public func hePresentPhotoPickerController(picker:HEPhotoPickerViewController,animated: Bool){
         let nav = UINavigationController.init(rootViewController: picker)
-        present(nav, animated: true, completion: nil)
+        present(nav, animated: animated, completion: nil)
     }
 }

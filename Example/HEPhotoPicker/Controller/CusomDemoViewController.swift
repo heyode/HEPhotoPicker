@@ -119,7 +119,7 @@ class CusomDemoViewController: UIViewController {
         options.maxCountOfImage = count
         options.maxCountOfVideo = videoCount
         let picker = HEPhotoPickerViewController.init(delegate: self, options: options)
-        hePresentPhotoPickerController(picker: picker)
+        hePresentPhotoPickerController(picker: picker, animated: true)
         
     }
   func cleanSelectedBtnClick() {

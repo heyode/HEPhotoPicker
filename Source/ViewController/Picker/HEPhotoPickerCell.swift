@@ -54,7 +54,6 @@ class HEPhotoPickerCell: UICollectionViewCell {
             { (image, nil) in
                 DispatchQueue.main.async {
                     if self.representedAssetIdentifier == self.model.asset.localIdentifier{
-                        
                         self.imageView.image = image
                     }
                 }
@@ -63,12 +62,8 @@ class HEPhotoPickerCell: UICollectionViewCell {
             if model.asset.mediaType == .video{
                 durationBackView.isHidden = false
                 let timeStamp = lroundf(Float(self.model.asset.duration))
-                
                 let s = timeStamp % 60
-                
                 let m = (timeStamp - s) / 60 % 60
-                
-              
                 let time = String(format: "%.2d:%.2d",  m, s)
                 durationLab.text = time
                 self.layoutSubviews()
@@ -139,7 +134,6 @@ class HEPhotoPickerCell: UICollectionViewCell {
         let durationBackViewH = CGFloat(20)
         durationBackView.frame = CGRect.init(x: 0, y: self.bounds.height - durationBackViewH, width: self.bounds.width, height: durationBackViewH)
         durationLab.sizeToFit()
-        
         durationLab.frame = CGRect.init(x: durationBackView.bounds.width - durationLab.bounds.width - 5, y: (durationBackViewH - durationLab.bounds.height)/2.0, width: durationLab.bounds.width, height: durationLab.bounds.height)
         maskLayer.frame = self.durationBackView.bounds
     }
