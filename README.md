@@ -31,29 +31,29 @@
   - 简单的相册选择器
 
 ## Installation
-
-```ruby
-pod 'HEPhotoPicker'
+使用CocoaPods安装，添加以下内容至你的Podfile
 ```
+target 'MyApp' do
+  pod 'HEPhotoPicker'
+end
+```
+在终端运行`pod install`
 ## Usage
 ### 导入HEPhotoPicker
 ```Swift
 import HEPhotoPicker
 ```
 ### 实现代理
+实现`HEPhotoPickerViewControllerDelegate`代理回调方法，处理选中的图片视频数据
 ```Swift
-extension ViewController:HEPhotoPickerViewControllerDelegate{
-    func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage], selectedModel: [HEPhotoAsset]) {
-        // 接受回调数据
-    }
-}
+func pickerController(_ picker: UIViewController, didFinishPicking selectedImages: [UIImage], selectedModel: [HEPhotoAsset]) 
 ```
 ### 弹出相册选择器，使用默认配置
 ```Swift
 // 创建选择器
 let picker = HEPhotoPickerViewController.init(delegate: self)
 // 弹出
-hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker, animated: true)
 ```
 ### 类似微博的相册选择器
 ```Swift
@@ -83,7 +83,7 @@ option.mediaType = .image
 // 创建选择器
 let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
-hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker, animated: true)
 ```
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/OnlyImage.gif)
 ### 单选图片
@@ -97,7 +97,7 @@ option.mediaType = .image
 // 创建选择器
 let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
-hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker, animated: true)
 ```
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/singlePicture.gif)
 ### 自定义配置对象HEPickerOptions支持的属性
