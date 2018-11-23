@@ -53,7 +53,7 @@ func pickerController(_ picker: UIViewController, didFinishPicking selectedImage
 // 创建选择器
 let picker = HEPhotoPickerViewController.init(delegate: self)
 // 弹出
-hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker, animated: true)
 ```
 ### 类似微博的相册选择器
 ```Swift
@@ -83,7 +83,7 @@ option.mediaType = .image
 // 创建选择器
 let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
-hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker, animated: true)
 ```
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/OnlyImage.gif)
 ### 单选图片
@@ -97,7 +97,7 @@ option.mediaType = .image
 // 创建选择器
 let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
-hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker, animated: true)
 ```
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/singlePicture.gif)
 ### 自定义配置对象HEPickerOptions支持的属性
