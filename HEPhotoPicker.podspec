@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HEPhotoPicker'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'Elegant photo picker in Swift.'
 
 # This description is used to generate tags and improve search results.
