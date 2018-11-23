@@ -59,7 +59,7 @@ option.maxCountOfImage = 9
 // 创建选择器
 let picker = HEPhotoPickerViewController.init(delegate: self, options: option)
 // 弹出
-hePresentPhotoPickerController(picker: picker)
+hePresentPhotoPickerController(picker: picker, animated: true)
 ```
 ![image](https://github.com/heyode/HEPhotoPicker/blob/master/ExampleImage/weibo.gif)
 
