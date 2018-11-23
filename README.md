@@ -17,7 +17,7 @@
 - iOS 9.0
 - Xcode 10
 - Swift 4.2
-- 需要在使用项目的info.plist文件中加上用户授权相册的描述Privacy - Photo Library Usage Description
+- Privacy - Photo Library Usage Description
 
 ## Installation
 使用CocoaPods安装，添加以下内容至你的Podfile
@@ -26,6 +26,8 @@ pod 'HEPhotoPicker'
 ```
 在终端运行`pod install`或`pod update`
 ## Usage
+### 注意
+使用前需要在使用项目的info.plist文件中加上用户授权相册的描述Privacy - Photo Library Usage Description
 ### 导入HEPhotoPicker
 ```Swift
 import HEPhotoPicker
