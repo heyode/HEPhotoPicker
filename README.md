@@ -19,17 +19,6 @@
 - Swift 4.2
 - 需要在使用项目的info.plist文件中加上用户授权相册的描述Privacy - Photo Library Usage Description
 
-## Versions
-* [0.0.4](https://github.com/heyode/HEPhotoPicker/releases/tag/0.0.4) - (强烈建议更新)
-  - 修复若干crash
-  - 优化picker的cell显示效率
-  - 优化代码结构命名添加更多注释
-* [0.0.3](https://github.com/heyode/HEPhotoPicker/releases/tag/0.0.3)
-  - 新增切换相册功能
-  - 支持选择视频
-* [0.0.2](https://github.com/heyode/HEPhotoPicker/releases/tag/0.0.2)
-  - 简单的相册选择器
-
 ## Installation
 使用CocoaPods安装，添加以下内容至你的Podfile
 ```
