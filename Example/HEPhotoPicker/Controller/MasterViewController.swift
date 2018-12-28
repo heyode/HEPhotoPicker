@@ -33,10 +33,5 @@ class MasterViewController: UIViewController {
         super.viewDidLoad()
       
     }
-    
-//    @IBAction func weiboBtnClick(_ sender: Any) {
-//    }
-//    @IBAction func customBtnClick(_ sender: Any) {
-//    }
-//    
+
 }

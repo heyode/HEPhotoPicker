@@ -31,7 +31,7 @@ class HEPhoneBrowserBottomCell: UICollectionViewCell {
     private var checkBtnnClickClosure : HEPhotoPickerCellClosure?
     var model : HEPhotoAsset!{
         didSet{
-            let scale = UIScreen.main.scale
+            let scale = UIScreen.main.scale / 2
             let thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height * scale)
             PHCachingImageManager.default().requestImage(for: model.asset,
                                                   targetSize: thumbnailSize,

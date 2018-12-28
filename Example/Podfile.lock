@@ -1,5 +1,5 @@
 PODS:
-  - HEPhotoPicker (0.0.4)
+  - HEPhotoPicker (0.0.5)
 
 DEPENDENCIES:
   - HEPhotoPicker (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HEPhotoPicker: f6e54d07c7a8f353c7184569a530490cbad9aeb9
+  HEPhotoPicker: 4afbf065aa37b23a799bcd06f7085ce80535568e
 
 PODFILE CHECKSUM: 47d0e6df1734cc9f1ca8316578c198a9c7246b7f
 

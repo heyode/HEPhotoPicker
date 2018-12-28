@@ -36,7 +36,7 @@ class HEAlbumListCell: UITableViewCell {
         didSet{
             titleLab.text = album.title
             countLab.text = String.init(format: "%d", album.count)
-            let scale = UIScreen.main.scale
+            let scale = UIScreen.main.scale / 2
             let size = CGSize.init(width: albumImageView.frame.width * scale, height:albumImageView.frame.height * scale)
             guard let asset = album.fetchResult.firstObject else{return}
             PHCachingImageManager.default().requestImage(for:asset,

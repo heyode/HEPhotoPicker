@@ -63,9 +63,9 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     /// 选中的数据模型
     private var selectedModels =  [HEPhotoAsset]()
     /// 选中的图片模型（若有视频，则取它第一帧作为图片保存）
-    private var selectedImages = [UIImage]()
+    private lazy var selectedImages = [UIImage]()
     /// 用于处理选中的数组
-    private var todoArray = [HEPhotoAsset]()
+    private lazy var todoArray = [HEPhotoAsset]()
     /// 图片请求项的配置
     private let options = PHImageRequestOptions()
     /// 相册请求项
@@ -174,10 +174,11 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         navigationItem.titleView = btn
         let rightBtn = HESeletecedButton.init(type: .custom)
         rightBtn.setTitle("选择")
+  
         rightBtn.addTarget(self, action: #selector(nextBtnClick), for: .touchUpInside)
         let right = UIBarButtonItem.init(customView: rightBtn)
         navigationItem.rightBarButtonItem = right
-      
+        rightBtn.isEnabled = false
     }
     
     override public func configNavigationBar() {
@@ -210,7 +211,12 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     func updateNextBtnTitle() {
         let rightBtn = navigationItem.rightBarButtonItem?.customView as! HESeletecedButton
         rightBtn.isEnabled = selectedModels.count > 0
-        rightBtn.setTitle(String.init(format: "选择(%d)", selectedModels.count))
+        if selectedModels.count > 0 {
+            rightBtn.setTitle(String.init(format: "选择(%d)", selectedModels.count))
+        }else{
+            rightBtn.setTitle("选择")
+        }
+      
       
     }
     
@@ -285,16 +291,50 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             // 根据当前用户选中的个数，将所有未选中的cell重置给定可用状态
             if item.isSelected == false{
                 // 设置可用状态
-                setModelEnable(with: item,enable: isEnable)
-                if let i = selectedIndex,item.index != i{// 当前点击的cell已经在前面加入了，所以要排除
-                    // 将待刷新的索引加入到数组
-                    willUpadateIndex.append(IndexPath.init(row: item.index, section: 0))
+//                setModelEnable(with: item,enable: isEnable)
+                item.isEnable = isEnable
+                if pickerOptions.mediaType == .imageOrVideo && selectedModels.count > 0{ //选中模式：是图片和视频只能选中其中一种，并且已经选中了至少一个
+                    if selectedModels.first?.asset.mediaType == .image{ // 用户选中的是图片的话，就把视频类型的cell都设置为不可选中
+                        if item.asset.mediaType == .video{
+                            item.isEnable = false
+                            if let i = selectedIndex,item.index != i{// 当前点击的cell已经在前面加入了，所以要排除
+                                // 将待刷新的索引加入到数组
+                                willUpadateIndex.append(IndexPath.init(row: item.index, section: 0))
+                            }
+                        }
+                    }else if selectedModels.first?.asset.mediaType == .video{
+                        if item.asset.mediaType == .image{
+                            item.isEnable = false
+                            if let i = selectedIndex,item.index != i{// 当前点击的cell已经在前面加入了，所以要排除
+                                // 将待刷新的索引加入到数组
+                                willUpadateIndex.append(IndexPath.init(row: item.index, section: 0))
+                            }
+                        }
+                    }
+                }
+               
+            }
+        }
+        if pickerOptions.mediaType == .imageOrVideo && selectedModels.count <= 0 {//选中模式：是图片和视频只能选中其中一种，并且取消了选择
+            
+            for cell in collectionView.visibleCells{
+                if let temp = cell as? HEPhotoPickerCell{
+                   
+                        if temp.model.asset.mediaType == .video {
+                            if let idx = collectionView.indexPath(for: temp){
+                                willUpadateIndex.append( idx)
+                            }
+                        
+                        
+                    }
                 }
             }
         }
+        
         if isUpdateSelecetd {// 整个数据源重置，必须刷新所有cell
             collectionView.reloadData()
         }else{
+            
             collectionView.reloadItems(at: willUpadateIndex)
         }
     }
@@ -485,6 +525,10 @@ extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
             if let changeDetails = changeInstance.changeDetails(for: smartAlbums) {
                 smartAlbums = changeDetails.fetchResultAfterChanges
                 fetchAlbumsListModels(albums: smartAlbums)
+                if let title = albumModels.first?.title{
+                    titleBtn.setTitle(title, for: .normal)
+                    titleBtn.sizeToFit()
+                }
             }
             
         }

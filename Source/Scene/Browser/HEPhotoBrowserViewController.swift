@@ -28,7 +28,7 @@ import Photos
 
 
 class HEPhotoBrowserViewController: HEBaseViewController {
-    
+    var imageIndex : IndexPath!
     var delegate : HEPhotoPickerViewControllerDelegate?
     var selectedCloser : ((_ seletedIndex:Int)->Void)?
     var clickBottomCellCloser : ((_ seletedIndex:Int)->Void)?
@@ -37,18 +37,18 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     public var pickerOptions = HEPickerOptions()
     
     var models = [HEPhotoAsset]()
-   
+    
     var selectedModels = [HEPhotoAsset](){
         didSet{
             updateNextBtnTitle()
         }
     }
     
-    var selectedImages = [UIImage]()
+    private lazy var selectedImages = [UIImage]()
     
-    var todoArray = [HEPhotoAsset]()
-    let barHeight : CGFloat = 130
-    lazy var bootomBar : UIView = {
+    private lazy var todoArray = [HEPhotoAsset]()
+    private let barHeight : CGFloat = 130
+    private lazy var bootomBar : UIView = {
         let navigationMaxY : CGFloat = HETool.isiPhoneX() ? 88 : 64
         let view = UIView.init(frame: CGRect.init(x: 0, y: self.view.bounds.size.height -  barHeight -  navigationMaxY , width: self.view.bounds.width, height: barHeight))
         view.backgroundColor = UIColor.init(r: 50, g: 50, b: 50, a: 0.3)
@@ -56,8 +56,8 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         view.isHidden = true
         return view
     }()
-    let bottomLayout = UICollectionViewFlowLayout.init()
-    lazy var bottomCollectionView : UICollectionView = {
+    private let bottomLayout = UICollectionViewFlowLayout.init()
+    private lazy var bottomCollectionView : UICollectionView = {
         let cellW : CGFloat = 80
         bottomLayout.itemSize = CGSize.init(width: cellW, height: cellW)
         bottomLayout.minimumLineSpacing = 5
@@ -72,13 +72,13 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         collectionView.register(HEPhoneBrowserBottomCell.classForCoder(), forCellWithReuseIdentifier: HEPhoneBrowserBottomCell.className)
         return collectionView
     }()
-    var currentIndex : Int!{
+    private var currentIndex : Int!{
         get{
             return Int(pageCollectionView.contentOffset.x / pageCollectionView.frame.width)
         }
     }
-    var imageIndex : IndexPath!
-    lazy var checkBtn  : UIButton = {
+    
+    private lazy var checkBtn  : UIButton = {
         let btn = UIButton.init(type: .custom)
         let budle = HETool.bundle
         let selImage = UIImage(named: "btn-check-selected", in: budle, compatibleWith: nil)
@@ -90,8 +90,8 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         btn.frame = CGRect.init(x:self.view.bounds.width - 10 - btnW, y: 10, width: btnW, height: btnW)
         return btn
     }()
-    let layout = UICollectionViewFlowLayout.init()
-    lazy var pageCollectionView : UICollectionView = {
+    private let layout = UICollectionViewFlowLayout.init()
+    private lazy var pageCollectionView : UICollectionView = {
         layout.itemSize = CGSize.init(width: kScreenWidth, height: kScreenHeight)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -107,7 +107,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         return collectionView
     }()
     
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = .black
@@ -119,8 +119,8 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         super.viewDidAppear(animated)
         scrollViewDidEndDecelerating(pageCollectionView)
     }
-
-  
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -133,7 +133,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         let right = UIBarButtonItem.init(customView: rightBtn)
         navigationItem.rightBarButtonItem = right
         updateNextBtnTitle()
-
+        
         view.addSubview(pageCollectionView)
         view.addSubview(bootomBar)
         view.addSubview(checkBtn)
@@ -145,12 +145,12 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         rightBtn.setTitle( String.init(format: "选择(%d)", selectedModels.count))
         guard currentIndex < models.count else{return}
         let currentModel = models[currentIndex]
- 
+        
         if isEnableSinglePicture(model: currentModel) || isEnableSingleVideo(model: currentModel) {
             rightBtn.isEnabled = true
             rightBtn.setTitle("选择")
         }
-
+        
         bootomBar.isHidden = selectedModels.count <= 0
     }
     
@@ -172,12 +172,12 @@ class HEPhotoBrowserViewController: HEBaseViewController {
             }
         }
     }
-
+    
     /// 检查当前模型是否为图片，是否可用，是否为图片单选模式，
     func isEnableSinglePicture(model:HEPhotoAsset) ->Bool{
         return model.asset.mediaType == .image &&  pickerOptions.singlePicture == true && model.isEnable == true
     }
-     /// 检查当前模型是否为视频，是否可用，是否为视频单选模式，
+    /// 检查当前模型是否为视频，是否可用，是否为视频单选模式，
     func isEnableSingleVideo(model:HEPhotoAsset) ->Bool{
         return model.asset.mediaType == .video &&  pickerOptions.singleVideo == true && model.isEnable == true
     }
@@ -283,7 +283,7 @@ extension HEPhotoBrowserViewController : UICollectionViewDelegate,UICollectionVi
             for (index,model) in models.enumerated(){
                 if  model.asset.localIdentifier == selectedModel.asset.localIdentifier{//所选的照片在当前相册内
                     checkBtn.isSelected = true
-                   pageCollectionView.setContentOffset(CGPoint.init(x: CGFloat(index) * collectionView.frame.width , y: 0), animated: false)
+                    pageCollectionView.setContentOffset(CGPoint.init(x: CGFloat(index) * collectionView.frame.width , y: 0), animated: false)
                     if let block = clickBottomCellCloser{
                         block(index)
                     }

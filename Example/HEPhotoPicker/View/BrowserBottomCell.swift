@@ -32,7 +32,7 @@ class BrowserBottomCell: UICollectionViewCell {
     private var checkBtnnClickClosure : ((_ btn: UIButton)->Void)?
     var model : HEPhotoAsset!{
         didSet{
-            let scale = UIScreen.main.scale
+            let scale = UIScreen.main.scale / 2
             let thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height * scale)
             PHImageManager.default().requestImage(for: model.asset,
                                                   targetSize: thumbnailSize,

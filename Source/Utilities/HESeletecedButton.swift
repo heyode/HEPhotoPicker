@@ -39,7 +39,7 @@ class HESeletecedButton: UIButton {
         
         contentEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        isEnabled = false
+
     }
     
     func setTitle(_ title:String)  {

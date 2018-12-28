@@ -6,6 +6,5 @@ target 'HEPhotoPicker_Example' do
   target 'HEPhotoPicker_Tests' do
     inherit! :search_paths
 
-    
   end
 end
