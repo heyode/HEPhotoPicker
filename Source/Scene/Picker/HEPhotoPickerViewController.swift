@@ -61,7 +61,15 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     /// 图片列表的数据模型
     private var models : [HEPhotoAsset]!
     /// 选中的数据模型
-    private var selectedModels =  [HEPhotoAsset]()
+    private var selectedModels =  [HEPhotoAsset](){
+        didSet{
+            if let first = selectedModels.first{
+                // 记录上一次选中模型集合中的数据类型
+                preSelecetdType = first.asset.mediaType
+            }
+        }
+    }
+  
     /// 选中的图片模型（若有视频，则取它第一帧作为图片保存）
     private lazy var selectedImages = [UIImage]()
     /// 用于处理选中的数组
@@ -80,12 +88,17 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     private var phAssets : PHFetchResult<PHAsset>!
     /// 相册按钮
     private var titleBtn : UIButton!
-    /// 待刷新的IndexPath
-    private var willUpadateIndex = [IndexPath]()
+  
     /// titleBtn展开的tableView的上一个选中的IndexPath
     private var preSelectedTableViewIndex = IndexPath.init(row: 0, section: 0 )
     /// titleBtn展开的tableView的上一个选中的con
     private var preSelectedTableViewContentOffset = CGPoint.zero
+    
+    /// 待刷新的IndexPath（imageOrVideo模式下更新cell可用状态专用）
+    private var willUpadateIndex = [IndexPath]()
+    /// 当选中数组为空时，记录上一次选中模型集合中的数据类型（imageOrVideo模式下更新cell可用状态专用）
+    private var preSelecetdType : PHAssetMediaType!
+    
     /// 图片视图
     private lazy var collectionView : UICollectionView = {
         
@@ -223,13 +236,8 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     /// 数据源重置后更新UI
     func updateUI(){
         updateNextBtnTitle()
-        let count = selectedModels.count
+        setCellState(selectedIndex: nil, isUpdateSelecetd: true)
         
-        if count >= pickerOptions.maxCountOfImage + pickerOptions.maxCountOfVideo{
-            setCellState(isEnable: false,selectedIndex: nil, isUpdateSelecetd: true)
-        }else{
-            setCellState(isEnable: true,selectedIndex: nil, isUpdateSelecetd: true)
-        }
     }
     
     
@@ -239,65 +247,41 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     ///
     /// - Parameters:
     ///   - selectedIndex: 选中的索引
-    ///   - isSelected: 是否选中
+    ///   - isSelected: 选中状态
     func updateSelectedCell(selectedIndex:Int,isSelected:Bool) {
-        let model = models[selectedIndex]
-        if isSelected {
-            switch model.asset.mediaType {
-            case .image:
-                let selectedImageCount =  selectedModels.count{$0.asset.mediaType == .image}
-                guard selectedImageCount < pickerOptions.maxCountOfImage  else{
-                    let title = String.init(format: "最多只能选择%d个照片", pickerOptions.maxCountOfImage)
-                    HETool.presentAlert(title: title, viewController: self)
-                    return
-                }
-            case .video:
-                let selectedVideoCount =  selectedModels.count{$0.asset.mediaType == .video}
-                guard selectedVideoCount < pickerOptions.maxCountOfVideo else{
-                    let title = String.init(format: "最多只能选择%d个视频", pickerOptions.maxCountOfVideo)
-                    HETool.presentAlert(title: title, viewController: self)
-                    return
-                }
-            default:
-                break
-            }
-            selectedModels.append(model)
-        }else{// 切勿使用index去匹配
-            selectedModels.removeAll(where: {$0.asset.localIdentifier == model.asset.localIdentifier})
-        }
+      
         models[selectedIndex].isSelected = isSelected
         updateNextBtnTitle()
-        let  selectedCount = selectedModels.count
-        let  optionMaxCount = pickerOptions.maxCountOfImage + pickerOptions.maxCountOfVideo
-        willUpadateIndex = [IndexPath]()
-        willUpadateIndex.append(IndexPath.init(row: selectedIndex, section: 0))
+        
         // 根据当前用户选中的个数，将所有未选中的cell重置给定可用状态
-        setCellState(isEnable: selectedCount < optionMaxCount, selectedIndex: selectedIndex)
+        setCellState(selectedIndex: selectedIndex)
         
     }
     /// 设置cell的可用和选中状态
     ///
     /// - Parameters:
-    ///   - isEnable:其他cell是否能被选中
     ///   - selectedIndex:当前选中的cell索引
     ///   - isUpdateSelecetd: 是否更新选中状态
-    func setCellState(isEnable:Bool,selectedIndex:Int?,isUpdateSelecetd:Bool = false){
+    func setCellState(selectedIndex:Int?,isUpdateSelecetd:Bool = false){
+        // 初始化将要刷新的索引集合
+         willUpadateIndex = [IndexPath]()
+        let  selectedCount = selectedModels.count
+        let  optionMaxCount = pickerOptions.maxCountOfImage + pickerOptions.maxCountOfVideo
         // 尽量将所有需要更新状态的操作都放在这个循环里面，节约开销
         for item in models{
             if isUpdateSelecetd == true{// 整个数据源重置，要重设选中状态
                 item.isSelected = selectedModels.contains(where: {$0.asset.localIdentifier == item.asset.localIdentifier})
             }
-            // 如果未选中的话，就需要更新cell的可用状态
+            // 如果未选中的话，并且是imageOrVideo，就需要更新cell的可用状态
             // 根据当前用户选中的个数，将所有未选中的cell重置给定可用状态
-            if item.isSelected == false{
-                // 设置可用状态
-//                setModelEnable(with: item,enable: isEnable)
-                item.isEnable = isEnable
-                if pickerOptions.mediaType == .imageOrVideo && selectedModels.count > 0{ //选中模式：是图片和视频只能选中其中一种，并且已经选中了至少一个
+            if item.isSelected == false && pickerOptions.mediaType == .imageOrVideo{
+                // 选中的数量小于允许选中的最大数，就可用
+                item.isEnable = selectedCount < optionMaxCount
+                if  selectedModels.count > 0{
                     if selectedModels.first?.asset.mediaType == .image{ // 用户选中的是图片的话，就把视频类型的cell都设置为不可选中
                         if item.asset.mediaType == .video{
                             item.isEnable = false
-                            if let i = selectedIndex,item.index != i{// 当前点击的cell已经在前面加入了，所以要排除
+                            if let i = selectedIndex,item.index != i{// 点击是自动刷新，所以要排除
                                 // 将待刷新的索引加入到数组
                                 willUpadateIndex.append(IndexPath.init(row: item.index, section: 0))
                             }
@@ -305,8 +289,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
                     }else if selectedModels.first?.asset.mediaType == .video{
                         if item.asset.mediaType == .image{
                             item.isEnable = false
-                            if let i = selectedIndex,item.index != i{// 当前点击的cell已经在前面加入了，所以要排除
-                                // 将待刷新的索引加入到数组
+                            if let i = selectedIndex,item.index != i{// 点击是自动刷新，所以要排除
                                 willUpadateIndex.append(IndexPath.init(row: item.index, section: 0))
                             }
                         }
@@ -315,18 +298,24 @@ public class HEPhotoPickerViewController: HEBaseViewController {
                
             }
         }
-        if pickerOptions.mediaType == .imageOrVideo && selectedModels.count <= 0 {//选中模式：是图片和视频只能选中其中一种，并且取消了选择
+        if selectedModels.count <= 0  && pickerOptions.mediaType == .imageOrVideo{//是imageOrVideo状态下，取消所有选择，要找出哪些cell需要刷新可用状态
             
             for cell in collectionView.visibleCells{
                 if let temp = cell as? HEPhotoPickerCell{
-                   
+                    if self.preSelecetdType == .image{// 如果上一个select集合中是image类型，那么就刷新所有的video类型cell
                         if temp.model.asset.mediaType == .video {
                             if let idx = collectionView.indexPath(for: temp){
                                 willUpadateIndex.append( idx)
                             }
-                        
-                        
+                        }
+                    }else if self.preSelecetdType == .video {
+                        if temp.model.asset.mediaType == .image {
+                            if let idx = collectionView.indexPath(for: temp){
+                                willUpadateIndex.append( idx)
+                            }
+                        }
                     }
+                    
                 }
             }
         }
@@ -334,41 +323,10 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         if isUpdateSelecetd {// 整个数据源重置，必须刷新所有cell
             collectionView.reloadData()
         }else{
-            
             collectionView.reloadItems(at: willUpadateIndex)
         }
     }
-    
-    /// 是图片和视频只能选中其中一种，并且已经选中了至少一个
-    func checkFlag() -> Bool{
-        var isflag : Bool = false
-        if pickerOptions.mediaType == .imageOrVideo {
-            if selectedModels.count > 0{
-                isflag = true
-            }else{
-                isflag = false
-            }
-        }
-        return isflag
-    }
-    // 设置模型的可用状态
-    func setModelEnable(with model:HEPhotoAsset,enable:Bool) {
-        model.isEnable = enable
-        if checkFlag(){ //选中模式：是图片和视频只能选中其中一种，并且已经选中了至少一个
-            if selectedModels.first?.asset.mediaType == .image{ // 用户选中的是图片的话，就把视频类型的cell都设置为不可选中
-                if model.asset.mediaType == .video{
-                    model.isEnable = false
-                }
-            }else if selectedModels.first?.asset.mediaType == .video{
-                if model.asset.mediaType == .image{
-                    model.isEnable = false
-                }
-            }
-        }
-    }
-    
-   
-    
+
    
     // MARK:- 初始化配置项
     
@@ -543,11 +501,36 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         let model = models[indexPath.row]
         cell.model = model
         cell.checkBtnnClickClosure = {[unowned self] (selectedBtn) in
-            if !selectedBtn.isSelected{
-                self.updateSelectedCell(selectedIndex: indexPath.row, isSelected: true)
-            }else{
-                self.updateSelectedCell(selectedIndex: indexPath.row, isSelected: false)
+            let model = self.models[indexPath.row]
+            if selectedBtn.isSelected {
+                switch model.asset.mediaType {
+                case .image:
+                    let selectedImageCount =  self.selectedModels.count{$0.asset.mediaType == .image}
+                    guard selectedImageCount < self.pickerOptions.maxCountOfImage  else{
+                        let title = String.init(format: "最多只能选择%d个照片", self.pickerOptions.maxCountOfImage)
+                        HETool.presentAlert(title: title, viewController: self)
+                        selectedBtn.isSelected = false
+                        return
+                    }
+                case .video:
+                    let selectedVideoCount =  self.selectedModels.count{$0.asset.mediaType == .video}
+                    guard selectedVideoCount < self.pickerOptions.maxCountOfVideo else{
+                        let title = String.init(format: "最多只能选择%d个视频", self.pickerOptions.maxCountOfVideo)
+                        HETool.presentAlert(title: title, viewController: self)
+                        selectedBtn.isSelected = false
+                        return
+                    }
+                default:
+                    break
+                }
+                selectedBtn.isSelected = true
+                self.selectedModels.append(model)
+            }else{// 切勿使用index去匹配
+                self.selectedModels.removeAll(where: {$0.asset.localIdentifier == model.asset.localIdentifier})
+                selectedBtn.isSelected = false
             }
+            
+            self.updateSelectedCell(selectedIndex: indexPath.row, isSelected: selectedBtn.isSelected)
         }
         return cell
     }
@@ -567,10 +550,16 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
             photoDetail.models = self.models
             photoDetail.selectedModels = self.selectedModels
             photoDetail.selectedCloser = { selectedIndex in
-                self.updateSelectedCell(selectedIndex: selectedIndex, isSelected: true)
+                self.models[selectedIndex].isSelected = true
+                self.selectedModels.append(self.models[selectedIndex])
+                self.updateUI()
+                
             }
             photoDetail.unSelectedCloser = { selectedIndex in
-                self.updateSelectedCell(selectedIndex: selectedIndex, isSelected: false)
+                self.models[selectedIndex].isSelected = false
+                self.selectedModels.removeAll{$0 == self.models[selectedIndex]}
+                self.updateUI()
+                
             }
             photoDetail.clickBottomCellCloser = { selectedIndex in
                collectionView.scrollToItem(at: IndexPath.init(item: selectedIndex, section: 0), at: .centeredVertically, animated: false)

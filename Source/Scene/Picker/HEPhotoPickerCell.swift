@@ -46,7 +46,6 @@ class HEPhotoPickerCell: UICollectionViewCell {
             let options = PHImageRequestOptions()
             let scale = UIScreen.main.scale / 2
             self.representedAssetIdentifier = model.asset.localIdentifier
-            print("1--" +  self.representedAssetIdentifier + String.init(format: "%d", model.index))
             
             let   thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height  * scale )
             imageView.image = nil
@@ -56,8 +55,6 @@ class HEPhotoPickerCell: UICollectionViewCell {
                                                   options: options)
             { (image, nil) in
                 DispatchQueue.main.async {
-                     print("2--" + self.representedAssetIdentifier)
-                     print("3--" + self.model.asset.localIdentifier)
                     if self.representedAssetIdentifier == self.model.asset.localIdentifier{
                         self.imageView.image = image
                     }
@@ -149,7 +146,7 @@ class HEPhotoPickerCell: UICollectionViewCell {
     
     
     @objc func selectedBtnClick(_ btn: UIButton){
-        
+        btn.isSelected = !btn.isSelected
         if let closure = checkBtnnClickClosure {
             closure(btn)
         }
