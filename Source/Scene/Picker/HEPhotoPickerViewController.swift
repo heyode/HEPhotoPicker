@@ -247,10 +247,37 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     ///
     /// - Parameters:
     ///   - selectedIndex: 选中的索引
-    ///   - isSelected: 选中状态
-    func updateSelectedCell(selectedIndex:Int,isSelected:Bool) {
-      
-        models[selectedIndex].isSelected = isSelected
+    ///   - selectedBtn: 选择按钮
+    func updateSelectedCell(selectedIndex:Int,selectedBtn:UIButton) {
+        let model = self.models[selectedIndex]
+        if selectedBtn.isSelected {
+            switch model.asset.mediaType {
+            case .image:
+                let selectedImageCount =  self.selectedModels.count{$0.asset.mediaType == .image}
+                guard selectedImageCount < self.pickerOptions.maxCountOfImage  else{
+                    let title = String.init(format: "最多只能选择%d个照片", self.pickerOptions.maxCountOfImage)
+                    HETool.presentAlert(title: title, viewController: self)
+                    selectedBtn.isSelected = false
+                    return
+                }
+            case .video:
+                let selectedVideoCount =  self.selectedModels.count{$0.asset.mediaType == .video}
+                guard selectedVideoCount < self.pickerOptions.maxCountOfVideo else{
+                    let title = String.init(format: "最多只能选择%d个视频", self.pickerOptions.maxCountOfVideo)
+                    HETool.presentAlert(title: title, viewController: self)
+                    selectedBtn.isSelected = false
+                    return
+                }
+            default:
+                break
+            }
+            selectedBtn.isSelected = true
+            self.selectedModels.append(model)
+        }else{// 切勿使用index去匹配
+            self.selectedModels.removeAll(where: {$0.asset.localIdentifier == model.asset.localIdentifier})
+            selectedBtn.isSelected = false
+        }
+        models[selectedIndex].isSelected = selectedBtn.isSelected
         updateNextBtnTitle()
         
         // 根据当前用户选中的个数，将所有未选中的cell重置给定可用状态
@@ -501,36 +528,8 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         let model = models[indexPath.row]
         cell.model = model
         cell.checkBtnnClickClosure = {[unowned self] (selectedBtn) in
-            let model = self.models[indexPath.row]
-            if selectedBtn.isSelected {
-                switch model.asset.mediaType {
-                case .image:
-                    let selectedImageCount =  self.selectedModels.count{$0.asset.mediaType == .image}
-                    guard selectedImageCount < self.pickerOptions.maxCountOfImage  else{
-                        let title = String.init(format: "最多只能选择%d个照片", self.pickerOptions.maxCountOfImage)
-                        HETool.presentAlert(title: title, viewController: self)
-                        selectedBtn.isSelected = false
-                        return
-                    }
-                case .video:
-                    let selectedVideoCount =  self.selectedModels.count{$0.asset.mediaType == .video}
-                    guard selectedVideoCount < self.pickerOptions.maxCountOfVideo else{
-                        let title = String.init(format: "最多只能选择%d个视频", self.pickerOptions.maxCountOfVideo)
-                        HETool.presentAlert(title: title, viewController: self)
-                        selectedBtn.isSelected = false
-                        return
-                    }
-                default:
-                    break
-                }
-                selectedBtn.isSelected = true
-                self.selectedModels.append(model)
-            }else{// 切勿使用index去匹配
-                self.selectedModels.removeAll(where: {$0.asset.localIdentifier == model.asset.localIdentifier})
-                selectedBtn.isSelected = false
-            }
-            
-            self.updateSelectedCell(selectedIndex: indexPath.row, isSelected: selectedBtn.isSelected)
+   
+            self.updateSelectedCell(selectedIndex: indexPath.row, selectedBtn: selectedBtn)
         }
         return cell
     }

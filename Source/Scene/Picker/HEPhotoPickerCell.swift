@@ -131,7 +131,7 @@ class HEPhotoPickerCell: UICollectionViewCell {
         super.layoutSubviews()
         imageView.frame = self.bounds
         let btnW : CGFloat = 25
-        checkBtn.frame = CGRect.init(x: self.bounds.width - 5 - btnW, y: 5, width: btnW, height: btnW)
+        checkBtn.frame = CGRect.init(x: self.bounds.width - 3 - btnW, y: 3, width: btnW, height: btnW)
         topView.frame = contentView.bounds
         let durationBackViewH = CGFloat(20)
         durationBackView.frame = CGRect.init(x: 0, y: self.bounds.height - durationBackViewH, width: self.bounds.width, height: durationBackViewH)
