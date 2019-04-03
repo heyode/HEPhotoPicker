@@ -81,11 +81,8 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     
     private lazy var checkBtn  : UIButton = {
         let btn = UIButton.init(type: .custom)
-        let budle = HETool.bundle
-        let selImage = UIImage(named: "btn-check-selected", in: budle, compatibleWith: nil)
-        let norImage = UIImage(named: "btn-check-normal", in: budle, compatibleWith: nil)
-        btn.setImage(selImage, for: .selected)
-        btn.setImage(norImage, for: .normal)
+        btn.setImage(pickerOptions.selectedImage, for: .selected)
+        btn.setImage(pickerOptions.unselectedImage, for: .normal)
         btn.addTarget(self, action: #selector(selectedBtnClick(_:)), for: .touchUpInside)
         let btnW : CGFloat = 30
         btn.frame = CGRect.init(x:self.view.bounds.width - 10 - btnW, y: 10, width: btnW, height: btnW)
@@ -130,7 +127,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     
     func configUI() {
         let rightBtn = HESeletecedButton.init(type: .custom)
-        rightBtn.setTitle("选择")
+        rightBtn.setTitle(pickerOptions.selectDoneButtonTitle)
         rightBtn.addTarget(self, action: #selector(nextBtnClick), for: .touchUpInside)
         let right = UIBarButtonItem.init(customView: rightBtn)
         navigationItem.rightBarButtonItem = right
@@ -166,13 +163,13 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     func updateNextBtnTitle() {
         guard let rightBtn = navigationItem.rightBarButtonItem?.customView as? HESeletecedButton  else {return}
         rightBtn.isEnabled = selectedModels.count > 0
-        rightBtn.setTitle( String.init(format: "选择(%d)", selectedModels.count))
+        rightBtn.setTitle( String.init(format: "%@(%d)",pickerOptions.selectDoneButtonTitle, selectedModels.count))
         guard currentIndex < models.count else{return}
         let currentModel = models[currentIndex]
         
         if isEnableSinglePicture(model: currentModel) || isEnableSingleVideo(model: currentModel) {
             rightBtn.isEnabled = true
-            rightBtn.setTitle("选择")
+            rightBtn.setTitle(pickerOptions.selectDoneButtonTitle)
         }
         
         bootomBar.isHidden = selectedModels.count <= 0
@@ -220,7 +217,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
             let selectedImageCount =  selectedModels.count{$0.asset.mediaType == .image}
             if  model.asset.mediaType == .image{
                 if selectedImageCount >= pickerOptions.maxCountOfImage {
-                    let title = String.init(format: "最多只能选择%d个照片", pickerOptions.maxCountOfImage)
+                    let title = String.init(format: pickerOptions.maxPhotoWaringTips, pickerOptions.maxCountOfImage)
                     HETool.presentAlert(title: title, viewController: self)
                     return
                 }
@@ -229,7 +226,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
             let selectedVideoCount =  selectedModels.count{$0.asset.mediaType == .video}
             if  model.asset.mediaType == .video {
                 if selectedVideoCount >= pickerOptions.maxCountOfVideo {
-                    let title = String.init(format: "最多只能选择%d个视频", pickerOptions.maxCountOfVideo)
+                    let title = String.init(format: pickerOptions.maxVideoWaringTips, pickerOptions.maxCountOfVideo)
                     HETool.presentAlert(title: title, viewController: self)
                     return
                 }

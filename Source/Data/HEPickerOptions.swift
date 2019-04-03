@@ -51,4 +51,15 @@ open class HEPickerOptions: NSObject {
     public var singleVideo = false
     ///  实现多次累加选择时，需要传入的选中的模型。为空时表示不需要多次累加
     public var defaultSelections : [HEPhotoAsset]?
+    ///  选中样式图片
+    public var selectedImage = HETool.image(name: "btn-check-selected")
+    ///  未选中样式图片
+    public var unselectedImage = HETool.image(name: "btn-check-normal")
+    
+    ///  自定义字符串
+    public var cancelButtonTitle = "取消"
+    public var selectDoneButtonTitle = "选择"
+    public var maxPhotoWaringTips = "最多只能选择%d个照片"
+    public var maxVideoWaringTips = "最多只能选择%d个视频"
+    
 }

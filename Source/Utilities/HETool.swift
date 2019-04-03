@@ -36,7 +36,10 @@ public class HETool: NSObject {
           return  Bundle.init(url:url)
         }
     }
-    
+    public static func image(name:String) -> UIImage?{
+        return UIImage(named: name, in: HETool.bundle, compatibleWith: nil)
+    }
+
    public static func isiPhoneX() -> Bool {
         if kScreenHeight == 812 {
             return true

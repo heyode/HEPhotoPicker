@@ -27,7 +27,13 @@ import Photos
 typealias HEPhotoPickerCellClosure = (_ btn: UIButton)->Void
 typealias HEPhotoPickerCellAlter = ()->Void
 class HEPhotoPickerCell: UICollectionViewCell {
-    
+    /// 选择器配置
+    public var pickerOptions : HEPickerOptions!{
+        didSet{
+            checkBtn.setImage(pickerOptions.selectedImage, for: .selected)
+            checkBtn.setImage(pickerOptions.unselectedImage, for: .normal)
+        }
+    }
     var imageView : UIImageView!
     var checkBtn  : UIButton!
     var topView : UIView!
@@ -85,12 +91,7 @@ class HEPhotoPickerCell: UICollectionViewCell {
         
         checkBtn = UIButton.init(type: .custom)
       
-        let budle = HETool.bundle
-        
-        let selImage = UIImage(named: "btn-check-selected", in: budle, compatibleWith: nil)
-        let norImage = UIImage(named: "btn-check-normal", in: budle, compatibleWith: nil)
-        checkBtn.setImage(selImage, for: .selected)
-        checkBtn.setImage(norImage, for: .normal)
+  
         checkBtn.addTarget(self, action: #selector(selectedBtnClick(_:)), for: .touchUpInside)
         contentView.addSubview(checkBtn)
         

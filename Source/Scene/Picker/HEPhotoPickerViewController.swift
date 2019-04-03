@@ -186,7 +186,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         
         navigationItem.titleView = btn
         let rightBtn = HESeletecedButton.init(type: .custom)
-        rightBtn.setTitle("选择")
+        rightBtn.setTitle(pickerOptions.selectDoneButtonTitle)
   
         rightBtn.addTarget(self, action: #selector(nextBtnClick), for: .touchUpInside)
         let right = UIBarButtonItem.init(customView: rightBtn)
@@ -201,7 +201,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     
     func setLeftBtn() -> UIBarButtonItem{
         let leftBtn = UIButton.init(type: .custom)
-        leftBtn.setTitle("取消", for: .normal)
+        leftBtn.setTitle(pickerOptions.cancelButtonTitle, for: .normal)
         leftBtn.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         leftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         leftBtn.setTitleColor(UIColor.gray, for: .normal)
@@ -225,9 +225,9 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         let rightBtn = navigationItem.rightBarButtonItem?.customView as! HESeletecedButton
         rightBtn.isEnabled = selectedModels.count > 0
         if selectedModels.count > 0 {
-            rightBtn.setTitle(String.init(format: "选择(%d)", selectedModels.count))
+            rightBtn.setTitle(String.init(format: "%@(%d)",pickerOptions.selectDoneButtonTitle, selectedModels.count))
         }else{
-            rightBtn.setTitle("选择")
+            rightBtn.setTitle(pickerOptions.selectDoneButtonTitle)
         }
       
       
@@ -255,7 +255,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             case .image:
                 let selectedImageCount =  self.selectedModels.count{$0.asset.mediaType == .image}
                 guard selectedImageCount < self.pickerOptions.maxCountOfImage  else{
-                    let title = String.init(format: "最多只能选择%d个照片", self.pickerOptions.maxCountOfImage)
+                    let title = String.init(format: pickerOptions.maxPhotoWaringTips, self.pickerOptions.maxCountOfImage)
                     HETool.presentAlert(title: title, viewController: self)
                     selectedBtn.isSelected = false
                     return
@@ -263,7 +263,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             case .video:
                 let selectedVideoCount =  self.selectedModels.count{$0.asset.mediaType == .video}
                 guard selectedVideoCount < self.pickerOptions.maxCountOfVideo else{
-                    let title = String.init(format: "最多只能选择%d个视频", self.pickerOptions.maxCountOfVideo)
+                    let title = String.init(format: pickerOptions.maxVideoWaringTips, self.pickerOptions.maxCountOfVideo)
                     HETool.presentAlert(title: title, viewController: self)
                     selectedBtn.isSelected = false
                     return
@@ -527,6 +527,7 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:HEPhotoPickerCell.className , for: indexPath) as! HEPhotoPickerCell
         let model = models[indexPath.row]
         cell.model = model
+        cell.pickerOptions = self.pickerOptions
         cell.checkBtnnClickClosure = {[unowned self] (selectedBtn) in
    
             self.updateSelectedCell(selectedIndex: indexPath.row, selectedBtn: selectedBtn)
