@@ -42,11 +42,6 @@ public protocol HEPhotoBrowserAnimatorPushDelegate : class {
     func imageViewRectOfAnimatorEnd(at indexPath : IndexPath) ->CGRect
     
     
-    /// 获取点击的imageView
-    ///
-    /// - Parameter indexPath: 图片所在下标
-    /// - Returns: 一个和点击的图片宽高比相同的图片视图
-    func imageView(at indexPath : IndexPath) ->UIImageView
 }
 
 public protocol HEPhotoBrowserAnimatorPopDelegate : class{
@@ -138,37 +133,47 @@ public class HEPhotoBrowserAnimator: NSObject {
         }
     }
     public func pushAnimator(transitionContext: UIViewControllerContextTransitioning) {
-        guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) , let pushDel = pushDelegate,let indexPath = selIndex else {
+        guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? HEPhotoBrowserViewController, let pushDel = pushDelegate,let indexPath = selIndex else {
             return
         }
         let containerView = transitionContext.containerView
         
         let backgroundView = UIView.init(frame: containerView.bounds)
         backgroundView.backgroundColor = UIColor.black
-        
-        let tempImageView = pushDel.imageView(at: indexPath)
-        
-        backgroundView.addSubview(tempImageView)
-        containerView.addSubview(toViewController.view)
         containerView.addSubview(backgroundView)
+        containerView.addSubview(toViewController.view)
         
-        tempImageView.frame = pushDel.imageViewRectOfAnimatorStart(at: indexPath)
+        let animateImageView = toViewController.getCurrentImageView()
+        animateImageView.frame =  pushDel.imageViewRectOfAnimatorStart(at: indexPath)
+        backgroundView.addSubview(animateImageView)
+        
+       
+        let targartSize = zommView(orgmSize: toViewController.getCurrentImageView().frame.size)
+        toViewController.view.isHidden = true
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
-            tempImageView.frame = pushDel.imageViewRectOfAnimatorEnd(at: indexPath)
+            
+            animateImageView.frame = CGRect.init(origin: CGPoint.zero, size: targartSize)
+            animateImageView.center = backgroundView.center
             
         },completion: { finished in
             
             backgroundView.removeFromSuperview()
-            
+            toViewController.view.isHidden = false
             transitionContext.completeTransition(true)
         })
     }
     
     
+   private func zommView(orgmSize:CGSize) -> CGSize {
+        var  culH = kScreenHeight
+        let culW = kScreenWidth
+        let x = orgmSize.width / kScreenWidth
+        culH = orgmSize.height * x
+        return CGSize.init(width: culW, height: culH)
+    }
+    
    
-    
-    
     
 }
 

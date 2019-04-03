@@ -29,6 +29,7 @@ import Photos
 
 class HEPhotoBrowserViewController: HEBaseViewController {
     var imageIndex : IndexPath!
+   
     var delegate : HEPhotoPickerViewControllerDelegate?
     var selectedCloser : ((_ seletedIndex:Int)->Void)?
     var clickBottomCellCloser : ((_ seletedIndex:Int)->Void)?
@@ -107,6 +108,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         return collectionView
     }()
     
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -138,6 +140,28 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         view.addSubview(bootomBar)
         view.addSubview(checkBtn)
         pageCollectionView.setContentOffset(CGPoint.init(x: CGFloat(imageIndex.row) * kScreenWidth, y: 0), animated: false)
+        
+        
+
+    }
+    public func getCurrentImageView() -> UIImageView {
+        guard self.models.count > imageIndex.row else {
+            return UIImageView()
+        }
+        let model = self.models[imageIndex.row]
+        let imageView = UIImageView.init(frame: view.bounds)
+        let options = PHImageRequestOptions()
+        PHCachingImageManager.default().requestImage(for: model.asset,
+                                                     targetSize: CGSize.init(width: kScreenWidth, height: kScreenHeight),
+                                                     contentMode: .aspectFill,
+                                                     options: options)
+        { (image, nil) in
+            imageView.image = image
+        }
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.maskToBounds = true
+        return imageView
     }
     func updateNextBtnTitle() {
         guard let rightBtn = navigationItem.rightBarButtonItem?.customView as? HESeletecedButton  else {return}

@@ -601,21 +601,6 @@ extension HEPhotoPickerViewController: HEPhotoBrowserAnimatorPushDelegate{
         return CGRect(x: x, y: y, width: width, height: height)
         
     }
-    public func imageView(at indexPath: IndexPath) -> UIImageView {
-        //创建imageView对象
-        let imageView = UIImageView()
-        //取出cell
-        let cell = (collectionView.cellForItem(at: indexPath))! as! HEPhotoPickerCell
-        //取出cell中显示的图片
-        let image = cell.imageView.image
-        //设置imageView相关属性(拉伸模式)
-        imageView.contentMode = .scaleAspectFit
-        //设置图片
-        imageView.image = image
-        //将多余的部分裁剪
-        imageView.clipsToBounds = true
-        //返回图片
-        return imageView
-    }
+
 }
 
