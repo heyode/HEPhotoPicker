@@ -52,8 +52,8 @@ public class HEBaseViewController: UIViewController {
             navi.navigationBar.shadowImage = nil
             navi.setNavigationBarHidden(false, animated: true)
             if navi.viewControllers.count > 1 {
-                let budle = HETool.bundle
-                let backImage = UIImage(named: "nav-back", in: budle, compatibleWith: nil)
+                
+                let backImage = HETool.image(name: "nav-back")
                 
                 navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: backImage?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(pressBack))
             }

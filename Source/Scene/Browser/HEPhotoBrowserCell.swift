@@ -55,11 +55,10 @@ class HEPhotoBrowserCell: UICollectionViewCell {
         palyBtn.addTarget(self, action: #selector(HEPhotoBrowserCell.palyBtnClick), for: .touchUpInside)
         
         palyBtn.isHidden = true
-        palyBtn.setImage(UIImage.init(named: "play-btn", in: HETool.bundle, compatibleWith: nil), for: .normal)
+        palyBtn.setImage(HETool.image(name: "play-btn"), for: .normal)
         contentView.addSubview(palyBtn)
-        
-        
     }
+    
     @objc func palyBtnClick()  {
         palyBtn.isHidden = true
         play(asset: model.asset)

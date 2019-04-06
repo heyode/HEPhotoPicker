@@ -31,9 +31,8 @@ class HEAlbumTitleView: UIButton {
     //MARK:- 重写init函数
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        setImage(UIImage.init(named: "nav-arrow-down", in: HETool.bundle, compatibleWith: nil), for: .normal)
-        setImage(UIImage.init(named: "nav-arrow-up", in: HETool.bundle, compatibleWith: nil), for: .selected)
+        setImage(HETool.image(name: "nav-arrow-down"), for: .normal)
+        setImage(HETool.image(name: "nav-arrow-up"), for: .selected)
         setTitleColor(UIColor.hex(hexString: "222222"), for: .normal)
     }
     
@@ -44,7 +43,6 @@ class HEAlbumTitleView: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         let margin = CGFloat(8)
         let btnW = frame.size.width
         let w = titleLabel!.frame.size.width + imageView!.frame.size.width + margin
