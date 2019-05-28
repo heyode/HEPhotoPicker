@@ -25,6 +25,14 @@
 
 import UIKit
 
+//MARK: - push或者present目标vc需要实现的协议
+public protocol HETargetViewControllerDelegate : UIViewController {
+    
+     /// 目标vc需要展示的UIImageView
+     ///
+     /// - Returns: 目标vc需要展示的UIImageView
+     func getTargetImageView() -> UIImageView
+}
 //MARK: - 定义协议用来拿到图片起始位置;最终位置和图片
 public protocol HEPhotoBrowserAnimatorPushDelegate : class {
     
@@ -133,7 +141,7 @@ public class HEPhotoBrowserAnimator: NSObject {
         }
     }
     public func pushAnimator(transitionContext: UIViewControllerContextTransitioning) {
-        guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? HEPhotoBrowserViewController, let pushDel = pushDelegate,let indexPath = selIndex else {
+        guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? HETargetViewControllerDelegate, let pushDel = pushDelegate,let indexPath = selIndex else {
             return
         }
         let containerView = transitionContext.containerView
@@ -143,12 +151,12 @@ public class HEPhotoBrowserAnimator: NSObject {
         containerView.addSubview(backgroundView)
         containerView.addSubview(toViewController.view)
         
-        let animateImageView = toViewController.getCurrentImageView()
+        let animateImageView = toViewController.getTargetImageView()
         animateImageView.frame =  pushDel.imageViewRectOfAnimatorStart(at: indexPath)
         backgroundView.addSubview(animateImageView)
         
        
-        let targartSize = zommView(orgmSize: toViewController.getCurrentImageView().frame.size)
+        let targartSize = zommView(orgmSize: toViewController.getTargetImageView().frame.size)
         toViewController.view.isHidden = true
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {

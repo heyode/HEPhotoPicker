@@ -25,6 +25,7 @@
 
 import UIKit
 import HEPhotoPicker
+import Photos
 //屏宽
 let kScreenWidth = UIScreen.main.bounds.size.width
 //屏高
@@ -122,6 +123,28 @@ class BrowserViewController: UIViewController {
     
     
     
+}
+extension BrowserViewController : HETargetViewControllerDelegate{
+    public func getTargetImageView() -> UIImageView {
+        guard self.models.count > imageIndex.row else {
+            return UIImageView()
+        }
+        let model = self.models[imageIndex.row]
+        let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
+        
+        
+        PHImageManager.default().requestImage(for: model.asset,
+                                              targetSize: CGSize.init(width: kScreenWidth, height: kScreenHeight),
+                                              contentMode: .aspectFill,
+                                              options: nil)
+        { (image, nil) in
+            imageView.image = image
+        }
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        return imageView
+    }
 }
 extension BrowserViewController : UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
