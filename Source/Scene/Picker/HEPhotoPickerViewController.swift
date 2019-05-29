@@ -494,15 +494,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     
     
 }
-extension HEPhotoPickerViewController :UIPopoverPresentationControllerDelegate{
-    private func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
-    private func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool{
-        return true
-    }
-}
+
 extension HEPhotoPickerViewController: PHPhotoLibraryChangeObserver{
     open  func photoLibraryDidChange(_ changeInstance: PHChange) {
         DispatchQueue.main.sync {
