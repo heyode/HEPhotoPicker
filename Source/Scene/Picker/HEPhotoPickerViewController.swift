@@ -166,9 +166,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         if HETool.canAccessPhotoLib() {
             self.getAllPhotos()
         } else {
-            HETool.showPhotoAlert(in: self, ok: {
-                HETool.requestAuthorizationForPhotoAccess(authorized:self.getAllPhotos, rejected: HETool.openIphoneSetting)
-            })
+            HETool.requestAuthorizationForPhotoAccess(authorized:self.getAllPhotos, rejected: HETool.openIphoneSetting)
         }
     }
     deinit {

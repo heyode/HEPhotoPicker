@@ -75,16 +75,5 @@ public class HETool: NSObject {
         }
     }
     
-    static func showPhotoAlert(in viewController: UIViewController,
-                           ok: (() -> Void)? = nil,
-                           cancel: (() -> Void)? = nil,
-                           title: String = "HEPhotoPicker",
-                           message: String = "FMPhotoPicker 需要访问您的相册") {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "好", style: .default, handler: { _ in ok?() }))
-        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: { _ in cancel?() }))
-        
-        viewController.present(alertController, animated: true)
-    }
+
 }
