@@ -25,7 +25,7 @@
 
 
 import Foundation
-
+import Photos
 
 public class HETool: NSObject {
     public static var  bundle :Bundle?{
@@ -47,6 +47,7 @@ public class HETool: NSObject {
             return false
         }
     }
+    
    public static func presentAlert(title:String,viewController:UIViewController){
         let title = title
         let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
@@ -55,5 +56,24 @@ public class HETool: NSObject {
         viewController.present(alertView, animated: true, completion: nil)
     }
    
+    static func canAccessPhotoLib() -> Bool {
+        return PHPhotoLibrary.authorizationStatus() == .authorized
+    }
     
+    static func openIphoneSetting() {
+        UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+    }
+    static func requestAuthorizationForPhotoAccess(authorized: @escaping () -> Void, rejected: @escaping () -> Void) {
+        PHPhotoLibrary.requestAuthorization { status in
+            DispatchQueue.main.async {
+                if status == .authorized {
+                    authorized()
+                } else {
+                    rejected()
+                }
+            }
+        }
+    }
+    
+
 }

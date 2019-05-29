@@ -158,18 +158,17 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         
         configPickerOption()
         
-        getAllPhotos()
-        getAllAlbums()
-        
-        // 注册相册库的通知(要写在getAllPhoto后面)
-        PHPhotoLibrary.shared().register(self)
-        
-        configUI()
-        if selectedModels.count > 0{
-            updateUI()
-        }
+        requestAndFetchAssets()
+       
     }
     
+    private func requestAndFetchAssets() {
+        if HETool.canAccessPhotoLib() {
+            self.getAllPhotos()
+        } else {
+            HETool.requestAuthorizationForPhotoAccess(authorized:self.getAllPhotos, rejected: HETool.openIphoneSetting)
+        }
+    }
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
@@ -432,6 +431,15 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         photosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: pickerOptions.ascendingOfCreationDateSort)]
         phAssets = PHAsset.fetchAssets(with: photosOptions)
         fetchPhotoModels(photos: phAssets)
+        
+        getAllAlbums()
+        // 注册相册库的通知(要写在getAllPhoto后面)
+        PHPhotoLibrary.shared().register(self)
+        
+        configUI()
+        if selectedModels.count > 0{
+            updateUI()
+        }
     }
     func getAllAlbums(){
         smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)

@@ -141,25 +141,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         
 
     }
-    public func getCurrentImageView() -> UIImageView {
-        guard self.models.count > imageIndex.row else {
-            return UIImageView()
-        }
-        let model = self.models[imageIndex.row]
-        let imageView = UIImageView.init(frame: view.bounds)
-        let options = PHImageRequestOptions()
-        PHCachingImageManager.default().requestImage(for: model.asset,
-                                                     targetSize: CGSize.init(width: kScreenWidth, height: kScreenHeight),
-                                                     contentMode: .aspectFill,
-                                                     options: options)
-        { (image, nil) in
-            imageView.image = image
-        }
-        
-        imageView.contentMode = .scaleAspectFit
-        imageView.maskToBounds = true
-        return imageView
-    }
+    
     func updateNextBtnTitle() {
         guard let rightBtn = navigationItem.rightBarButtonItem?.customView as? HESeletecedButton  else {return}
         rightBtn.isEnabled = selectedModels.count > 0
@@ -272,6 +254,27 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         return isflag
     }
     
+}
+extension HEPhotoBrowserViewController : HETargetViewControllerDelegate{
+    public func getTargetImageView() -> UIImageView {
+        guard self.models.count > imageIndex.row else {
+            return UIImageView()
+        }
+        let model = self.models[imageIndex.row]
+        let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
+        let options = PHImageRequestOptions()
+        PHCachingImageManager.default().requestImage(for: model.asset,
+                                                     targetSize: CGSize.init(width: kScreenWidth, height: kScreenHeight),
+                                                     contentMode: .aspectFill,
+                                                     options: options)
+        { (image, nil) in
+            imageView.image = image
+        }
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.maskToBounds = true
+        return imageView
+    }
 }
 extension HEPhotoBrowserViewController : UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
