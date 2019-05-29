@@ -512,7 +512,7 @@
 				INFOPLIST_FILE = HEPhotoPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.HEPhotoPicker-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.HEPhotoPicker-Example222";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -528,7 +528,7 @@
 				INFOPLIST_FILE = HEPhotoPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.HEPhotoPicker-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.HEPhotoPicker-Example222";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
