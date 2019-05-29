@@ -7,449 +7,487 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		044146B605F365B9D801A00E3E867753 /* HEPhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B27A4F5D14A910E2512D50FAC2E746C /* HEPhotoBrowserAnimator.swift */; };
-		09253B46423DFB32DE4F1BA980CCD705 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C941529ED217628D5A9E2D08DC08D3F9 /* Foundation.framework */; };
-		1146D3FE2556ADD85D7FAB3406776901 /* HEPhotoPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D00F69133BA212E378AC8E3FE6C72E0 /* HEPhotoPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		11B066D4A582A7CAD0346288BC24EB37 /* HEAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02860066F56364FE19BD595D48EBD115 /* HEAlbumListView.swift */; };
-		22B775E3B759C2240540BD351E0239E2 /* HEPhotoPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D41FD2C789FC8D2066D6351BB9F95F /* HEPhotoPicker-dummy.m */; };
-		26E3D4DC0DCAB79DA95C8E5602396322 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BB008AE5B565A738EC6098A9046E37 /* Photos.framework */; };
-		2CF4DA72AE58E631CA5CA5144289E825 /* Pods-HEPhotoPicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF0E60263DC651BE57B5A26BE71F6CE /* Pods-HEPhotoPicker_Example-dummy.m */; };
-		37E227A2D40FB57854D945E3ADF51BC3 /* Pods-HEPhotoPicker_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1555AFDF7743F2331F72B6C48670A311 /* Pods-HEPhotoPicker_Tests-dummy.m */; };
-		3E72F6B09AD56B732855E0532321C504 /* HEPhoneBrowserBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C1E3243EF38DC3A1F0DE93E317454 /* HEPhoneBrowserBottomCell.swift */; };
-		46D5DA09812136C3369592D99C48C123 /* HEPickerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353C7B099553B5F9967E0E6880191D27 /* HEPickerOptions.swift */; };
-		5D27B3967F72BBB207F5BAAFAE8AC849 /* HEAlbumListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23D165AD0E04A6E0A70AAD68A34AD7B2 /* HEAlbumListCell.xib */; };
-		5D8E4E3E786F0A8A4F3E2A1F95E005E2 /* HESeletecedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FCB54D569BD3A05CAE4FA9E3F5439A /* HESeletecedButton.swift */; };
-		5F9C88C4706D325EC909645954B235FC /* HEPhotoPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AF58D45DDE0E2A806595C4371FFA2A /* HEPhotoPickerCell.swift */; };
-		69906C7486186F858CBA4970957BF1BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B476FE8E79FF90129391D9DF1857EA94 /* UIKit.framework */; };
-		753316438FE192C3C3D5AD22D09B522A /* HEPhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6A6E30B9483156B91980B7449219 /* HEPhotoAsset.swift */; };
-		869C544CBBA65A5CDCBE8501C231110C /* HEAlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A8B642BCE185EEEEC183B5BA4E0C0 /* HEAlbumListCell.swift */; };
-		86B59C97EC23954954616ACDE5C7B15D /* Pods-HEPhotoPicker_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2E744B693D5BCAE5F5BF77F97498454 /* Pods-HEPhotoPicker_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		91323DBB895116922D68C8D7D7C4E8E0 /* HEPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648E70FDAFDE199797E4BE0D5C464454 /* HEPhotoBrowserViewController.swift */; };
-		9C3903B18107F7BB3867A3F11416071E /* UIColorExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D23BE08A744E08DFC9FE6962CBF73E /* UIColorExtension+HE.swift */; };
-		B30F2FDBE82FC56B76FC20235538A66A /* UIViewExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17457E28C2B11CCD4CEFD0812263D33 /* UIViewExtension+HE.swift */; };
-		B490AF76E30C6CDE756614C62138E243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C982B333A25E97D5AA44B678B3D8B9F5 /* Assets.xcassets */; };
-		B4F11703F39E685B6E5EEE09829A8643 /* HEAlbumTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A7726922F3FD12F38C6E2D5283A377 /* HEAlbumTitleView.swift */; };
-		B5F8B111D0D2AFCCAD996C208B40895F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C941529ED217628D5A9E2D08DC08D3F9 /* Foundation.framework */; };
-		C05380974B62AED23878F65A40314EA6 /* HEPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 53660AAE3F3112A555CAE8A96E2889A2 /* HEPhotoPicker.bundle */; };
-		CF409D4F121ABA0314035B2F7AD59619 /* NSObjectExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6B440BB66CF12ECFA1E18432C20D8 /* NSObjectExtension+HE.swift */; };
-		D79D3BCA3535B0CDC7E88EEDA37BB5C2 /* Pods-HEPhotoPicker_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2D0E38E4A31EEE05810C2DDEE7AA332 /* Pods-HEPhotoPicker_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8F9D60C80E83AA0CAD35621E4BC0161 /* HEPhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB04501CA835C46FB57D46E2E7A2A2C /* HEPhotoPickerViewController.swift */; };
-		D9F5619BE0F9D79AC49702A27E54981E /* HEPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1228300B432D94A1A17C62C97C1E622 /* HEPhotoBrowserCell.swift */; };
-		DEE73960A6859646F147853F6C114717 /* HEBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59E7BD97BE4FB488ADB3C9CE908DB7 /* HEBaseViewController.swift */; };
-		E2411F68B35DC640682D10581774D8D5 /* HEAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EB30850016ACE114C5C7FEFA39275 /* HEAlbum.swift */; };
-		ED6E7CA904A6106028561215E336A91F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C941529ED217628D5A9E2D08DC08D3F9 /* Foundation.framework */; };
-		FE951959CBD31F4B8268C1826DEB0043 /* HETool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84253600BBB207E27961B3D38731C80E /* HETool.swift */; };
+		1368839045FDDFF266C17C5B05870F6E /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C960DE9E00C92AE17FB06ECEF4D6C3E /* Photos.framework */; };
+		15E8FA77753ADC28F2C7FC3543815482 /* HETool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55427405190A10966B9E45362F2B2BB /* HETool.swift */; };
+		1B9579750489816C88897BD9E00AE915 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08921AB5D0322C628B1E51EEBC38FD64 /* Foundation.framework */; };
+		2425A1D4C6507A8F0881E9D8EA7D03EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08921AB5D0322C628B1E51EEBC38FD64 /* Foundation.framework */; };
+		2F2567672BFBF3BA08619B4652935535 /* Pods-HEPhotoPicker_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C97346B62E7F053A2D79280FC3B965 /* Pods-HEPhotoPicker_Tests-dummy.m */; };
+		2F52847D7410A8BC530A3EC574EC3851 /* HESeletecedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BEA58F072F2BFFAC3DAF27AAE2CBC4 /* HESeletecedButton.swift */; };
+		39372DF1BB83D3E7F17B05B85E939B57 /* UIViewExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704C6DE01CFCBA65A83866D0B2D94B1 /* UIViewExtension+HE.swift */; };
+		425EA5E1644CDDE3162DE7972EB34CC9 /* HEAlbumListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B3F5F74323E2D93D5517D7175D598C6 /* HEAlbumListCell.xib */; };
+		51BD7B95ACFCA27478363F0A1726E2D7 /* HEPhoneBrowserBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E1DD74B2457C74BFA0DFE91BC992E0 /* HEPhoneBrowserBottomCell.swift */; };
+		621AE3A94F0B713096BE6DCC6D36DC57 /* HEAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B78FBEF9F7FABB6867FB4E339BEFB0 /* HEAlbum.swift */; };
+		674C559F8491EB8D22E701A19BDB338F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 131C9E5B2722E77500DEFA067716E65F /* Assets.xcassets */; };
+		704547E88637F1DD1F67E5F7F4737BAB /* Pods-HEPhotoPicker_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E7E77940AE39F53E5DB90B528E85C5 /* Pods-HEPhotoPicker_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78DD1AAA28F3067C1E74219131F62A94 /* HEAlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B3395774C0EDC6EA8F84D15DCE974 /* HEAlbumListCell.swift */; };
+		7DFF17FB79270219CB87619B5E3E69DF /* Pods-HEPhotoPicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2BA47A089AB6A7D3E43B4E5ACB7287 /* Pods-HEPhotoPicker_Example-dummy.m */; };
+		8223C428CB53B9F0C7E981CE9C7154AC /* HEPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91927CD38567A9EFCEC9B5C3ABABE6B0 /* HEPhotoBrowserCell.swift */; };
+		93523CF59A47EE20ECCA65401BAACF42 /* HEPhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66BC437C6757C4D12D0277161CCE463 /* HEPhotoBrowserAnimator.swift */; };
+		99AA750C15D0758BC49089CF09331EDA /* HEBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4342F6B354FE1BA383C345DDEF9527EC /* HEBaseViewController.swift */; };
+		9A9481D67DBFDD4F94E89294AD150014 /* HEPhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739AC7612827FF20F06500B2B297C272 /* HEPhotoPickerViewController.swift */; };
+		A5626A1447D22C112210D0026C3305BA /* Pods-HEPhotoPicker_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C77562D35953CECCB962FC423568F1D4 /* Pods-HEPhotoPicker_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5CB2BEEABBF2F0595F9FC84B8EA399C /* NSObjectExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D9250E957168439C961F5910F67CDE /* NSObjectExtension+HE.swift */; };
+		BE60C907B28FEBCC0E42AE2CAB670EDF /* HEPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B2D3634D70518445409F0391252200BC /* HEPhotoPicker.bundle */; };
+		C30EEB3C4EDBF04410EFA18D8C0A6B61 /* HEAlbumTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA479FE0094D0509E6926315F571A65 /* HEAlbumTitleView.swift */; };
+		C3C6BDD2B223B631AD1CDCB6BF2BB28A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08921AB5D0322C628B1E51EEBC38FD64 /* Foundation.framework */; };
+		CB6EA9F6A22229F51595985EA63C2E54 /* HEPhotoPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982717F23FB3248EDF68EAF46A1036DB /* HEPhotoPickerCell.swift */; };
+		CD1F1179863959708F247C15667DF04B /* HEAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D34A087E6D71887F1E39F4D9FBC3BB /* HEAlbumListView.swift */; };
+		CD4B115DF3928DD9F07047DEC534E6F7 /* HEPhotoPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F80CE6A824E0396B0BF7CB27B26464 /* HEPhotoPicker-dummy.m */; };
+		D023425EBC5076CFA38C72DDB6654619 /* HEPhotoPicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BABE4999F5873BC34FA974C1D70799F4 /* HEPhotoPicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAAC36BE46D46D1E3D253253F7D4F82B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F80E341E8FD47ABB47FE21F4BC25500 /* UIKit.framework */; };
+		E0CF9C0AB39BCACAD911A623BFFF0308 /* HEPickerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381E3624C04FA9E75A4E90FD2C744F27 /* HEPickerOptions.swift */; };
+		EB404C36C8A4485F5D68337C58C2655E /* HEPhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E5D220AC32E7DC5A33C394A3430004 /* HEPhotoAsset.swift */; };
+		ECB6E33B29CF4A151A2E1BC12133EEF6 /* UIColorExtension+HE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF45FC0518A660A24BB6EF39FCEFBD4 /* UIColorExtension+HE.swift */; };
+		EE1EBEDFFEE725C59E40DAF70A800B97 /* HEPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1617FDAEA3E243FD4721DBF0272353 /* HEPhotoBrowserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		58C44248C9F76C6C84EABBFB3C0BB357 /* PBXContainerItemProxy */ = {
+		141D1FD7E220B073780D2C035D1D6574 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CEF32AAA937149034B0A70B2FE57B6A5;
-			remoteInfo = HEPhotoPicker;
-		};
-		87F56BD622CE81A58B56D6A015C7133B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 668A31BF2ACB57E6CFF87D0EF3225F2B;
+			remoteGlobalIDString = F1A397975F5D0D5C336B2517E26BD68F;
 			remoteInfo = "HEPhotoPicker-HEPhotoPicker";
 		};
-		C466AEAE5EEBB66F08908ED21308030D /* PBXContainerItemProxy */ = {
+		1717A6477B5CE2C592C891AA16A09A89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D90E5FE69C7CFD814C317ED524A7E1C5;
+			remoteGlobalIDString = 01AF98FCD1CCFD0D600705225E729C17;
+			remoteInfo = HEPhotoPicker;
+		};
+		3A9A95B498244BD367429D56406915B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E2B295ED0E13E0362666C7592539C2B;
 			remoteInfo = "Pods-HEPhotoPicker_Example";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02860066F56364FE19BD595D48EBD115 /* HEAlbumListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbumListView.swift; sourceTree = "<group>"; };
-		0B27A4F5D14A910E2512D50FAC2E746C /* HEPhotoBrowserAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserAnimator.swift; sourceTree = "<group>"; };
-		1555AFDF7743F2331F72B6C48670A311 /* Pods-HEPhotoPicker_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HEPhotoPicker_Tests-dummy.m"; sourceTree = "<group>"; };
-		174180458FE2366A7E4982EF1BF13573 /* ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist"; sourceTree = "<group>"; };
-		19E581DFF4CBFAF202AD99822C1A3A01 /* Pods-HEPhotoPicker_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Tests-Info.plist"; sourceTree = "<group>"; };
-		1C12197D60D473373EFC9FEE04A26BA8 /* Pods-HEPhotoPicker_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HEPhotoPicker_Example-frameworks.sh"; sourceTree = "<group>"; };
-		210A2AD0177DD4CCC7A13E8B16F3028D /* Pods-HEPhotoPicker_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		22A7726922F3FD12F38C6E2D5283A377 /* HEAlbumTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbumTitleView.swift; sourceTree = "<group>"; };
-		2313CA9C5EAA3E6A9A1734674BC8D7A4 /* Pods-HEPhotoPicker_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		23D165AD0E04A6E0A70AAD68A34AD7B2 /* HEAlbumListCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = HEAlbumListCell.xib; sourceTree = "<group>"; };
-		2B59E7BD97BE4FB488ADB3C9CE908DB7 /* HEBaseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEBaseViewController.swift; sourceTree = "<group>"; };
-		353C7B099553B5F9967E0E6880191D27 /* HEPickerOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPickerOptions.swift; sourceTree = "<group>"; };
-		3A3A7D2D929D5EBE69E79A9DDE2A2184 /* Pods-HEPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		4D00F69133BA212E378AC8E3FE6C72E0 /* HEPhotoPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HEPhotoPicker-umbrella.h"; sourceTree = "<group>"; };
-		5264ECF927E3DE40390D9261ABF58F06 /* HEPhotoPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HEPhotoPicker.xcconfig; sourceTree = "<group>"; };
-		532EB30850016ACE114C5C7FEFA39275 /* HEAlbum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbum.swift; sourceTree = "<group>"; };
-		53660AAE3F3112A555CAE8A96E2889A2 /* HEPhotoPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HEPhotoPicker.bundle; path = "HEPhotoPicker-HEPhotoPicker.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		57C24E62537A690A39BDE8B94E66C97A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		59FCB54D569BD3A05CAE4FA9E3F5439A /* HESeletecedButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HESeletecedButton.swift; sourceTree = "<group>"; };
-		648E70FDAFDE199797E4BE0D5C464454 /* HEPhotoBrowserViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserViewController.swift; sourceTree = "<group>"; };
-		64D41FD2C789FC8D2066D6351BB9F95F /* HEPhotoPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HEPhotoPicker-dummy.m"; sourceTree = "<group>"; };
-		68356EBF35942FECD4E9B78B66EEAA5B /* Pods-HEPhotoPicker_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Example-Info.plist"; sourceTree = "<group>"; };
-		6B6A38E322A80D60E526E87173A5CECD /* Pods_HEPhotoPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HEPhotoPicker_Example.framework; path = "Pods-HEPhotoPicker_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CB04501CA835C46FB57D46E2E7A2A2C /* HEPhotoPickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerViewController.swift; sourceTree = "<group>"; };
-		6DDEC24955C79CC3722FC334477B76BB /* Pods-HEPhotoPicker_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HEPhotoPicker_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		84253600BBB207E27961B3D38731C80E /* HETool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HETool.swift; sourceTree = "<group>"; };
-		84367225025F4FF2B6E7F45E1F745DD2 /* Pods-HEPhotoPicker_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HEPhotoPicker_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8BD755F286565DA876ADE011BD3E3B0A /* HEPhotoPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HEPhotoPicker.modulemap; sourceTree = "<group>"; };
-		923A8B642BCE185EEEEC183B5BA4E0C0 /* HEAlbumListCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbumListCell.swift; sourceTree = "<group>"; };
-		92BB008AE5B565A738EC6098A9046E37 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
-		9424F871400D562D9D31F0980A208A34 /* HEPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HEPhotoPicker-Info.plist"; sourceTree = "<group>"; };
-		94D23BE08A744E08DFC9FE6962CBF73E /* UIColorExtension+HE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColorExtension+HE.swift"; sourceTree = "<group>"; };
-		A1228300B432D94A1A17C62C97C1E622 /* HEPhotoBrowserCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserCell.swift; sourceTree = "<group>"; };
-		B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B3C6B440BB66CF12ECFA1E18432C20D8 /* NSObjectExtension+HE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSObjectExtension+HE.swift"; sourceTree = "<group>"; };
-		B42DFE949B6479A549D3ABD604D204F8 /* Pods_HEPhotoPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HEPhotoPicker_Tests.framework; path = "Pods-HEPhotoPicker_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B476FE8E79FF90129391D9DF1857EA94 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B8D7D8A47FE7071A51D1C350A97F56B3 /* Pods-HEPhotoPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		BA0324530DB7F7814284DF1F3746653F /* Pods-HEPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C17457E28C2B11CCD4CEFD0812263D33 /* UIViewExtension+HE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewExtension+HE.swift"; sourceTree = "<group>"; };
-		C4CB2F016E515C955320544DD767D3D7 /* HEPhotoPicker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HEPhotoPicker.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C941529ED217628D5A9E2D08DC08D3F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		C982B333A25E97D5AA44B678B3D8B9F5 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = "<group>"; };
-		CA2984DEC37A11E25CB8F9155BA26A6C /* HEPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HEPhotoPicker.framework; path = HEPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEF0E60263DC651BE57B5A26BE71F6CE /* Pods-HEPhotoPicker_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HEPhotoPicker_Example-dummy.m"; sourceTree = "<group>"; };
-		D161763A63F4CB6F06F030354875AF61 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		D19C1E3243EF38DC3A1F0DE93E317454 /* HEPhoneBrowserBottomCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhoneBrowserBottomCell.swift; sourceTree = "<group>"; };
-		D2D0E38E4A31EEE05810C2DDEE7AA332 /* Pods-HEPhotoPicker_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HEPhotoPicker_Example-umbrella.h"; sourceTree = "<group>"; };
-		D2E744B693D5BCAE5F5BF77F97498454 /* Pods-HEPhotoPicker_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HEPhotoPicker_Tests-umbrella.h"; sourceTree = "<group>"; };
-		D8AF58D45DDE0E2A806595C4371FFA2A /* HEPhotoPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerCell.swift; sourceTree = "<group>"; };
-		DBBE6A6E30B9483156B91980B7449219 /* HEPhotoAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoAsset.swift; sourceTree = "<group>"; };
-		DBF5070FED1F90A9DF8F554447AE30DA /* Pods-HEPhotoPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HEPhotoPicker_Example.modulemap"; sourceTree = "<group>"; };
-		E3ACD342102E01F5CE85D40C000860BE /* Pods-HEPhotoPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HEPhotoPicker_Tests.modulemap"; sourceTree = "<group>"; };
-		EF8E2E6D7A32DACDD47732A729BAA508 /* HEPhotoPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HEPhotoPicker-prefix.pch"; sourceTree = "<group>"; };
-		F97F883CF9FB36938D5DA0D9E6F3AEF5 /* Pods-HEPhotoPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
+		05007168A073D66833E6439E24A0A10D /* HEPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HEPhotoPicker-Info.plist"; sourceTree = "<group>"; };
+		08921AB5D0322C628B1E51EEBC38FD64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		0E99516ABD176D5B315DDD8A6BA2C7DB /* Pods-HEPhotoPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HEPhotoPicker_Example.modulemap"; sourceTree = "<group>"; };
+		131C9E5B2722E77500DEFA067716E65F /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = "<group>"; };
+		1B3F5F74323E2D93D5517D7175D598C6 /* HEAlbumListCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = HEAlbumListCell.xib; sourceTree = "<group>"; };
+		1FF015208713A3C2B495EA74F0ED69BF /* Pods-HEPhotoPicker_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HEPhotoPicker_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		214E1BE94B434FDA0402B8F3E6EC215D /* Pods-HEPhotoPicker_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		29C97346B62E7F053A2D79280FC3B965 /* Pods-HEPhotoPicker_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HEPhotoPicker_Tests-dummy.m"; sourceTree = "<group>"; };
+		29D34A087E6D71887F1E39F4D9FBC3BB /* HEAlbumListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbumListView.swift; sourceTree = "<group>"; };
+		381E3624C04FA9E75A4E90FD2C744F27 /* HEPickerOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPickerOptions.swift; sourceTree = "<group>"; };
+		3CCA5771250FE53335AC066594A89A5A /* Pods-HEPhotoPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		3F80E341E8FD47ABB47FE21F4BC25500 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3FF45FC0518A660A24BB6EF39FCEFBD4 /* UIColorExtension+HE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColorExtension+HE.swift"; sourceTree = "<group>"; };
+		4342F6B354FE1BA383C345DDEF9527EC /* HEBaseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEBaseViewController.swift; sourceTree = "<group>"; };
+		48E7E77940AE39F53E5DB90B528E85C5 /* Pods-HEPhotoPicker_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HEPhotoPicker_Tests-umbrella.h"; sourceTree = "<group>"; };
+		4A369E634455E770D6E2D4A947B5DEC8 /* HEPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HEPhotoPicker.framework; path = HEPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C960DE9E00C92AE17FB06ECEF4D6C3E /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
+		739AC7612827FF20F06500B2B297C272 /* HEPhotoPickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerViewController.swift; sourceTree = "<group>"; };
+		7704C6DE01CFCBA65A83866D0B2D94B1 /* UIViewExtension+HE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewExtension+HE.swift"; sourceTree = "<group>"; };
+		79E5D220AC32E7DC5A33C394A3430004 /* HEPhotoAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoAsset.swift; sourceTree = "<group>"; };
+		7A7D033545A5757BF5B841A71CBB6665 /* HEPhotoPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HEPhotoPicker.modulemap; sourceTree = "<group>"; };
+		7A8FD2CBF0E86050FB85BCD3F003816A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		7F99D5D26AB563DBC36B78550EA2FAA2 /* Pods-HEPhotoPicker_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Tests-Info.plist"; sourceTree = "<group>"; };
+		855C777CB2E345CFAD02B75B5D19C8B6 /* HEPhotoPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HEPhotoPicker-prefix.pch"; sourceTree = "<group>"; };
+		86C0BACBD47D188234559065FACC0202 /* Pods-HEPhotoPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HEPhotoPicker_Tests.modulemap"; sourceTree = "<group>"; };
+		88BE02E59546EE409FEFB9D2D51CAF9E /* Pods-HEPhotoPicker_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HEPhotoPicker_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8AC5ADB30A17865B8428238B0D54F15C /* Pods-HEPhotoPicker_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Example-Info.plist"; sourceTree = "<group>"; };
+		90D9250E957168439C961F5910F67CDE /* NSObjectExtension+HE.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSObjectExtension+HE.swift"; sourceTree = "<group>"; };
+		91927CD38567A9EFCEC9B5C3ABABE6B0 /* HEPhotoBrowserCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserCell.swift; sourceTree = "<group>"; };
+		93BEA58F072F2BFFAC3DAF27AAE2CBC4 /* HESeletecedButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HESeletecedButton.swift; sourceTree = "<group>"; };
+		982717F23FB3248EDF68EAF46A1036DB /* HEPhotoPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoPickerCell.swift; sourceTree = "<group>"; };
+		9BA479FE0094D0509E6926315F571A65 /* HEAlbumTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbumTitleView.swift; sourceTree = "<group>"; };
+		9D2BA47A089AB6A7D3E43B4E5ACB7287 /* Pods-HEPhotoPicker_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HEPhotoPicker_Example-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A70A11E3251A02641C028554ECEF7776 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A7E1DD74B2457C74BFA0DFE91BC992E0 /* HEPhoneBrowserBottomCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhoneBrowserBottomCell.swift; sourceTree = "<group>"; };
+		B0679545224F54F0FA4B76662097479A /* Pods-HEPhotoPicker_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HEPhotoPicker_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B2D3634D70518445409F0391252200BC /* HEPhotoPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HEPhotoPicker.bundle; path = "HEPhotoPicker-HEPhotoPicker.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B55427405190A10966B9E45362F2B2BB /* HETool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HETool.swift; sourceTree = "<group>"; };
+		B8B78FBEF9F7FABB6867FB4E339BEFB0 /* HEAlbum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbum.swift; sourceTree = "<group>"; };
+		BABE4999F5873BC34FA974C1D70799F4 /* HEPhotoPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HEPhotoPicker-umbrella.h"; sourceTree = "<group>"; };
+		BD1B3395774C0EDC6EA8F84D15DCE974 /* HEAlbumListCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEAlbumListCell.swift; sourceTree = "<group>"; };
+		BE47A6B1E182D0821FA0782C843A3300 /* Pods_HEPhotoPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HEPhotoPicker_Tests.framework; path = "Pods-HEPhotoPicker_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F80CE6A824E0396B0BF7CB27B26464 /* HEPhotoPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HEPhotoPicker-dummy.m"; sourceTree = "<group>"; };
+		C26B1D4BDD35BB889758BF09915510FA /* Pods_HEPhotoPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HEPhotoPicker_Example.framework; path = "Pods-HEPhotoPicker_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77562D35953CECCB962FC423568F1D4 /* Pods-HEPhotoPicker_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HEPhotoPicker_Example-umbrella.h"; sourceTree = "<group>"; };
+		C94FDB2CDC00A9FC872C00632872AB71 /* ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist"; sourceTree = "<group>"; };
+		D1F3FD8DEC0FBAEC253BFEFC10D9BCAB /* HEPhotoPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HEPhotoPicker.xcconfig; sourceTree = "<group>"; };
+		D475D66580B4BD84319BE6A6B83A8313 /* Pods-HEPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D66BC437C6757C4D12D0277161CCE463 /* HEPhotoBrowserAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserAnimator.swift; sourceTree = "<group>"; };
+		DD0F5736CA9D25EBD52C010796F6863F /* HEPhotoPicker.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HEPhotoPicker.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DF6D278DCF838FA5B7E37304B2D099E7 /* Pods-HEPhotoPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
+		DFAE30E0BD6EE1923AC8E7A3306133A8 /* Pods-HEPhotoPicker_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HEPhotoPicker_Example-frameworks.sh"; sourceTree = "<group>"; };
+		EAC1F0B1B8ED69FFAC20B22214D67BF5 /* Pods-HEPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HEPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		ED1617FDAEA3E243FD4721DBF0272353 /* HEPhotoBrowserViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HEPhotoBrowserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6C4C60C8773496F2470E29728A6C0A41 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ED6E7CA904A6106028561215E336A91F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		99D407FC4B9FDAB6BA67013433B4A06D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				09253B46423DFB32DE4F1BA980CCD705 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B09468AB1925EC9315C1B24942B7A9CC /* Frameworks */ = {
+		0C522AE53ADCAED14C3448169DE0296D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F501570B7DBA69920C193148ADEB5CF7 /* Frameworks */ = {
+		A4126784C1D1680E849FE209A7FAB9A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F8B111D0D2AFCCAD996C208B40895F /* Foundation.framework in Frameworks */,
-				26E3D4DC0DCAB79DA95C8E5602396322 /* Photos.framework in Frameworks */,
-				69906C7486186F858CBA4970957BF1BE /* UIKit.framework in Frameworks */,
+				2425A1D4C6507A8F0881E9D8EA7D03EE /* Foundation.framework in Frameworks */,
+				1368839045FDDFF266C17C5B05870F6E /* Photos.framework in Frameworks */,
+				DAAC36BE46D46D1E3D253253F7D4F82B /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6992A421360B4EB43FD3E7D5ADA4116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C6BDD2B223B631AD1CDCB6BF2BB28A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB0D6C42E4B16900AC699CDCD9390DA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B9579750489816C88897BD9E00AE915 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AEA8D3D2B37EB8C27A6A913AE74B31F /* Pod */ = {
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C4CB2F016E515C955320544DD767D3D7 /* HEPhotoPicker.podspec */,
-				57C24E62537A690A39BDE8B94E66C97A /* LICENSE */,
-				D161763A63F4CB6F06F030354875AF61 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		0C363561436875B8A8C01473C2ACB62C /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				532EB30850016ACE114C5C7FEFA39275 /* HEAlbum.swift */,
-				DBBE6A6E30B9483156B91980B7449219 /* HEPhotoAsset.swift */,
-				353C7B099553B5F9967E0E6880191D27 /* HEPickerOptions.swift */,
-			);
-			name = Data;
-			path = Source/Data;
-			sourceTree = "<group>";
-		};
-		0C7E9CB8A073128D693FF829819DBC4B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				53660AAE3F3112A555CAE8A96E2889A2 /* HEPhotoPicker.bundle */,
-				CA2984DEC37A11E25CB8F9155BA26A6C /* HEPhotoPicker.framework */,
-				6B6A38E322A80D60E526E87173A5CECD /* Pods_HEPhotoPicker_Example.framework */,
-				B42DFE949B6479A549D3ABD604D204F8 /* Pods_HEPhotoPicker_Tests.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				67797ECC20E679733DBFDF33D2B040E6 /* iOS */,
+				E2C0766F86BF6FB50FC1FBB520F962F5 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1E9D935963F935BC0D40C33760AE4808 /* Development Pods */ = {
+		0501745324CE6485CB1E36382A72EF39 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				C14619249D01A7115F9B8D7CED2D5F4A /* HEPhotoPicker */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		2F529E68B7202E2BC8023DBCBF60B6B5 /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-				F5EDEEF58C1F70D7BA8437F8A4E186B3 /* Picker */,
+				F4522F3366CEDCFFAAFA78BB36949199 /* Browser */,
+				ABF541E2B65F81B2962F7459643643C8 /* Picker */,
 			);
 			name = Scene;
 			path = Source/Scene;
 			sourceTree = "<group>";
 		};
-		335FFEA4F8CEA42AF09C1392E2CB76B9 /* Targets Support Files */ = {
+		2DAAD4B1304645AB3B1906E35C9F81EB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				ED366D1863C311E8F8FDD49CB862C50F /* Pods-HEPhotoPicker_Example */,
-				D7F8C2EEA78A1B4C7A2A524B67E9C18B /* Pods-HEPhotoPicker_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		4B14453BE592D02FA5CF3D74496B0F4C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C982B333A25E97D5AA44B678B3D8B9F5 /* Assets.xcassets */,
-				2F529E68B7202E2BC8023DBCBF60B6B5 /* Scene */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		544EBD923BE7D177033A18C59D2EB859 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8BD755F286565DA876ADE011BD3E3B0A /* HEPhotoPicker.modulemap */,
-				5264ECF927E3DE40390D9261ABF58F06 /* HEPhotoPicker.xcconfig */,
-				64D41FD2C789FC8D2066D6351BB9F95F /* HEPhotoPicker-dummy.m */,
-				9424F871400D562D9D31F0980A208A34 /* HEPhotoPicker-Info.plist */,
-				EF8E2E6D7A32DACDD47732A729BAA508 /* HEPhotoPicker-prefix.pch */,
-				4D00F69133BA212E378AC8E3FE6C72E0 /* HEPhotoPicker-umbrella.h */,
-				174180458FE2366A7E4982EF1BF13573 /* ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/HEPhotoPicker";
-			sourceTree = "<group>";
-		};
-		67797ECC20E679733DBFDF33D2B040E6 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C941529ED217628D5A9E2D08DC08D3F9 /* Foundation.framework */,
-				92BB008AE5B565A738EC6098A9046E37 /* Photos.framework */,
-				B476FE8E79FF90129391D9DF1857EA94 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		712D9B29856B7649E72939C0FB60A088 /* Animator */ = {
-			isa = PBXGroup;
-			children = (
-				0B27A4F5D14A910E2512D50FAC2E746C /* HEPhotoBrowserAnimator.swift */,
-			);
-			name = Animator;
-			path = Source/Animator;
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */,
-				1E9D935963F935BC0D40C33760AE4808 /* Development Pods */,
-				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				0C7E9CB8A073128D693FF829819DBC4B /* Products */,
-				335FFEA4F8CEA42AF09C1392E2CB76B9 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		93036D55427088A6F3FE33786B825266 /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-				A891426E99F71B7DDE0B0F321EFED4E5 /* Browser */,
-				C170FC2C66780175D3E352774EE241EB /* Picker */,
-			);
-			name = Scene;
-			path = Source/Scene;
-			sourceTree = "<group>";
-		};
-		A891426E99F71B7DDE0B0F321EFED4E5 /* Browser */ = {
-			isa = PBXGroup;
-			children = (
-				D19C1E3243EF38DC3A1F0DE93E317454 /* HEPhoneBrowserBottomCell.swift */,
-				A1228300B432D94A1A17C62C97C1E622 /* HEPhotoBrowserCell.swift */,
-				648E70FDAFDE199797E4BE0D5C464454 /* HEPhotoBrowserViewController.swift */,
-			);
-			name = Browser;
-			path = Browser;
-			sourceTree = "<group>";
-		};
-		ADEFCFEB4FFAFD10AFFC327DFA9E44D4 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				B3C6B440BB66CF12ECFA1E18432C20D8 /* NSObjectExtension+HE.swift */,
-				94D23BE08A744E08DFC9FE6962CBF73E /* UIColorExtension+HE.swift */,
-				C17457E28C2B11CCD4CEFD0812263D33 /* UIViewExtension+HE.swift */,
+				90D9250E957168439C961F5910F67CDE /* NSObjectExtension+HE.swift */,
+				3FF45FC0518A660A24BB6EF39FCEFBD4 /* UIColorExtension+HE.swift */,
+				7704C6DE01CFCBA65A83866D0B2D94B1 /* UIViewExtension+HE.swift */,
 			);
 			name = Extension;
 			path = Source/Extension;
 			sourceTree = "<group>";
 		};
-		C14619249D01A7115F9B8D7CED2D5F4A /* HEPhotoPicker */ = {
+		32FD05E68FC83E1AC49244A11F70CE37 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				712D9B29856B7649E72939C0FB60A088 /* Animator */,
-				0C363561436875B8A8C01473C2ACB62C /* Data */,
-				ADEFCFEB4FFAFD10AFFC327DFA9E44D4 /* Extension */,
-				0AEA8D3D2B37EB8C27A6A913AE74B31F /* Pod */,
-				4B14453BE592D02FA5CF3D74496B0F4C /* Resources */,
-				93036D55427088A6F3FE33786B825266 /* Scene */,
-				544EBD923BE7D177033A18C59D2EB859 /* Support Files */,
-				FD46D8E257EDF68A2B5F98A91028DF3A /* Utilities */,
+				A21A703E5EC6D50141D1DEEA91ECADFF /* HEPhotoPicker */,
 			);
-			name = HEPhotoPicker;
-			path = ../..;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		C170FC2C66780175D3E352774EE241EB /* Picker */ = {
+		3CED0ACC44F9D6081E8A3614B1CED76F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				923A8B642BCE185EEEEC183B5BA4E0C0 /* HEAlbumListCell.swift */,
-				02860066F56364FE19BD595D48EBD115 /* HEAlbumListView.swift */,
-				22A7726922F3FD12F38C6E2D5283A377 /* HEAlbumTitleView.swift */,
-				D8AF58D45DDE0E2A806595C4371FFA2A /* HEPhotoPickerCell.swift */,
-				6CB04501CA835C46FB57D46E2E7A2A2C /* HEPhotoPickerViewController.swift */,
+				131C9E5B2722E77500DEFA067716E65F /* Assets.xcassets */,
+				47D8F20D9F7119A5A3A75F2C31E4865C /* Scene */,
 			);
-			name = Picker;
-			path = Picker;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		D7F8C2EEA78A1B4C7A2A524B67E9C18B /* Pods-HEPhotoPicker_Tests */ = {
+		401360095CF08C3B9A998BED0C837BD8 /* Pods-HEPhotoPicker_Example */ = {
 			isa = PBXGroup;
 			children = (
-				E3ACD342102E01F5CE85D40C000860BE /* Pods-HEPhotoPicker_Tests.modulemap */,
-				84367225025F4FF2B6E7F45E1F745DD2 /* Pods-HEPhotoPicker_Tests-acknowledgements.markdown */,
-				2313CA9C5EAA3E6A9A1734674BC8D7A4 /* Pods-HEPhotoPicker_Tests-acknowledgements.plist */,
-				1555AFDF7743F2331F72B6C48670A311 /* Pods-HEPhotoPicker_Tests-dummy.m */,
-				19E581DFF4CBFAF202AD99822C1A3A01 /* Pods-HEPhotoPicker_Tests-Info.plist */,
-				D2E744B693D5BCAE5F5BF77F97498454 /* Pods-HEPhotoPicker_Tests-umbrella.h */,
-				BA0324530DB7F7814284DF1F3746653F /* Pods-HEPhotoPicker_Tests.debug.xcconfig */,
-				B8D7D8A47FE7071A51D1C350A97F56B3 /* Pods-HEPhotoPicker_Tests.release.xcconfig */,
-			);
-			name = "Pods-HEPhotoPicker_Tests";
-			path = "Target Support Files/Pods-HEPhotoPicker_Tests";
-			sourceTree = "<group>";
-		};
-		ED366D1863C311E8F8FDD49CB862C50F /* Pods-HEPhotoPicker_Example */ = {
-			isa = PBXGroup;
-			children = (
-				DBF5070FED1F90A9DF8F554447AE30DA /* Pods-HEPhotoPicker_Example.modulemap */,
-				6DDEC24955C79CC3722FC334477B76BB /* Pods-HEPhotoPicker_Example-acknowledgements.markdown */,
-				210A2AD0177DD4CCC7A13E8B16F3028D /* Pods-HEPhotoPicker_Example-acknowledgements.plist */,
-				CEF0E60263DC651BE57B5A26BE71F6CE /* Pods-HEPhotoPicker_Example-dummy.m */,
-				1C12197D60D473373EFC9FEE04A26BA8 /* Pods-HEPhotoPicker_Example-frameworks.sh */,
-				68356EBF35942FECD4E9B78B66EEAA5B /* Pods-HEPhotoPicker_Example-Info.plist */,
-				D2D0E38E4A31EEE05810C2DDEE7AA332 /* Pods-HEPhotoPicker_Example-umbrella.h */,
-				3A3A7D2D929D5EBE69E79A9DDE2A2184 /* Pods-HEPhotoPicker_Example.debug.xcconfig */,
-				F97F883CF9FB36938D5DA0D9E6F3AEF5 /* Pods-HEPhotoPicker_Example.release.xcconfig */,
+				0E99516ABD176D5B315DDD8A6BA2C7DB /* Pods-HEPhotoPicker_Example.modulemap */,
+				88BE02E59546EE409FEFB9D2D51CAF9E /* Pods-HEPhotoPicker_Example-acknowledgements.markdown */,
+				214E1BE94B434FDA0402B8F3E6EC215D /* Pods-HEPhotoPicker_Example-acknowledgements.plist */,
+				9D2BA47A089AB6A7D3E43B4E5ACB7287 /* Pods-HEPhotoPicker_Example-dummy.m */,
+				DFAE30E0BD6EE1923AC8E7A3306133A8 /* Pods-HEPhotoPicker_Example-frameworks.sh */,
+				8AC5ADB30A17865B8428238B0D54F15C /* Pods-HEPhotoPicker_Example-Info.plist */,
+				C77562D35953CECCB962FC423568F1D4 /* Pods-HEPhotoPicker_Example-umbrella.h */,
+				EAC1F0B1B8ED69FFAC20B22214D67BF5 /* Pods-HEPhotoPicker_Example.debug.xcconfig */,
+				DF6D278DCF838FA5B7E37304B2D099E7 /* Pods-HEPhotoPicker_Example.release.xcconfig */,
 			);
 			name = "Pods-HEPhotoPicker_Example";
 			path = "Target Support Files/Pods-HEPhotoPicker_Example";
 			sourceTree = "<group>";
 		};
-		F5EDEEF58C1F70D7BA8437F8A4E186B3 /* Picker */ = {
+		47D8F20D9F7119A5A3A75F2C31E4865C /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				23D165AD0E04A6E0A70AAD68A34AD7B2 /* HEAlbumListCell.xib */,
+				D59902A5319CE0AF449E2AC98C9C7278 /* Picker */,
 			);
-			name = Picker;
-			path = Picker;
+			name = Scene;
+			path = Source/Scene;
 			sourceTree = "<group>";
 		};
-		FD46D8E257EDF68A2B5F98A91028DF3A /* Utilities */ = {
+		6D427BFBED04B183E803E09442BE2932 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				2B59E7BD97BE4FB488ADB3C9CE908DB7 /* HEBaseViewController.swift */,
-				59FCB54D569BD3A05CAE4FA9E3F5439A /* HESeletecedButton.swift */,
-				84253600BBB207E27961B3D38731C80E /* HETool.swift */,
+				B8B78FBEF9F7FABB6867FB4E339BEFB0 /* HEAlbum.swift */,
+				79E5D220AC32E7DC5A33C394A3430004 /* HEPhotoAsset.swift */,
+				381E3624C04FA9E75A4E90FD2C744F27 /* HEPickerOptions.swift */,
+			);
+			name = Data;
+			path = Source/Data;
+			sourceTree = "<group>";
+		};
+		72705EE6D3241B78E2C4FF281F921931 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4342F6B354FE1BA383C345DDEF9527EC /* HEBaseViewController.swift */,
+				93BEA58F072F2BFFAC3DAF27AAE2CBC4 /* HESeletecedButton.swift */,
+				B55427405190A10966B9E45362F2B2BB /* HETool.swift */,
 			);
 			name = Utilities;
 			path = Source/Utilities;
 			sourceTree = "<group>";
 		};
+		7A9D8AFF584FF3128FA536B4E542587D /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				D66BC437C6757C4D12D0277161CCE463 /* HEPhotoBrowserAnimator.swift */,
+			);
+			name = Animator;
+			path = Source/Animator;
+			sourceTree = "<group>";
+		};
+		8917151C3A58933386C0C27B0B97D615 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2D3634D70518445409F0391252200BC /* HEPhotoPicker.bundle */,
+				4A369E634455E770D6E2D4A947B5DEC8 /* HEPhotoPicker.framework */,
+				C26B1D4BDD35BB889758BF09915510FA /* Pods_HEPhotoPicker_Example.framework */,
+				BE47A6B1E182D0821FA0782C843A3300 /* Pods_HEPhotoPicker_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E25D84606D2F061E582A37E66504E0B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A7D033545A5757BF5B841A71CBB6665 /* HEPhotoPicker.modulemap */,
+				D1F3FD8DEC0FBAEC253BFEFC10D9BCAB /* HEPhotoPicker.xcconfig */,
+				C0F80CE6A824E0396B0BF7CB27B26464 /* HEPhotoPicker-dummy.m */,
+				05007168A073D66833E6439E24A0A10D /* HEPhotoPicker-Info.plist */,
+				855C777CB2E345CFAD02B75B5D19C8B6 /* HEPhotoPicker-prefix.pch */,
+				BABE4999F5873BC34FA974C1D70799F4 /* HEPhotoPicker-umbrella.h */,
+				C94FDB2CDC00A9FC872C00632872AB71 /* ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/HEPhotoPicker";
+			sourceTree = "<group>";
+		};
+		A21A703E5EC6D50141D1DEEA91ECADFF /* HEPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7A9D8AFF584FF3128FA536B4E542587D /* Animator */,
+				6D427BFBED04B183E803E09442BE2932 /* Data */,
+				2DAAD4B1304645AB3B1906E35C9F81EB /* Extension */,
+				AA379C9BC0A0C89F6DDE87EAB8C6E3B3 /* Pod */,
+				3CED0ACC44F9D6081E8A3614B1CED76F /* Resources */,
+				0501745324CE6485CB1E36382A72EF39 /* Scene */,
+				8E25D84606D2F061E582A37E66504E0B /* Support Files */,
+				72705EE6D3241B78E2C4FF281F921931 /* Utilities */,
+			);
+			name = HEPhotoPicker;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		AA379C9BC0A0C89F6DDE87EAB8C6E3B3 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				DD0F5736CA9D25EBD52C010796F6863F /* HEPhotoPicker.podspec */,
+				7A8FD2CBF0E86050FB85BCD3F003816A /* LICENSE */,
+				A70A11E3251A02641C028554ECEF7776 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		ABF541E2B65F81B2962F7459643643C8 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				BD1B3395774C0EDC6EA8F84D15DCE974 /* HEAlbumListCell.swift */,
+				29D34A087E6D71887F1E39F4D9FBC3BB /* HEAlbumListView.swift */,
+				9BA479FE0094D0509E6926315F571A65 /* HEAlbumTitleView.swift */,
+				982717F23FB3248EDF68EAF46A1036DB /* HEPhotoPickerCell.swift */,
+				739AC7612827FF20F06500B2B297C272 /* HEPhotoPickerViewController.swift */,
+			);
+			name = Picker;
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				32FD05E68FC83E1AC49244A11F70CE37 /* Development Pods */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				8917151C3A58933386C0C27B0B97D615 /* Products */,
+				F0709026CC2C949A86F6790D922F8FE3 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D59902A5319CE0AF449E2AC98C9C7278 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				1B3F5F74323E2D93D5517D7175D598C6 /* HEAlbumListCell.xib */,
+			);
+			name = Picker;
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		E2C0766F86BF6FB50FC1FBB520F962F5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				08921AB5D0322C628B1E51EEBC38FD64 /* Foundation.framework */,
+				4C960DE9E00C92AE17FB06ECEF4D6C3E /* Photos.framework */,
+				3F80E341E8FD47ABB47FE21F4BC25500 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F0709026CC2C949A86F6790D922F8FE3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				401360095CF08C3B9A998BED0C837BD8 /* Pods-HEPhotoPicker_Example */,
+				FD0BE1E20A20AA6755F464791C6A8B5E /* Pods-HEPhotoPicker_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F4522F3366CEDCFFAAFA78BB36949199 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				A7E1DD74B2457C74BFA0DFE91BC992E0 /* HEPhoneBrowserBottomCell.swift */,
+				91927CD38567A9EFCEC9B5C3ABABE6B0 /* HEPhotoBrowserCell.swift */,
+				ED1617FDAEA3E243FD4721DBF0272353 /* HEPhotoBrowserViewController.swift */,
+			);
+			name = Browser;
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		FD0BE1E20A20AA6755F464791C6A8B5E /* Pods-HEPhotoPicker_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				86C0BACBD47D188234559065FACC0202 /* Pods-HEPhotoPicker_Tests.modulemap */,
+				1FF015208713A3C2B495EA74F0ED69BF /* Pods-HEPhotoPicker_Tests-acknowledgements.markdown */,
+				B0679545224F54F0FA4B76662097479A /* Pods-HEPhotoPicker_Tests-acknowledgements.plist */,
+				29C97346B62E7F053A2D79280FC3B965 /* Pods-HEPhotoPicker_Tests-dummy.m */,
+				7F99D5D26AB563DBC36B78550EA2FAA2 /* Pods-HEPhotoPicker_Tests-Info.plist */,
+				48E7E77940AE39F53E5DB90B528E85C5 /* Pods-HEPhotoPicker_Tests-umbrella.h */,
+				D475D66580B4BD84319BE6A6B83A8313 /* Pods-HEPhotoPicker_Tests.debug.xcconfig */,
+				3CCA5771250FE53335AC066594A89A5A /* Pods-HEPhotoPicker_Tests.release.xcconfig */,
+			);
+			name = "Pods-HEPhotoPicker_Tests";
+			path = "Target Support Files/Pods-HEPhotoPicker_Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		07164394112BCEFFE0C1AE5729DAC196 /* Headers */ = {
+		8F0269B052451D1F9BE21851ACDBA3AD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86B59C97EC23954954616ACDE5C7B15D /* Pods-HEPhotoPicker_Tests-umbrella.h in Headers */,
+				704547E88637F1DD1F67E5F7F4737BAB /* Pods-HEPhotoPicker_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DED36E3A7423D97A3C7A7E30958354F /* Headers */ = {
+		C9EF05406EB40BC200D237318E87862E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D79D3BCA3535B0CDC7E88EEDA37BB5C2 /* Pods-HEPhotoPicker_Example-umbrella.h in Headers */,
+				D023425EBC5076CFA38C72DDB6654619 /* HEPhotoPicker-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		94AABEE8A0ED9E634CC1ECA753D757CC /* Headers */ = {
+		DBD47DC77BB7D882AF2B36263FBD2166 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1146D3FE2556ADD85D7FAB3406776901 /* HEPhotoPicker-umbrella.h in Headers */,
+				A5626A1447D22C112210D0026C3305BA /* Pods-HEPhotoPicker_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		25E67D7ACC715F272C5C5E3A13E0413C /* Pods-HEPhotoPicker_Tests */ = {
+		01AF98FCD1CCFD0D600705225E729C17 /* HEPhotoPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D08E03C91CAC3D5E3726C5771A6D8494 /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Tests" */;
+			buildConfigurationList = C65BDDE2FA13595F0241A37093F6DDDC /* Build configuration list for PBXNativeTarget "HEPhotoPicker" */;
 			buildPhases = (
-				07164394112BCEFFE0C1AE5729DAC196 /* Headers */,
-				00562B012DE0A4AEACEF2BAF73AD4954 /* Sources */,
-				6C4C60C8773496F2470E29728A6C0A41 /* Frameworks */,
-				980B8789F907424E32279B9EED8730C6 /* Resources */,
+				C9EF05406EB40BC200D237318E87862E /* Headers */,
+				529064CDA746242D36DD908ABBC17F7E /* Sources */,
+				A4126784C1D1680E849FE209A7FAB9A8 /* Frameworks */,
+				4F6457FB493A1267D3A1D2D803293AC8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5450E863788075FB052A97CFC8F8E2F0 /* PBXTargetDependency */,
+				D1DD2836F22B95F995244AF85167561D /* PBXTargetDependency */,
+			);
+			name = HEPhotoPicker;
+			productName = HEPhotoPicker;
+			productReference = 4A369E634455E770D6E2D4A947B5DEC8 /* HEPhotoPicker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7D7AB7AC59C039E4EE4B9906CD5268E3 /* Pods-HEPhotoPicker_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1F72930051ACA9858EEEB4142F6FDA1 /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Tests" */;
+			buildPhases = (
+				8F0269B052451D1F9BE21851ACDBA3AD /* Headers */,
+				D5A5FD50DE29B64A71FE747D227F7259 /* Sources */,
+				A6992A421360B4EB43FD3E7D5ADA4116 /* Frameworks */,
+				2A0F43D3F38D31446ACF1E45FCE90AF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDECCC022BA3AF7C3846E2AC010E655F /* PBXTargetDependency */,
 			);
 			name = "Pods-HEPhotoPicker_Tests";
 			productName = "Pods-HEPhotoPicker_Tests";
-			productReference = B42DFE949B6479A549D3ABD604D204F8 /* Pods_HEPhotoPicker_Tests.framework */;
+			productReference = BE47A6B1E182D0821FA0782C843A3300 /* Pods_HEPhotoPicker_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		668A31BF2ACB57E6CFF87D0EF3225F2B /* HEPhotoPicker-HEPhotoPicker */ = {
+		8E2B295ED0E13E0362666C7592539C2B /* Pods-HEPhotoPicker_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1FEA5FEB0A8DC4A2CE2528D26017460 /* Build configuration list for PBXNativeTarget "HEPhotoPicker-HEPhotoPicker" */;
+			buildConfigurationList = A8AD3D934E983C22FA5B73BE0F88E54C /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Example" */;
 			buildPhases = (
-				ABA69E15601FF1559BFB227443834962 /* Sources */,
-				B09468AB1925EC9315C1B24942B7A9CC /* Frameworks */,
-				125EC319AD6E709C940E49F15B6F7DE3 /* Resources */,
+				DBD47DC77BB7D882AF2B36263FBD2166 /* Headers */,
+				588F5437BC157AF70AC9CE078FC6760A /* Sources */,
+				DB0D6C42E4B16900AC699CDCD9390DA4 /* Frameworks */,
+				8B1C368E312A4C2C6AB887B12379E1E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C49BC0B2AF4B40E982E34FFEB5129496 /* PBXTargetDependency */,
+			);
+			name = "Pods-HEPhotoPicker_Example";
+			productName = "Pods-HEPhotoPicker_Example";
+			productReference = C26B1D4BDD35BB889758BF09915510FA /* Pods_HEPhotoPicker_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F1A397975F5D0D5C336B2517E26BD68F /* HEPhotoPicker-HEPhotoPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C38EA201D4C86DB3949E8BDB520CFF2 /* Build configuration list for PBXNativeTarget "HEPhotoPicker-HEPhotoPicker" */;
+			buildPhases = (
+				AA93B391CC26BF77F4C8BE25FD2A1ECD /* Sources */,
+				0C522AE53ADCAED14C3448169DE0296D /* Frameworks */,
+				04C07EC399DBEBAE2BD6FECC7CC3B5A0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -457,102 +495,64 @@
 			);
 			name = "HEPhotoPicker-HEPhotoPicker";
 			productName = "HEPhotoPicker-HEPhotoPicker";
-			productReference = 53660AAE3F3112A555CAE8A96E2889A2 /* HEPhotoPicker.bundle */;
+			productReference = B2D3634D70518445409F0391252200BC /* HEPhotoPicker.bundle */;
 			productType = "com.apple.product-type.bundle";
-		};
-		CEF32AAA937149034B0A70B2FE57B6A5 /* HEPhotoPicker */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E5CF3455B25807A8FB246342150074BA /* Build configuration list for PBXNativeTarget "HEPhotoPicker" */;
-			buildPhases = (
-				94AABEE8A0ED9E634CC1ECA753D757CC /* Headers */,
-				CF5E63560B479E8770FC09BDEAFA1FD6 /* Sources */,
-				F501570B7DBA69920C193148ADEB5CF7 /* Frameworks */,
-				633D3328A1F8419CD0101B688D2DC0AE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4430E5EBE403DFFBF676C595F98DFDD6 /* PBXTargetDependency */,
-			);
-			name = HEPhotoPicker;
-			productName = HEPhotoPicker;
-			productReference = CA2984DEC37A11E25CB8F9155BA26A6C /* HEPhotoPicker.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		D90E5FE69C7CFD814C317ED524A7E1C5 /* Pods-HEPhotoPicker_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 52DDAC644DB2DCD96AD111FC3D9A270A /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Example" */;
-			buildPhases = (
-				4DED36E3A7423D97A3C7A7E30958354F /* Headers */,
-				0C6F834FA6F8385C5CB267EC3715FE93 /* Sources */,
-				99D407FC4B9FDAB6BA67013433B4A06D /* Frameworks */,
-				65B6152AC876DA65D6EAE1E23FC4E485 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E931F03AD05411FE4D22615CCFAC7D3F /* PBXTargetDependency */,
-			);
-			name = "Pods-HEPhotoPicker_Example";
-			productName = "Pods-HEPhotoPicker_Example";
-			productReference = 6B6A38E322A80D60E526E87173A5CECD /* Pods_HEPhotoPicker_Example.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 0C7E9CB8A073128D693FF829819DBC4B /* Products */;
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 8917151C3A58933386C0C27B0B97D615 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEF32AAA937149034B0A70B2FE57B6A5 /* HEPhotoPicker */,
-				668A31BF2ACB57E6CFF87D0EF3225F2B /* HEPhotoPicker-HEPhotoPicker */,
-				D90E5FE69C7CFD814C317ED524A7E1C5 /* Pods-HEPhotoPicker_Example */,
-				25E67D7ACC715F272C5C5E3A13E0413C /* Pods-HEPhotoPicker_Tests */,
+				01AF98FCD1CCFD0D600705225E729C17 /* HEPhotoPicker */,
+				F1A397975F5D0D5C336B2517E26BD68F /* HEPhotoPicker-HEPhotoPicker */,
+				8E2B295ED0E13E0362666C7592539C2B /* Pods-HEPhotoPicker_Example */,
+				7D7AB7AC59C039E4EE4B9906CD5268E3 /* Pods-HEPhotoPicker_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		125EC319AD6E709C940E49F15B6F7DE3 /* Resources */ = {
+		04C07EC399DBEBAE2BD6FECC7CC3B5A0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B490AF76E30C6CDE756614C62138E243 /* Assets.xcassets in Resources */,
-				5D27B3967F72BBB207F5BAAFAE8AC849 /* HEAlbumListCell.xib in Resources */,
+				674C559F8491EB8D22E701A19BDB338F /* Assets.xcassets in Resources */,
+				425EA5E1644CDDE3162DE7972EB34CC9 /* HEAlbumListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		633D3328A1F8419CD0101B688D2DC0AE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C05380974B62AED23878F65A40314EA6 /* HEPhotoPicker.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65B6152AC876DA65D6EAE1E23FC4E485 /* Resources */ = {
+		2A0F43D3F38D31446ACF1E45FCE90AF4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		980B8789F907424E32279B9EED8730C6 /* Resources */ = {
+		4F6457FB493A1267D3A1D2D803293AC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE60C907B28FEBCC0E42AE2CAB670EDF /* HEPhotoPicker.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B1C368E312A4C2C6AB887B12379E1E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -562,116 +562,98 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00562B012DE0A4AEACEF2BAF73AD4954 /* Sources */ = {
+		529064CDA746242D36DD908ABBC17F7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E227A2D40FB57854D945E3ADF51BC3 /* Pods-HEPhotoPicker_Tests-dummy.m in Sources */,
+				621AE3A94F0B713096BE6DCC6D36DC57 /* HEAlbum.swift in Sources */,
+				78DD1AAA28F3067C1E74219131F62A94 /* HEAlbumListCell.swift in Sources */,
+				CD1F1179863959708F247C15667DF04B /* HEAlbumListView.swift in Sources */,
+				C30EEB3C4EDBF04410EFA18D8C0A6B61 /* HEAlbumTitleView.swift in Sources */,
+				99AA750C15D0758BC49089CF09331EDA /* HEBaseViewController.swift in Sources */,
+				51BD7B95ACFCA27478363F0A1726E2D7 /* HEPhoneBrowserBottomCell.swift in Sources */,
+				EB404C36C8A4485F5D68337C58C2655E /* HEPhotoAsset.swift in Sources */,
+				93523CF59A47EE20ECCA65401BAACF42 /* HEPhotoBrowserAnimator.swift in Sources */,
+				8223C428CB53B9F0C7E981CE9C7154AC /* HEPhotoBrowserCell.swift in Sources */,
+				EE1EBEDFFEE725C59E40DAF70A800B97 /* HEPhotoBrowserViewController.swift in Sources */,
+				CD4B115DF3928DD9F07047DEC534E6F7 /* HEPhotoPicker-dummy.m in Sources */,
+				CB6EA9F6A22229F51595985EA63C2E54 /* HEPhotoPickerCell.swift in Sources */,
+				9A9481D67DBFDD4F94E89294AD150014 /* HEPhotoPickerViewController.swift in Sources */,
+				E0CF9C0AB39BCACAD911A623BFFF0308 /* HEPickerOptions.swift in Sources */,
+				2F52847D7410A8BC530A3EC574EC3851 /* HESeletecedButton.swift in Sources */,
+				15E8FA77753ADC28F2C7FC3543815482 /* HETool.swift in Sources */,
+				B5CB2BEEABBF2F0595F9FC84B8EA399C /* NSObjectExtension+HE.swift in Sources */,
+				ECB6E33B29CF4A151A2E1BC12133EEF6 /* UIColorExtension+HE.swift in Sources */,
+				39372DF1BB83D3E7F17B05B85E939B57 /* UIViewExtension+HE.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0C6F834FA6F8385C5CB267EC3715FE93 /* Sources */ = {
+		588F5437BC157AF70AC9CE078FC6760A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CF4DA72AE58E631CA5CA5144289E825 /* Pods-HEPhotoPicker_Example-dummy.m in Sources */,
+				7DFF17FB79270219CB87619B5E3E69DF /* Pods-HEPhotoPicker_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABA69E15601FF1559BFB227443834962 /* Sources */ = {
+		AA93B391CC26BF77F4C8BE25FD2A1ECD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF5E63560B479E8770FC09BDEAFA1FD6 /* Sources */ = {
+		D5A5FD50DE29B64A71FE747D227F7259 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2411F68B35DC640682D10581774D8D5 /* HEAlbum.swift in Sources */,
-				869C544CBBA65A5CDCBE8501C231110C /* HEAlbumListCell.swift in Sources */,
-				11B066D4A582A7CAD0346288BC24EB37 /* HEAlbumListView.swift in Sources */,
-				B4F11703F39E685B6E5EEE09829A8643 /* HEAlbumTitleView.swift in Sources */,
-				DEE73960A6859646F147853F6C114717 /* HEBaseViewController.swift in Sources */,
-				3E72F6B09AD56B732855E0532321C504 /* HEPhoneBrowserBottomCell.swift in Sources */,
-				753316438FE192C3C3D5AD22D09B522A /* HEPhotoAsset.swift in Sources */,
-				044146B605F365B9D801A00E3E867753 /* HEPhotoBrowserAnimator.swift in Sources */,
-				D9F5619BE0F9D79AC49702A27E54981E /* HEPhotoBrowserCell.swift in Sources */,
-				91323DBB895116922D68C8D7D7C4E8E0 /* HEPhotoBrowserViewController.swift in Sources */,
-				22B775E3B759C2240540BD351E0239E2 /* HEPhotoPicker-dummy.m in Sources */,
-				5F9C88C4706D325EC909645954B235FC /* HEPhotoPickerCell.swift in Sources */,
-				D8F9D60C80E83AA0CAD35621E4BC0161 /* HEPhotoPickerViewController.swift in Sources */,
-				46D5DA09812136C3369592D99C48C123 /* HEPickerOptions.swift in Sources */,
-				5D8E4E3E786F0A8A4F3E2A1F95E005E2 /* HESeletecedButton.swift in Sources */,
-				FE951959CBD31F4B8268C1826DEB0043 /* HETool.swift in Sources */,
-				CF409D4F121ABA0314035B2F7AD59619 /* NSObjectExtension+HE.swift in Sources */,
-				9C3903B18107F7BB3867A3F11416071E /* UIColorExtension+HE.swift in Sources */,
-				B30F2FDBE82FC56B76FC20235538A66A /* UIViewExtension+HE.swift in Sources */,
+				2F2567672BFBF3BA08619B4652935535 /* Pods-HEPhotoPicker_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4430E5EBE403DFFBF676C595F98DFDD6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "HEPhotoPicker-HEPhotoPicker";
-			target = 668A31BF2ACB57E6CFF87D0EF3225F2B /* HEPhotoPicker-HEPhotoPicker */;
-			targetProxy = 87F56BD622CE81A58B56D6A015C7133B /* PBXContainerItemProxy */;
-		};
-		5450E863788075FB052A97CFC8F8E2F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-HEPhotoPicker_Example";
-			target = D90E5FE69C7CFD814C317ED524A7E1C5 /* Pods-HEPhotoPicker_Example */;
-			targetProxy = C466AEAE5EEBB66F08908ED21308030D /* PBXContainerItemProxy */;
-		};
-		E931F03AD05411FE4D22615CCFAC7D3F /* PBXTargetDependency */ = {
+		C49BC0B2AF4B40E982E34FFEB5129496 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HEPhotoPicker;
-			target = CEF32AAA937149034B0A70B2FE57B6A5 /* HEPhotoPicker */;
-			targetProxy = 58C44248C9F76C6C84EABBFB3C0BB357 /* PBXContainerItemProxy */;
+			target = 01AF98FCD1CCFD0D600705225E729C17 /* HEPhotoPicker */;
+			targetProxy = 1717A6477B5CE2C592C891AA16A09A89 /* PBXContainerItemProxy */;
+		};
+		CDECCC022BA3AF7C3846E2AC010E655F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-HEPhotoPicker_Example";
+			target = 8E2B295ED0E13E0362666C7592539C2B /* Pods-HEPhotoPicker_Example */;
+			targetProxy = 3A9A95B498244BD367429D56406915B0 /* PBXContainerItemProxy */;
+		};
+		D1DD2836F22B95F995244AF85167561D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "HEPhotoPicker-HEPhotoPicker";
+			target = F1A397975F5D0D5C336B2517E26BD68F /* HEPhotoPicker-HEPhotoPicker */;
+			targetProxy = 141D1FD7E220B073780D2C035D1D6574 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		007332EF3F25C258EE84DB5AA8D35AED /* Release */ = {
+		13DB60FA30F8524209C90EE3B8E87BD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8D7D8A47FE7071A51D1C350A97F56B3 /* Pods-HEPhotoPicker_Tests.release.xcconfig */;
+			baseConfigurationReference = D1F3FD8DEC0FBAEC253BFEFC10D9BCAB /* HEPhotoPicker.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HEPhotoPicker_Tests/Pods-HEPhotoPicker_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HEPhotoPicker_Tests/Pods-HEPhotoPicker_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HEPhotoPicker";
+				INFOPLIST_FILE = "Target Support Files/HEPhotoPicker/ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = HEPhotoPicker;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
-		00A575A32FA10C6D01FB30BAEDF43DF2 /* Release */ = {
+		3559B004BDE8F947D73365C13B202B1B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5264ECF927E3DE40390D9261ABF58F06 /* HEPhotoPicker.xcconfig */;
+			baseConfigurationReference = D1F3FD8DEC0FBAEC253BFEFC10D9BCAB /* HEPhotoPicker.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -693,7 +675,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -701,9 +683,9 @@
 			};
 			name = Release;
 		};
-		198FDD773138C36FC4CD2CAD70FE9206 /* Debug */ = {
+		405515163FCFEC3912CD2AC509204A11 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA0324530DB7F7814284DF1F3746653F /* Pods-HEPhotoPicker_Tests.debug.xcconfig */;
+			baseConfigurationReference = 3CCA5771250FE53335AC066594A89A5A /* Pods-HEPhotoPicker_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -729,14 +711,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		1DAF5F884228E3985E19FA2A78ED7D26 /* Release */ = {
+		4F5BED1AFD78E1F0918DDE59AA0DAD5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F97F883CF9FB36938D5DA0D9E6F3AEF5 /* Pods-HEPhotoPicker_Example.release.xcconfig */;
+			baseConfigurationReference = DF6D278DCF838FA5B7E37304B2D099E7 /* Pods-HEPhotoPicker_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -768,7 +751,104 @@
 			};
 			name = Release;
 		};
-		5153DC2E9BB4F6D6F85AF7C0A4A2A27F /* Debug */ = {
+		7A621B61DBF3A860E4E5EF127AA3554B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAC1F0B1B8ED69FFAC20B22214D67BF5 /* Pods-HEPhotoPicker_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HEPhotoPicker_Example/Pods-HEPhotoPicker_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HEPhotoPicker_Example/Pods-HEPhotoPicker_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		884192E03EE19672BBA224C5A554313E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1F3FD8DEC0FBAEC253BFEFC10D9BCAB /* HEPhotoPicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HEPhotoPicker/HEPhotoPicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HEPhotoPicker/HEPhotoPicker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HEPhotoPicker/HEPhotoPicker.modulemap";
+				PRODUCT_MODULE_NAME = HEPhotoPicker;
+				PRODUCT_NAME = HEPhotoPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9FF660D1A756F57E78D74AA5872AA74D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D475D66580B4BD84319BE6A6B83A8313 /* Pods-HEPhotoPicker_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-HEPhotoPicker_Tests/Pods-HEPhotoPicker_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HEPhotoPicker_Tests/Pods-HEPhotoPicker_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AB4D69770D8ACE3A05E80BB3502666F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -832,9 +912,9 @@
 			};
 			name = Debug;
 		};
-		5E067A7EAB02B9926736AD20E8FEA2B5 /* Release */ = {
+		C95FCC86115830833BCD289B698152C3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5264ECF927E3DE40390D9261ABF58F06 /* HEPhotoPicker.xcconfig */;
+			baseConfigurationReference = D1F3FD8DEC0FBAEC253BFEFC10D9BCAB /* HEPhotoPicker.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HEPhotoPicker";
@@ -848,23 +928,7 @@
 			};
 			name = Release;
 		};
-		5EBCF78E3430C9DA197F69C167058518 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5264ECF927E3DE40390D9261ABF58F06 /* HEPhotoPicker.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/HEPhotoPicker";
-				INFOPLIST_FILE = "Target Support Files/HEPhotoPicker/ResourceBundle-HEPhotoPicker-HEPhotoPicker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PRODUCT_NAME = HEPhotoPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		6A949A208667F02694AF29D5DCC8D4BF /* Release */ = {
+		F232B5ECA11A71BFA199A229B323F454 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -924,119 +988,55 @@
 			};
 			name = Release;
 		};
-		8181766A816679C1321C6D7307C573B0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5264ECF927E3DE40390D9261ABF58F06 /* HEPhotoPicker.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/HEPhotoPicker/HEPhotoPicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HEPhotoPicker/HEPhotoPicker-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HEPhotoPicker/HEPhotoPicker.modulemap";
-				PRODUCT_MODULE_NAME = HEPhotoPicker;
-				PRODUCT_NAME = HEPhotoPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		EB3DF71329A5CFEB0F7DE35BC06B0F3B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A3A7D2D929D5EBE69E79A9DDE2A2184 /* Pods-HEPhotoPicker_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-HEPhotoPicker_Example/Pods-HEPhotoPicker_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HEPhotoPicker_Example/Pods-HEPhotoPicker_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5153DC2E9BB4F6D6F85AF7C0A4A2A27F /* Debug */,
-				6A949A208667F02694AF29D5DCC8D4BF /* Release */,
+				AB4D69770D8ACE3A05E80BB3502666F6 /* Debug */,
+				F232B5ECA11A71BFA199A229B323F454 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52DDAC644DB2DCD96AD111FC3D9A270A /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Example" */ = {
+		5C38EA201D4C86DB3949E8BDB520CFF2 /* Build configuration list for PBXNativeTarget "HEPhotoPicker-HEPhotoPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB3DF71329A5CFEB0F7DE35BC06B0F3B /* Debug */,
-				1DAF5F884228E3985E19FA2A78ED7D26 /* Release */,
+				13DB60FA30F8524209C90EE3B8E87BD9 /* Debug */,
+				C95FCC86115830833BCD289B698152C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1FEA5FEB0A8DC4A2CE2528D26017460 /* Build configuration list for PBXNativeTarget "HEPhotoPicker-HEPhotoPicker" */ = {
+		A8AD3D934E983C22FA5B73BE0F88E54C /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5EBCF78E3430C9DA197F69C167058518 /* Debug */,
-				5E067A7EAB02B9926736AD20E8FEA2B5 /* Release */,
+				7A621B61DBF3A860E4E5EF127AA3554B /* Debug */,
+				4F5BED1AFD78E1F0918DDE59AA0DAD5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D08E03C91CAC3D5E3726C5771A6D8494 /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Tests" */ = {
+		C65BDDE2FA13595F0241A37093F6DDDC /* Build configuration list for PBXNativeTarget "HEPhotoPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				198FDD773138C36FC4CD2CAD70FE9206 /* Debug */,
-				007332EF3F25C258EE84DB5AA8D35AED /* Release */,
+				884192E03EE19672BBA224C5A554313E /* Debug */,
+				3559B004BDE8F947D73365C13B202B1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E5CF3455B25807A8FB246342150074BA /* Build configuration list for PBXNativeTarget "HEPhotoPicker" */ = {
+		F1F72930051ACA9858EEEB4142F6FDA1 /* Build configuration list for PBXNativeTarget "Pods-HEPhotoPicker_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8181766A816679C1321C6D7307C573B0 /* Debug */,
-				00A575A32FA10C6D01FB30BAEDF43DF2 /* Release */,
+				9FF660D1A756F57E78D74AA5872AA74D /* Debug */,
+				405515163FCFEC3912CD2AC509204A11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }

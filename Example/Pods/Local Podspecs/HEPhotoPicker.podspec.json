@@ -1,6 +1,6 @@
 {
   "name": "HEPhotoPicker",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "summary": "Elegant photo picker in Swift.",
   "description": "Elegant photo picker in Swift. Inspired by Weibo.",
   "homepage": "https://github.com/heyode/HEPhotoPicker",
@@ -18,12 +18,12 @@
   },
   "source": {
     "git": "https://github.com/heyode/HEPhotoPicker.git",
-    "tag": "0.0.5"
+    "tag": "0.0.6"
   },
   "platforms": {
     "ios": "9.0"
   },
-  "swift_version": "4.2",
+  "swift_version": "5.0",
   "source_files": [
     "Source/**/*.swift"
   ],
