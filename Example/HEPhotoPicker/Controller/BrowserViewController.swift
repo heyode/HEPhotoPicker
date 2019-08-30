@@ -113,7 +113,7 @@ class BrowserViewController: UIViewController {
     }
     
     static func isiPhoneX() -> Bool {
-        if kScreenHeight == 812 {
+        if kScreenHeight >= 812 {
             return true
         }else{
             return false

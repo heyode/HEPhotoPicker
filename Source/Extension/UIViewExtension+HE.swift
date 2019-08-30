@@ -73,6 +73,7 @@ public extension UIViewController {
     ///   - animated: 是否需要动画
     public func hePresentPhotoPickerController(picker:HEPhotoPickerViewController,animated: Bool){
         let nav = UINavigationController.init(rootViewController: picker)
+        nav.modalPresentationStyle = .fullScreen
         present(nav, animated: animated, completion: nil)
     }
 }
