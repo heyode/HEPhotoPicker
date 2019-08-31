@@ -42,11 +42,10 @@ class BrowserCell: UICollectionViewCell {
             }else{
                 palayBtn.isHidden = true
             }
-            let options = PHImageRequestOptions()
-            PHImageManager.default().requestImage(for: model.asset,
+            
+            HETool.heRequestImage(for: model.asset,
                                                   targetSize: self.bounds.size,
-                                                  contentMode: .aspectFill,
-                                                  options: options)
+                                                  contentMode: .aspectFill)
             { (image, nil) in
                 self.imageView.image = image
             }
@@ -62,7 +61,7 @@ class BrowserCell: UICollectionViewCell {
         palayBtn = UIButton.init(type: .custom)
         palayBtn.addTarget(self, action: #selector(BrowserCell.palyBtnClick), for: .touchUpInside)
         palayBtn.isHidden = true
-        palayBtn.setImage(HETool.image(name: "play-btn"), for: .normal)
+        palayBtn.setImage(UIImage.heinit(name: "play-btn"), for: .normal)
         contentView.addSubview(palayBtn)
         
         

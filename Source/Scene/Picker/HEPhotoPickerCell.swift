@@ -49,16 +49,15 @@ class HEPhotoPickerCell: UICollectionViewCell {
             checkBtn.isHidden =  !model.isEnableSelected
             checkBtn.isSelected =  model.isSelected
             topView.isHidden =  model.isEnable
-            let options = PHImageRequestOptions()
+            
             let scale = UIScreen.main.scale / 2
             self.representedAssetIdentifier = model.asset.localIdentifier
             
             let   thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height  * scale )
             imageView.image = nil
-            PHCachingImageManager.default().requestImage(for: model.asset,
+            HETool.heRequestImage(for: model.asset,
                                                   targetSize:thumbnailSize,
-                                                  contentMode: .aspectFill,
-                                                  options: options)
+                                                  contentMode: .aspectFill)
             { (image, nil) in
                 DispatchQueue.main.async {
                     if self.representedAssetIdentifier == self.model.asset.localIdentifier{

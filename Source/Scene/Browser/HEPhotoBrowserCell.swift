@@ -34,11 +34,10 @@ class HEPhotoBrowserCell: UICollectionViewCell {
     var model : HEPhotoAsset!{
         didSet{
             palyBtn.isHidden = model.asset.mediaType != .video
-            let options = PHImageRequestOptions()
-            PHCachingImageManager.default().requestImage(for: model.asset,
+            
+            HETool.heRequestImage(for: model.asset,
                                                   targetSize: self.bounds.size,
-                                                  contentMode: .aspectFill,
-                                                  options: options)
+                                                  contentMode: .aspectFill)
             { (image, nil) in
                 self.imageView.image = image
             }
@@ -55,7 +54,7 @@ class HEPhotoBrowserCell: UICollectionViewCell {
         palyBtn.addTarget(self, action: #selector(HEPhotoBrowserCell.palyBtnClick), for: .touchUpInside)
         
         palyBtn.isHidden = true
-        palyBtn.setImage(HETool.image(name: "play-btn"), for: .normal)
+        palyBtn.setImage(UIImage.heinit(name: "play-btn"), for: .normal)
         contentView.addSubview(palyBtn)
     }
     

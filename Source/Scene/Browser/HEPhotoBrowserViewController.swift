@@ -50,7 +50,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
     private lazy var todoArray = [HEPhotoAsset]()
     private let barHeight : CGFloat = 130
     private lazy var bootomBar : UIView = {
-        let navigationMaxY : CGFloat = HETool.isiPhoneX() ? 88 : 64
+        let navigationMaxY : CGFloat = UIDevice.isContansiPhoneX() ? 88 : 64
         let view = UIView.init(frame: CGRect.init(x: 0, y: self.view.bounds.size.height -  barHeight -  navigationMaxY , width: self.view.bounds.width, height: barHeight))
         view.backgroundColor = UIColor.init(r: 50, g: 50, b: 50, a: 0.3)
         view.addSubview(bottomCollectionView)
@@ -94,7 +94,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
-        let y : CGFloat = HETool.isiPhoneX() ? -88 : -64
+        let y : CGFloat = UIDevice.isContansiPhoneX() ? -88 : -64
         let collectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: y, width: kScreenWidth, height: kScreenHeight), collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
         collectionView.isPagingEnabled = true
@@ -166,7 +166,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
             dismiss(animated: true, completion: nil)
         }
         if todoArray.count > 0 {
-            PHImageManager.default().requestImage(for: (todoArray.first?.asset)!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option) {[weak self] (image, _) in
+            HETool.heRequestImage(for: (todoArray.first?.asset)!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill) {[weak self] (image, _) in
                 DispatchQueue.main.async {
                     self?.todoArray.removeFirst()
                     self?.selectedImages.append(image ?? UIImage())
@@ -200,7 +200,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
             if  model.asset.mediaType == .image{
                 if selectedImageCount >= pickerOptions.maxCountOfImage {
                     let title = String.init(format: pickerOptions.maxPhotoWaringTips, pickerOptions.maxCountOfImage)
-                    HETool.presentAlert(title: title, viewController: self)
+                    presentAlert(title: title)
                     return
                 }
             }
@@ -209,7 +209,7 @@ class HEPhotoBrowserViewController: HEBaseViewController {
             if  model.asset.mediaType == .video {
                 if selectedVideoCount >= pickerOptions.maxCountOfVideo {
                     let title = String.init(format: pickerOptions.maxVideoWaringTips, pickerOptions.maxCountOfVideo)
-                    HETool.presentAlert(title: title, viewController: self)
+                    presentAlert(title: title)
                     return
                 }
                 
@@ -262,11 +262,10 @@ extension HEPhotoBrowserViewController : HETargetViewControllerDelegate{
         }
         let model = self.models[imageIndex.row]
         let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
-        let options = PHImageRequestOptions()
-        PHCachingImageManager.default().requestImage(for: model.asset,
+        
+        HETool.heRequestImage(for: model.asset,
                                                      targetSize: CGSize.init(width: kScreenWidth, height: kScreenHeight),
-                                                     contentMode: .aspectFill,
-                                                     options: options)
+                                                     contentMode: .aspectFill)
         { (image, nil) in
             imageView.image = image
         }

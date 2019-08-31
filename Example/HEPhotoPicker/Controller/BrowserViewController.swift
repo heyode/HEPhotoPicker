@@ -133,10 +133,9 @@ extension BrowserViewController : HETargetViewControllerDelegate{
         let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
         
         
-        PHImageManager.default().requestImage(for: model.asset,
+        HETool.heRequestImage(for: model.asset,
                                               targetSize: CGSize.init(width: kScreenWidth, height: kScreenHeight),
-                                              contentMode: .aspectFill,
-                                              options: nil)
+                                              contentMode: .aspectFill)
         { (image, nil) in
             imageView.image = image
         }

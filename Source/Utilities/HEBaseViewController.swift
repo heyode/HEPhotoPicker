@@ -53,7 +53,7 @@ public class HEBaseViewController: UIViewController {
             navi.setNavigationBarHidden(false, animated: true)
             if navi.viewControllers.count > 1 {
                 
-                let backImage = HETool.image(name: "nav-back")
+                let backImage = UIImage.heinit(name: "nav-back")
                 
                 navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: backImage?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(pressBack))
             }

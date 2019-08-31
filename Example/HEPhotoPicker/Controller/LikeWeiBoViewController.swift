@@ -102,10 +102,9 @@ extension LikeWeiBoViewController : UICollectionViewDelegate,UICollectionViewDat
                 option.isSynchronous = true
             option.resizeMode = .none
             let size = CGSize.init(width: kScreenWidth, height: kScreenWidth)
-            PHImageManager.default().requestImage(for:selectedModel[indexPath.row].asset ,
+            HETool.heRequestImage(for:selectedModel[indexPath.row].asset ,
                                                   targetSize: size,
-                                                  contentMode: .aspectFill,
-                                                  options: option)
+                                                  contentMode: .aspectFill)
             { (image, nil) in
                 let browser = BrowserViewController()
                 browser.image = image!

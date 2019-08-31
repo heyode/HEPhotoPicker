@@ -52,9 +52,9 @@ open class HEPickerOptions: NSObject {
     ///  实现多次累加选择时，需要传入的选中的模型。为空时表示不需要多次累加
     public var defaultSelections : [HEPhotoAsset]?
     ///  选中样式图片
-    public var selectedImage = HETool.image(name: "btn-check-selected")
+    public var selectedImage = UIImage.heinit(name: "btn-check-selected")
     ///  未选中样式图片
-    public var unselectedImage = HETool.image(name: "btn-check-normal")
+    public var unselectedImage = UIImage.heinit(name: "btn-check-normal")
     
     ///  自定义字符串
     public var cancelButtonTitle = "取消"

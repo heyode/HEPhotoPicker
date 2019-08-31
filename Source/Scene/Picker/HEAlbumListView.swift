@@ -44,7 +44,7 @@ class HEAlbumListView: UIView {
         table.delegate = self
         table.dataSource = self
         table.separatorStyle = .none
-        let budle = HETool.bundle
+        let budle = Bundle.heBundle
         table.register(UINib.init(nibName: HEAlbumListCell.className, bundle: budle), forCellReuseIdentifier: HEAlbumListCell.className)
         return table
     }()

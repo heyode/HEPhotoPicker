@@ -31,8 +31,8 @@ class HEAlbumTitleView: UIButton {
     //MARK:- 重写init函数
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setImage(HETool.image(name: "nav-arrow-down"), for: .normal)
-        setImage(HETool.image(name: "nav-arrow-up"), for: .selected)
+        setImage(UIImage.heinit(name: "nav-arrow-down"), for: .normal)
+        setImage(UIImage.heinit(name: "nav-arrow-up"), for: .selected)
         setTitleColor(UIColor.hex(hexString: "222222"), for: .normal)
     }
     

@@ -28,33 +28,6 @@ import Foundation
 import Photos
 
 public class HETool: NSObject {
-    public static var  bundle :Bundle?{
-        get{
-            guard let url = Bundle(for: HETool.self).url(forResource: "HEPhotoPicker", withExtension: "bundle")else {
-                return nil
-            }
-          return  Bundle.init(url:url)
-        }
-    }
-    public static func image(name:String) -> UIImage?{
-        return UIImage(named: name, in: HETool.bundle, compatibleWith: nil)
-    }
-
-   public static func isiPhoneX() -> Bool {
-        if kScreenHeight >= 812 {
-            return true
-        }else{
-            return false
-        }
-    }
-    
-   public static func presentAlert(title:String,viewController:UIViewController){
-        let title = title
-        let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
-        let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in }
-        alertView.addAction(okAction)
-        viewController.present(alertView, animated: true, completion: nil)
-    }
    
     static func canAccessPhotoLib() -> Bool {
         return PHPhotoLibrary.authorizationStatus() == .authorized
@@ -76,4 +49,20 @@ public class HETool: NSObject {
     }
     
 
+}
+
+extension HETool {
+    
+  public static func heRequestImage(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: @escaping (UIImage?, [AnyHashable : Any]?) -> Void) {
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        options.isNetworkAccessAllowed = true
+      _ = heRequestImage(for: asset, targetSize: targetSize, contentMode: contentMode, options: options, resultHandler: resultHandler)
+    }
+   private static func heRequestImage(for asset: PHAsset, targetSize: CGSize, contentMode: PHImageContentMode, options: PHImageRequestOptions?, resultHandler: @escaping (UIImage?, [AnyHashable : Any]?) -> Void) -> PHImageRequestID{
+        return PHCachingImageManager.default().requestImage(for:asset,
+                                                            targetSize: targetSize,
+                                                            contentMode: contentMode,
+                                                            options: options, resultHandler:  resultHandler)
+    }
 }

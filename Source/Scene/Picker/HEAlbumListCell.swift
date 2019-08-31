@@ -39,10 +39,9 @@ class HEAlbumListCell: UITableViewCell {
             let scale = UIScreen.main.scale / 2
             let size = CGSize.init(width: albumImageView.frame.width * scale, height:albumImageView.frame.height * scale)
             guard let asset = album.fetchResult.firstObject else{return}
-            PHCachingImageManager.default().requestImage(for:asset,
+            HETool.heRequestImage(for:asset,
                                                   targetSize: size,
-                                                  contentMode: .aspectFill,
-                                                  options: nil, resultHandler:  { image, _ in
+                                                  contentMode: .aspectFill, resultHandler:  { image, _ in
                                                     self.albumImageView.image = image
             })
           

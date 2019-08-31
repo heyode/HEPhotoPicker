@@ -38,14 +38,12 @@ class MasterCell: UICollectionViewCell {
         didSet{
             imageView.image = UIImage()
 
-            let options = PHImageRequestOptions()
             let scale : CGFloat = 1.5
             self.representedAssetIdentifier = mediaModel.asset.localIdentifier
             let   thumbnailSize = CGSize(width: self.bounds.size.width * scale, height: self.bounds.size.height  * scale )
-            PHImageManager.default().requestImage(for: mediaModel.asset,
+            HETool.heRequestImage(for: mediaModel.asset,
                                                   targetSize:thumbnailSize,
-                                                  contentMode: .aspectFill,
-                                                  options: options)
+                                                  contentMode: .aspectFill)
             { (image, nil) in
                 DispatchQueue.main.async {
                     if self.representedAssetIdentifier == self.mediaModel.asset.localIdentifier{

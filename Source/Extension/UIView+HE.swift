@@ -71,9 +71,17 @@ public extension UIViewController {
      /// - Parameters:
      ///   - picker: 图片选择器
     ///   - animated: 是否需要动画
-    public func hePresentPhotoPickerController(picker:HEPhotoPickerViewController,animated: Bool){
+    func hePresentPhotoPickerController(picker:HEPhotoPickerViewController,animated: Bool){
         let nav = UINavigationController.init(rootViewController: picker)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: animated, completion: nil)
+    }
+    
+      func presentAlert(title:String){
+        let title = title
+        let alertView = UIAlertController.init(title: "提示", message: title, preferredStyle: .alert)
+        let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in }
+        alertView.addAction(okAction)
+        self.present(alertView, animated: true, completion: nil)
     }
 }

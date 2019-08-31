@@ -74,8 +74,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     private lazy var selectedImages = [UIImage]()
     /// 用于处理选中的数组
     private lazy var todoArray = [HEPhotoAsset]()
-    /// 图片请求项的配置
-    private let options = PHImageRequestOptions()
+  
     /// 相册请求项
     private let photosOptions = PHFetchOptions()
     /// 过场动画
@@ -108,7 +107,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
         var height = CGFloat(0)
-        if HETool.isiPhoneX(){
+        if UIDevice.isContansiPhoneX(){
             height =  kScreenHeight - 88
         }else{
             height = kScreenHeight - 64
@@ -152,8 +151,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
     public override  func viewDidLoad() {
         super.viewDidLoad()
         animator.pushDelegate = self
-        options.isSynchronous = true
-        options.resizeMode = .none
+        
         navigationController?.delegate = self
         
         configPickerOption()
@@ -255,7 +253,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
                 let selectedImageCount =  self.selectedModels.count{$0.asset.mediaType == .image}
                 guard selectedImageCount < self.pickerOptions.maxCountOfImage  else{
                     let title = String.init(format: pickerOptions.maxPhotoWaringTips, self.pickerOptions.maxCountOfImage)
-                    HETool.presentAlert(title: title, viewController: self)
+                    presentAlert(title: title)
                     selectedBtn.isSelected = false
                     return
                 }
@@ -263,7 +261,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
                 let selectedVideoCount =  self.selectedModels.count{$0.asset.mediaType == .video}
                 guard selectedVideoCount < self.pickerOptions.maxCountOfVideo else{
                     let title = String.init(format: pickerOptions.maxVideoWaringTips, self.pickerOptions.maxCountOfVideo)
-                    HETool.presentAlert(title: title, viewController: self)
+                    presentAlert(title: title)
                     selectedBtn.isSelected = false
                     return
                 }
@@ -481,7 +479,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             dismiss(animated: true, completion: nil)
         }
         if todoArray.count > 0 {
-            PHImageManager.default().requestImage(for: (todoArray.first?.asset)!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: option) {[weak self] (image, _) in
+            HETool.heRequestImage(for: (todoArray.first?.asset)!, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill) {[weak self] (image, _) in
                 DispatchQueue.main.async {
                     self?.todoArray.removeFirst()
                     self?.selectedImages.append(image ?? UIImage())
@@ -534,10 +532,9 @@ extension HEPhotoPickerViewController : UICollectionViewDelegate,UICollectionVie
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         animator.selIndex = indexPath
         let size = CGSize.init(width: kScreenWidth, height: kScreenWidth)
-        PHImageManager.default().requestImage(for: phAssets[indexPath.row] ,
+        HETool.heRequestImage(for: phAssets[indexPath.row] ,
                                               targetSize: size,
-                                              contentMode: .aspectFill,
-                                              options: options)
+                                              contentMode: .aspectFill)
         { (image, nil) in
             let photoDetail = HEPhotoBrowserViewController()
             photoDetail.delegate = self.delegate
