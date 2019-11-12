@@ -459,14 +459,7 @@ public class HEPhotoPickerViewController: HEBaseViewController {
             let asset = PHAsset.fetchAssets(in: collection, options: self!.photosOptions)
             let album = HEAlbum.init(result: asset, title: collection.localizedTitle)
             if asset.count > 0 && collection.localizedTitle != "最近删除" &&  collection.localizedTitle != "Recently Deleted"{
-                if collection.localizedTitle == "所有照片"
-                    || collection.localizedTitle == "All Photos"
-                    || collection.localizedTitle == "相机胶卷"
-                    || collection.localizedTitle == "Camera Roll" {
-                    self?.albumModels.insert(album, at: 0)
-                }else{
                     self?.albumModels.append(album)
-                }
             }
         }
     }
